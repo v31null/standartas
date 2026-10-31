@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="25" y="80" width="70" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="60.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">Magic</text>
+<rect x="95" y="80" width="36" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="113.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<rect x="131" y="80" width="80" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="171.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">T1</text>
+<rect x="211" y="80" width="36" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="229.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<rect x="247" y="80" width="90" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="292.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">T2</text>
+<rect x="337" y="80" width="36" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="355.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<rect x="373" y="80" width="110" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="428.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">file 1</text>
+<rect x="483" y="80" width="90" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="528.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">file 2</text>
+<rect x="573" y="80" width="110" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="628.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">file 3</text>
+<rect x="683" y="80" width="36" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="701.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<rect x="719" y="80" width="56" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="747.0" y="110.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">CRC32</text>
+<path d="M195.0 80 C195.0 58 373 58 373 74" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M369 72 L373 80 L377 72 Z" fill="#000"/>
+<path d="M171.0 80 C171.0 40 483 40 483 74" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M479 72 L483 80 L487 72 Z" fill="#000"/>
+<path d="M147.0 80 C147.0 22 573 22 573 74" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M569 72 L573 80 L577 72 Z" fill="#000"/>
+<path d="M25 136 L25 144 L373 144 L373 136" fill="none" stroke="#000" stroke-width="1"/>
+<text x="199.0" y="162" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Searched for π</text>
+<path d="M373 136 L373 144 L683 144 L683 136" fill="none" stroke="#000" stroke-width="1"/>
+<text x="528.0" y="162" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Read at address for size, not searched</text>
+<path d="M683 136 L683 144 L775 144 L775 136" fill="none" stroke="#000" stroke-width="1"/>
+<text x="729.0" y="162" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Last 16 bytes</text>
+</svg>

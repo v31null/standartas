@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="410" viewBox="0 0 800 410">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="50" y="26" text-anchor="start" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Before</text>
+<rect x="50" y="34" width="700" height="74" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="52" text-anchor="start" font-size="14" font-family="Times New Roman, Times, serif">outer.v31np</text>
+<rect x="60" y="60" width="70" height="38" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="95.0" y="83.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">header</text>
+<rect x="130" y="60" width="540" height="38" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="138" y="74" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">inner.v31np</text>
+<rect x="136" y="80" width="60" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="166.0" y="90.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">header</text>
+<rect x="196" y="80" width="400" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="396.0" y="90.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">a.txt</text>
+<rect x="596" y="80" width="70" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="631.0" y="90.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">footer</text>
+<rect x="670" y="60" width="70" height="38" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="705.0" y="83.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">footer</text>
+<line x1="400" y1="110" x2="400" y2="138" stroke="#000" stroke-width="1"/>
+<path d="M400 138 L396 129 L404 129 Z" fill="#000"/>
+<text x="50" y="156" text-anchor="start" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">1. a.txt changed: inner.v31np written again in full</text>
+<rect x="130" y="166" width="540" height="38" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="138" y="180" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">inner.v31np, new</text>
+<rect x="136" y="186" width="60" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="166.0" y="196.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">header</text>
+<rect x="196" y="186" width="400" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="396.0" y="196.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">a.txt, new</text>
+<rect x="596" y="186" width="70" height="14" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="631.0" y="196.85" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">footer</text>
+<line x1="400" y1="206" x2="400" y2="234" stroke="#000" stroke-width="1"/>
+<path d="M400 234 L396 225 L404 225 Z" fill="#000"/>
+<text x="50" y="252" text-anchor="start" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">2. outer.v31np written again in full to a temporary file beside it</text>
+<rect x="50" y="262" width="340" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="220.0" y="288.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">outer.v31np, old</text>
+<rect x="410" y="262" width="340" height="44" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="580.0" y="288.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">temporary file, new</text>
+<line x1="400" y1="308" x2="400" y2="336" stroke="#000" stroke-width="1"/>
+<path d="M400 336 L396 327 L404 327 Z" fill="#000"/>
+<text x="50" y="354" text-anchor="start" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">3. The temporary file replaces outer.v31np</text>
+<rect x="230" y="364" width="340" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400.0" y="388.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">outer.v31np, new</text>
+</svg>

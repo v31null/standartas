@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="125" viewBox="0 0 800 125">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="25" y="30" width="100" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="75.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">Magic</text>
+<text x="75.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">15</text>
+<rect x="125" y="30" width="40" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="145.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<text x="145.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">12</text>
+<rect x="165" y="30" width="110" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="220.0" y="60.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">T1</text>
+<rect x="275" y="30" width="40" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="295.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<text x="295.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">12</text>
+<rect x="315" y="30" width="150" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="390.0" y="60.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">T2</text>
+<rect x="465" y="30" width="40" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="485.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<text x="485.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">12</text>
+<rect x="505" y="30" width="150" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="580.0" y="60.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">Data</text>
+<rect x="655" y="30" width="40" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="675.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">π</text>
+<text x="675.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">12</text>
+<rect x="695" y="30" width="70" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="730.0" y="54.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">CRC32</text>
+<text x="730.0" y="70.0" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">4</text>
+<path d="M25 86 L25 94 L505 94 L505 86" fill="none" stroke="#000" stroke-width="1"/>
+<text x="265.0" y="112" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Header</text>
+<path d="M505 86 L505 94 L655 94 L655 86" fill="none" stroke="#000" stroke-width="1"/>
+<text x="580.0" y="112" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Data</text>
+<path d="M655 86 L655 94 L765 94 L765 86" fill="none" stroke="#000" stroke-width="1"/>
+<text x="710.0" y="112" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" >Footer</text>
+</svg>

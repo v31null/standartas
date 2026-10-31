@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="474" viewBox="0 0 800 474">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<path d="M320 60 L320 76" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 85 L316 76 L324 76 Z" fill="#000"/>
+<rect x="200.0" y="20.0" width="240" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="44.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Download the file</text>
+<path d="M320 85.0 L460.0 125 L320 165.0 L180.0 125 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="121.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Closing π and checksum</text>
+<text x="320" y="138.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">present?</text>
+<path d="M460 125 L491 125" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 125 L491 121 L491 129 Z" fill="#000"/>
+<text x="480" y="118" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="500.0" y="100.0" width="240" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="121.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the range from</text>
+<text x="620" y="138.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the length already held</text>
+<path d="M620 100 L620 72 L320 72 L320 76" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 85 L316 76 L324 76 Z" fill="#000"/>
+<path d="M320 165 L320 186" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 195 L316 186 L324 186 Z" fill="#000"/>
+<text x="328" y="184" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="170.0" y="195.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="219.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Compute the checksum of the copy</text>
+<path d="M320 235 L320 251" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 260 L316 251 L324 251 Z" fill="#000"/>
+<rect x="170.0" y="260.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="284.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the last 4 bytes from the server</text>
+<path d="M320 300 L320 316" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 325 L316 316 L324 316 Z" fill="#000"/>
+<path d="M320 325.0 L430.0 360 L320 395.0 L210.0 360 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="364.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Checksums equal?</text>
+<path d="M430 360 L491 360" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 360 L491 356 L491 364 Z" fill="#000"/>
+<text x="450" y="353" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="500.0" y="335.0" width="240" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="356.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the file again</text>
+<text x="620" y="373.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">from its original owner</text>
+<path d="M320 395 L320 416" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M320 425 L316 416 L324 416 Z" fill="#000"/>
+<text x="328" y="414" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="220.0" y="425.0" width="200" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="320" y="449.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Copies match</text>
+</svg>

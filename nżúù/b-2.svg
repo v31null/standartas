@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="20" y="62" text-anchor="start" font-size="15" font-family="Times New Roman, Times, serif" >T1</text>
+<rect x="60" y="35" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="78.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">00</text>
+<rect x="96" y="35" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="114.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="132" y="35" width="150" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="207.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">key</text>
+<rect x="282" y="35" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="300.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">01</text>
+<rect x="318" y="35" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="336.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="354" y="35" width="90" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="399.0" y="62.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">address</text>
+<text x="207.0" y="98" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">docs/note.txt</text>
+<text x="399.0" y="98" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">B7 (183)</text>
+<text x="20" y="152" text-anchor="start" font-size="15" font-family="Times New Roman, Times, serif" >T2</text>
+<rect x="60" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="78.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">00</text>
+<rect x="96" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="114.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="132" y="125" width="150" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="207.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">key</text>
+<rect x="282" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="300.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">01</text>
+<rect x="318" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="336.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="354" y="125" width="60" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="384.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">size</text>
+<rect x="414" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="432.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">01</text>
+<rect x="450" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="468.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="486" y="125" width="60" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="516.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">a</text>
+<rect x="546" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="564.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">01</text>
+<rect x="582" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="600.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="618" y="125" width="50" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="643.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">b</text>
+<rect x="668" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="686.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">01</text>
+<rect x="704" y="125" width="36" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="722.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">φ</text>
+<rect x="740" y="125" width="50" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="765.0" y="152.0" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">c</text>
+<text x="207.0" y="188" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">docs/note.txt</text>
+<text x="384.0" y="188" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">05 (5)</text>
+<text x="516.0" y="188" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">docs/</text>
+<text x="643.0" y="188" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">note</text>
+<text x="765.0" y="188" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">.txt</text>
+</svg>

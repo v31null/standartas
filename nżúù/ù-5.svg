@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="510" viewBox="0 0 900 510">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="270.0" y="20.0" width="360" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="450" y="44.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the header and the checksum</text>
+<path d="M450 60 L450 76" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M450 85 L446 76 L454 76 Z" fill="#000"/>
+<path d="M450 85.0 L580.0 120 L450 155.0 L320.0 120 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="450" y="124.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Equal to the local copy?</text>
+<path d="M580 120 L611 120" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 120 L611 116 L611 124 Z" fill="#000"/>
+<text x="600" y="113" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="620.0" y="100.0" width="160" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="700" y="124.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Copy current</text>
+<path d="M450 155 L450 181" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M450 190 L446 181 L454 181 Z" fill="#000"/>
+<text x="458" y="176" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<path d="M450 190.0 L590.0 230 L450 270.0 L310.0 230 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="450" y="226.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Course chosen</text>
+<text x="450" y="243.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">by the developer</text>
+<path d="M310 230 L200 230 L200 261" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M200 270 L196 261 L204 261 Z" fill="#000"/>
+<text x="300" y="222" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Client decides</text>
+<path d="M590 230 L700 230 L700 266" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M700 275 L696 266 L704 266 Z" fill="#000"/>
+<text x="600" y="222" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Server decides</text>
+<rect x="90.0" y="270.0" width="220" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="200" y="294.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Compare the headers</text>
+<path d="M200 310 L200 346" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M200 355 L196 346 L204 346 Z" fill="#000"/>
+<path d="M200 355.0 L300.0 390 L200 425.0 L100.0 390 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="200" y="394.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Headers match?</text>
+<path d="M200 425 L200 441" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M200 450 L196 441 L204 441 Z" fill="#000"/>
+<text x="208" y="441" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="100.0" y="450.0" width="200" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="200" y="474.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the whole file</text>
+<path d="M300 390 L331 390" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M340 390 L331 386 L331 394 Z" fill="#000"/>
+<text x="304" y="383" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="340.0" y="357.0" width="200" height="66" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="440" y="377.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Request the ranges</text>
+<text x="440" y="394.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">of files missing</text>
+<text x="440" y="411.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">or of another size</text>
+<path d="M700 275.0 L790.0 310 L700 345.0 L610.0 310 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="700" y="314.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">File small?</text>
+<path d="M700 345 L700 361" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M700 370 L696 361 L704 361 Z" fill="#000"/>
+<text x="708" y="361" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="600.0" y="370.0" width="200" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="700" y="394.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Send the whole file</text>
+<path d="M790 310 L850 310 L850 470 L819 470" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M810 470 L819 466 L819 474 Z" fill="#000"/>
+<text x="796" y="303" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="590.0" y="445.0" width="220" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="700" y="466.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Ask the client to name</text>
+<text x="700" y="483.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the ranges; send them</text>
+</svg>

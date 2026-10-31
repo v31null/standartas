@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="330" viewBox="0 0 800 330">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="210" y="30" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif" font-style="italic">docs/note.txt, 5 bytes</text>
+<rect x="40" y="46" width="340" height="46" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="210.0" y="65.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Pass 1: start address 0 (1 byte)</text>
+<text x="210.0" y="82.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header 183 bytes</text>
+<line x1="210" y1="92" x2="210" y2="116" stroke="#000" stroke-width="1"/>
+<path d="M210 116 L206 107 L214 107 Z" fill="#000"/>
+<rect x="40" y="116" width="340" height="46" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="210.0" y="135.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Pass 2: start address 183 (1 byte)</text>
+<text x="210.0" y="152.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header 183 bytes</text>
+<line x1="210" y1="162" x2="210" y2="186" stroke="#000" stroke-width="1"/>
+<path d="M210 186 L206 177 L214 177 Z" fill="#000"/>
+<rect x="40" y="186" width="340" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="210.0" y="210.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Length unchanged: first address 183</text>
+<text x="590" y="30" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif" font-style="italic">Key of 37 bytes, 300 bytes</text>
+<rect x="420" y="46" width="340" height="46" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="590.0" y="65.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Pass 1: start address 0 (1 byte)</text>
+<text x="590.0" y="82.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header 256 bytes</text>
+<line x1="590" y1="92" x2="590" y2="116" stroke="#000" stroke-width="1"/>
+<path d="M590 116 L586 107 L594 107 Z" fill="#000"/>
+<rect x="420" y="116" width="340" height="46" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="590.0" y="135.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Pass 2: start address 256 (2 bytes)</text>
+<text x="590.0" y="152.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header 257 bytes</text>
+<line x1="590" y1="162" x2="590" y2="186" stroke="#000" stroke-width="1"/>
+<path d="M590 186 L586 177 L594 177 Z" fill="#000"/>
+<rect x="420" y="186" width="340" height="46" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="590.0" y="205.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Pass 3: start address 257 (2 bytes)</text>
+<text x="590.0" y="222.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header 257 bytes</text>
+<line x1="590" y1="232" x2="590" y2="256" stroke="#000" stroke-width="1"/>
+<path d="M590 256 L586 247 L594 247 Z" fill="#000"/>
+<rect x="420" y="256" width="340" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="590.0" y="280.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Length unchanged: first address 257</text>
+</svg>
