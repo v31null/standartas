@@ -9,15 +9,17 @@ Hírù gùkríbngaín uq standartas Íika , i.e./ .v31np & .v31n formatas , úí
 
 <table>
 <thead>
-<tr><th colspan="2">Technical Report Documentation Page</th></tr>
+<tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td>1. Report No.<br>PS-N/PF-1031 R.3</td><td>2. Report Date<br>2026/11/01</td></tr>
-<tr><td colspan="2">3. Title<br>V31NP STANDARD</td></tr>
-<tr><td>4. Author(s)<br>P.K.</td><td>5. Performing Organization<br>v31null, in its official capacity for all v31n services where applicable</td></tr>
-<tr><td colspan="2">6. Abstract<br>This document defines the .v31np file format and the V31NP STANDARD. A .v31np file holds any number of files together with their paths, stored raw behind a header of two tables and closed by a single CRC-32 over the whole file. The document sets out the layout, fields, constraints and properties of the format, describes the programmes that support it, namely the native systems of v31n, the Windows Explorer extension and the 7-Zip plugin, rates each against the standard, sets out considerations for developers concerning storage, compression, nested archives, metadata, the marks, the checksum and networking, and sets out the behaviour required of programmes that present, extract and edit .v31np files on any system, including editing through a shadow and its journal.</td></tr>
-<tr><td>7. Key Words<br>.v31np, V31NP STANDARD, file format, archive, header, π, φ, CRC-32, UTF-8, byte range, naturalisation, V31N order, shadow, journal, repack, Windows Explorer, 7-Zip</td><td>8. Distribution Statement<br>A; Approved for public release: distribution is unlimited, no restrictions.</td></tr>
-<tr><td colspan="2">9. Security Classif. (of this document)<br><b>UNCLASSIFIED</b></td></tr>
+<tr><td colspan="3">1. Report No.<br>PS-N/PF-1031 R.3</td><td colspan="3">2. Report Date<br>2026/11/01</td></tr>
+<tr><td colspan="6">3. Title<br>V31NP STANDARD</td></tr>
+<tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877</td></tr>
+<tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Services for þe General populace Ministeria custodiae filaciorum ( Secura ) , aßervatio — fileprtejlf5mpnrgs5isoknpg6zmidwvc2jtpotepkfeocx4zltm2ad.onion</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de</td></tr>
+<tr><td colspan="6">6. Abstract<br>This document defines the .v31np file format and the V31NP STANDARD. A .v31np file holds any number of files together with their paths, stored raw behind a header of two tables and closed by a single CRC-32 over the whole file. The document sets out the layout, fields, constraints and properties of the format, describes the programmes that support it, namely the native systems of v31n, the Windows Explorer extension and the 7-Zip plugin, rates each against the standard, sets out considerations for developers concerning storage, compression, nested archives, metadata, the marks, the checksum and networking, and sets out the behaviour required of programmes that present, extract and edit .v31np files on any system, including editing through a shadow and its journal.</td></tr>
+<tr><td colspan="3" rowspan="2">7. Key Words<br>.v31np, V31NP STANDARD, file format, archive, header, π, φ, CRC-32, UTF-8, byte range, naturalisation, V31N order, shadow, journal, repack, Windows Explorer, 7-Zip</td><td colspan="3">8. Distribution Statement</td></tr>
+<tr><td>a. Report<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>b. Abstract<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>ú. This page<br>A; Approved for public release: distribution is unlimited, no restrictions.</td></tr>
+<tr><td colspan="3">9. Security Classif. (of this document)<br><b>UNCLASSIFIED</b></td><td colspan="3">10. №ⁱ OF PP.<br>59</td></tr>
 </tbody>
 </table>
 
