@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="270" viewBox="0 0 800 270">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="170.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Before</text>
+<rect x="40" y="46" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="48" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="40" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="54" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="68" y="80" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="76" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a/x.txt</text>
+<rect x="40" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="54" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="68" y="114" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="76" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a/in.v31np</text>
+<rect x="40" y="148" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="48" y="167" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@ a/in.v31np</text>
+<rect x="40" y="182" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="54" y="201" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="68" y="182" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="76" y="201" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">y.txt</text>
+<rect x="40" y="216" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="54" y="235" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">T</text>
+<rect x="68" y="216" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="76" y="235" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">z.txt</text>
+<path d="M320 130 L461.0 130.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M470 130 L461.0 134.0 L461.0 126.0 Z" fill="#000"/>
+<text x="395" y="120" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Folder a renamed to b</text>
+<text x="620.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">After</text>
+<rect x="490" y="46" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="498" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="490" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="504" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="518" y="80" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="526" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b/x.txt</text>
+<rect x="490" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="504" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="518" y="114" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="526" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b/in.v31np</text>
+<rect x="490" y="148" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="498" y="167" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@ b/in.v31np</text>
+<rect x="490" y="182" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="504" y="201" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="518" y="182" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="526" y="201" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">y.txt</text>
+<rect x="490" y="216" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="504" y="235" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">T</text>
+<rect x="518" y="216" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="526" y="235" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">z.txt</text>
+</svg>

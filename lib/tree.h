@@ -28,7 +28,7 @@ namespace v31np
     public:
         std::vector<Node> nodes;
 
-        void Build(const std::vector<Entry>& entries);
+        void Build(const std::vector<Entry>& entries, const std::vector<std::string>& extra = {});
         std::wstring Path(size_t node, bool natural, wchar_t sep) const;
         void Files(size_t node, std::vector<size_t>& out) const;
         bool Fit(size_t root, size_t prefix, bool longPaths);

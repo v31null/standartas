@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="100.0" y="20.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="44.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Open(stream, callback)</text>
+<path d="M250 60 L250.0 76.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 85 L246.0 76.0 L254.0 76.0 Z" fill="#000"/>
+<rect x="50.0" y="85.0" width="400" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="106.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Name and time of the archive from</text>
+<text x="250" y="122.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">IArchiveOpenVolumeCallback (kpidName, kpidMTime)</text>
+<path d="M250 135 L250.0 151.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 160 L246.0 151.0 L254.0 151.0 Z" fill="#000"/>
+<rect x="50.0" y="160.0" width="400" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="184.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Journal requested through GetStream</text>
+<path d="M250 200 L250.0 216.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 225 L246.0 216.0 L254.0 216.0 Z" fill="#000"/>
+<path d="M250 225.0 L380.0 270 L250 315.0 L120.0 270 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="266.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal found</text>
+<text x="250" y="283.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">and readable?</text>
+<path d="M380 270 L650 270 L650.0 288.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M650 297 L646.0 288.0 L654.0 288.0 Z" fill="#000"/>
+<text x="392" y="263" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="520.0" y="297.0" width="260" height="66" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="650" y="326.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Archive listed as stored;</text>
+<text x="650" y="342.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">update allowed</text>
+<path d="M250 315 L250.0 336.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 345 L246.0 336.0 L254.0 336.0 Z" fill="#000"/>
+<text x="258" y="332" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<path d="M250 345.0 L400.0 390 L250 435.0 L100.0 390 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="386.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Size and time equal to</text>
+<text x="250" y="403.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the header of the journal?</text>
+<path d="M400 390 L650 390 L650.0 372.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M650 363 L654.0 372.0 L646.0 372.0 Z" fill="#000"/>
+<text x="412" y="383" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<path d="M250 435 L250.0 461.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 470 L246.0 461.0 L254.0 461.0 Z" fill="#000"/>
+<text x="258" y="452" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="70.0" y="472.0" width="360" height="66" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="501.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Archive listed with the pending changes;</text>
+<text x="250" y="517.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">update refused</text>
+</svg>

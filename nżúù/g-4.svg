@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="230.0" y="15.0" width="380" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="36.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Change requested: add, copy, move,</text>
+<text x="420" y="53.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">rename, delete or create</text>
+<path d="M420 65.0 L420.0 81.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 90.0 L416.0 81.0 L424.0 81.0 Z" fill="#000"/>
+<rect x="230.0" y="90.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="114.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Lock of the archive taken</text>
+<path d="M420 130.0 L420.0 146.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 155.0 L416.0 146.0 L424.0 146.0 Z" fill="#000"/>
+<rect x="230.0" y="155.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="179.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal read; a stale journal discarded</text>
+<path d="M420 195.0 L420.0 211.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 220.0 L416.0 211.0 L424.0 211.0 Z" fill="#000"/>
+<rect x="230.0" y="220.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="244.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Change applied to the sections</text>
+<path d="M420 260.0 L420.0 276.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 285.0 L416.0 276.0 L424.0 276.0 Z" fill="#000"/>
+<rect x="230.0" y="285.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="309.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal written whole; lock released</text>
+<path d="M420 325.0 L420.0 341.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 350.0 L416.0 341.0 L424.0 341.0 Z" fill="#000"/>
+<rect x="230.0" y="350.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="374.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Views and readers show the new state</text>
+<path d="M420 390 L420.0 406.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 415 L416.0 406.0 L424.0 406.0 Z" fill="#000"/>
+<path d="M420 415.0 L570.0 460 L420 505.0 L270.0 460 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="456.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Last view of the</text>
+<text x="420" y="473.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">archive closed?</text>
+<path d="M270 460 L150 460 L150 40" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M150 40 L221.0 40.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M230 40 L221.0 44.0 L221.0 36.0 Z" fill="#000"/>
+<text x="245" y="452" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<path d="M420 505 L420.0 526.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 535 L416.0 526.0 L424.0 526.0 Z" fill="#000"/>
+<text x="428" y="524" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="270.0" y="535.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="559.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Short wait</text>
+<path d="M420 575 L420.0 591.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 600 L416.0 591.0 L424.0 591.0 Z" fill="#000"/>
+<path d="M420 600.0 L570.0 640 L420 680.0 L270.0 640 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="636.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A view open</text>
+<text x="420" y="653.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">again?</text>
+<path d="M270 640 L150 640 L150 460" fill="none" stroke="#000" stroke-width="1"/>
+<text x="245" y="632" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<path d="M420 680 L420.0 696.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 705 L416.0 696.0 L424.0 696.0 Z" fill="#000"/>
+<text x="428" y="696" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="320.0" y="707.0" width="200" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="731.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Repack</text>
+</svg>

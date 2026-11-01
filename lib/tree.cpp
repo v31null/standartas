@@ -217,17 +217,19 @@ namespace v31np
         return v == 1;
     }
 
-    void Tree::Build(const std::vector<Entry>& entries)
+    void Tree::Build(const std::vector<Entry>& entries, const std::vector<std::string>& extra)
     {
         nodes.clear();
         nodes.emplace_back();
         nodes[0].dir = true;
         std::map<std::pair<size_t, std::wstring>, size_t> dirs;
-        for (size_t i = 0; i < entries.size(); i++)
+        for (size_t i = 0; i < entries.size() + extra.size(); i++)
         {
-            auto segs = Segments(Wide(entries[i].key));
+            const bool phantom = i >= entries.size();
+            auto segs = Segments(Wide(phantom ? extra[i - entries.size()] : entries[i].key));
+            if (phantom && segs.empty()) continue;
             size_t cur = 0;
-            for (size_t k = 0; k + 1 < segs.size(); k++)
+            for (size_t k = 0; k + (phantom ? 0 : 1) < segs.size(); k++)
             {
                 auto it = dirs.find({ cur, segs[k] });
                 if (it == dirs.end())
@@ -243,6 +245,7 @@ namespace v31np
                 }
                 cur = it->second;
             }
+            if (phantom) continue;
             Node f;
             f.stored = segs.back();
             f.parent = cur;

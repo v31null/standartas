@@ -34,4 +34,5 @@ namespace v31np
     bool Parse(const ReadAt& read, uint64_t total, std::vector<Entry>& out);
     bool Verify(const ReadAt& read, uint64_t total);
     bool Write(const std::vector<Item>& items, const Push& push);
+    uint64_t Measure(const std::vector<Item>& items);
 }

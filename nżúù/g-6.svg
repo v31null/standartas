@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="525" viewBox="0 0 800 525">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="130" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Rows of the journal</text>
+<rect x="40" y="44" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="65" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A</text>
+<rect x="76" y="44" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">docs/note.txt</text>
+<rect x="40" y="99" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="120" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A</text>
+<rect x="76" y="99" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="120" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">old.v31np</text>
+<rect x="40" y="154" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="175" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">F</text>
+<rect x="76" y="154" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="175" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">photos/a.jpg</text>
+<rect x="40" y="209" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="230" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">M</text>
+<rect x="76" y="209" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="230" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">photos/b.jpg</text>
+<rect x="40" y="264" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="285" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">T</text>
+<rect x="76" y="264" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="285" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">notes.txt</text>
+<rect x="40" y="319" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="340" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">D</text>
+<rect x="76" y="319" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="340" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">empty</text>
+<rect x="40" y="374" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="395" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">R</text>
+<rect x="76" y="374" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="395" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">Desktop\photos</text>
+<rect x="40" y="429" width="36" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="58" y="450" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">H</text>
+<rect x="76" y="429" width="150" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="84" y="450" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">Desktop\photos</text>
+<text x="600" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Archive on disk</text>
+<rect x="430" y="44" width="90" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="475.0" y="65" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">header</text>
+<rect x="520" y="44" width="70" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="555.0" y="65" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">note.txt</text>
+<rect x="590" y="44" width="110" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="645.0" y="65" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">old.v31np</text>
+<rect x="700" y="44" width="60" height="32" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="730.0" y="65" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">footer</text>
+<text x="520" y="92" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">301</text>
+<text x="590" y="92" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif">306</text>
+<path d="M226 60 L300 60 L300 110 L555 110 L555.0 86.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M555 77 L559.0 86.0 L551.0 86.0 Z" fill="#000"/>
+<path d="M226 115 L320 115 L320 125 L645 125 L645.0 86.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M645 77 L649.0 86.0 L641.0 86.0 Z" fill="#000"/>
+<text x="600" y="175" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Files on the PC</text>
+<rect x="440.0" y="191.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="560" y="209.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Pictures\a.jpg</text>
+<rect x="440.0" y="246.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="560" y="264.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Desktop\photos\b.jpg</text>
+<path d="M226 170 L431.12 203.55" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 205 L430.47 207.49 L431.76 199.6 Z" fill="#000"/>
+<path d="M226 225 L431.12 258.55" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 260 L430.47 262.49 L431.76 254.6 Z" fill="#000"/>
+<text x="600" y="315" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Temporary folder</text>
+<rect x="440.0" y="331.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="560" y="349.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">%TEMP%\v31np\{…}.tmp</text>
+<path d="M226 280 L431.39 342.38" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 345 L430.23 346.21 L432.55 338.56 Z" fill="#000"/>
+<rect x="440.0" y="386.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="560" y="404.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">No content</text>
+<path d="M226 335 L431.39 397.38" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 400 L430.23 401.21 L432.55 393.56 Z" fill="#000"/>
+<rect x="440.0" y="431.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="560" y="449.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Desktop\photos, removed if empty</text>
+<path d="M226 390 L431.28 442.76" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 445 L430.29 446.63 L432.28 438.89 Z" fill="#000"/>
+<rect x="440.0" y="486.0" width="240" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="560" y="504.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Desktop\photos, hidden</text>
+<path d="M226 445 L431.28 497.76" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M440 500 L430.29 501.63 L432.28 493.89 Z" fill="#000"/>
+</svg>

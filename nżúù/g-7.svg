@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="130.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Before</text>
+<rect x="30" y="46" width="200" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="38" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="30" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="44" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="58" y="80" width="172" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="66" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a/x.txt</text>
+<rect x="30" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="44" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="58" y="114" width="172" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="66" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b.txt</text>
+<path d="M240 110 L281.0 110.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M290 110 L281.0 114.0 L281.0 106.0 Z" fill="#000"/>
+<text x="265" y="135" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">a/x.txt deleted</text>
+<text x="400.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">After the delete</text>
+<rect x="300" y="46" width="200" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="308" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="300" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="314" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">D</text>
+<rect x="328" y="80" width="172" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="336" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a</text>
+<rect x="300" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="314" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="328" y="114" width="172" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="336" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b.txt</text>
+<path d="M510 110 L551.0 110.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M560 110 L551.0 114.0 L551.0 106.0 Z" fill="#000"/>
+<text x="535" y="135" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">repack</text>
+<text x="670" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">After the repack</text>
+<rect x="570.0" y="61.0" width="200" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="670" y="79.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Archive holds b.txt only</text>
+<rect x="570.0" y="95.0" width="200" height="28" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="670" y="113.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">No journal</text>
+</svg>

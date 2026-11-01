@@ -287,56 +287,73 @@ namespace v31np
         return crc == want;
     }
 
-    bool Write(const std::vector<Item>& items, const Push& push)
+    namespace
     {
-        std::unordered_set<std::string> seen;
-        uint64_t sum = 0;
-        for (const auto& it : items)
+        bool Head(const std::vector<Item>& items, Bytes& header, uint64_t& sum)
         {
-            if (!ValidUtf8(it.key) || !seen.insert(it.key).second || it.size >= Limit - sum) return false;
-            sum += it.size;
-        }
-
-        Bytes t2;
-        for (const auto& it : items)
-        {
-            const auto parts = Split(it.key);
-            PutSep(t2, 0);
-            Put(t2, it.key);
-            PutSep(t2, 1);
-            PutNum(t2, it.size);
-            for (const auto& p : parts)
-            {
-                PutSep(t2, 1);
-                Put(t2, p);
-            }
-        }
-
-        Bytes header;
-        uint64_t start = 0;
-        uint64_t previous;
-        do
-        {
-            previous = start;
-            header.clear();
-            Put(header, Magic, sizeof(Magic));
-            Put(header, Pi, Mark);
-            uint64_t address = previous;
+            std::unordered_set<std::string> seen;
+            sum = 0;
             for (const auto& it : items)
             {
-                PutSep(header, 0);
-                Put(header, it.key);
-                PutSep(header, 1);
-                PutNum(header, address);
-                address += it.size;
+                if (!ValidUtf8(it.key) || !seen.insert(it.key).second || it.size >= Limit - sum) return false;
+                sum += it.size;
             }
-            Put(header, Pi, Mark);
-            Put(header, t2.data(), t2.size());
-            Put(header, Pi, Mark);
-            start = header.size();
-        } while (start != previous);
 
-        if (sum >= Limit - start - Foot) return false;
+            Bytes t2;
+            for (const auto& it : items)
+            {
+                const auto parts = Split(it.key);
+                PutSep(t2, 0);
+                Put(t2, it.key);
+                PutSep(t2, 1);
+                PutNum(t2, it.size);
+                for (const auto& p : parts)
+                {
+                    PutSep(t2, 1);
+                    Put(t2, p);
+                }
+            }
+
+            uint64_t start = 0;
+            uint64_t previous;
+            do
+            {
+                previous = start;
+                header.clear();
+                Put(header, Magic, sizeof(Magic));
+                Put(header, Pi, Mark);
+                uint64_t address = previous;
+                for (const auto& it : items)
+                {
+                    PutSep(header, 0);
+                    Put(header, it.key);
+                    PutSep(header, 1);
+                    PutNum(header, address);
+                    address += it.size;
+                }
+                Put(header, Pi, Mark);
+                Put(header, t2.data(), t2.size());
+                Put(header, Pi, Mark);
+                start = header.size();
+            } while (start != previous);
+
+            return sum < Limit - start - Foot;
+        }
+    }
+
+    uint64_t Measure(const std::vector<Item>& items)
+    {
+        Bytes header;
+        uint64_t sum = 0;
+        if (!Head(items, header, sum)) return 0;
+        return header.size() + sum + Foot;
+    }
+
+    bool Write(const std::vector<Item>& items, const Push& push)
+    {
+        Bytes header;
+        uint64_t sum = 0;
+        if (!Head(items, header, sum)) return false;
 
         uint32_t crc = Crc32(header.data(), header.size(), 0);
         for (size_t at = 0; at < header.size(); at += Block)

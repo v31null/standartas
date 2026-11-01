@@ -19,8 +19,8 @@ if (-not (Test-Path $makensis)) {
     Expand-Archive $zip $nsisDir
 }
 
-$lib = "v31np", "tree", "order" | ForEach-Object { '"' + (Join-Path $root "lib\$_.cpp") + '"' }
-$shell = "dll", "archive", "data", "folder", "menu", "drop" | ForEach-Object { '"' + (Join-Path $root "explorer\$_.cpp") + '"' }
+$lib = "v31np", "tree", "order", "shadow" | ForEach-Object { '"' + (Join-Path $root "lib\$_.cpp") + '"' }
+$shell = "dll", "archive", "data", "folder", "menu", "drop", "storage", "source", "create" | ForEach-Object { '"' + (Join-Path $root "explorer\$_.cpp") + '"' }
 $plugin = @('"' + (Join-Path $root "sevenzip\handler.cpp") + '"')
 $flags = "/nologo /std:c++20 /utf-8 /EHsc /W4 /O2 /MT /LD /DUNICODE /D_UNICODE"
 $shellLibs = "shell32.lib shlwapi.lib ole32.lib oleaut32.lib propsys.lib advapi32.lib user32.lib"

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="590" viewBox="0 0 800 590">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="30" y="40" width="280" height="270" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M30 58 L310 58" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="294" y="45" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<rect x="280" y="45" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<rect x="266" y="45" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="38" y="53.5" text-anchor="start" font-size="11" font-family="Times New Roman, Times, serif">archive.v31np</text>
+<path d="M50 75 L66 75 L80 89 L80 113 L50 113 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M66 75 L66 89 L80 89" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M57 97 L72 97" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M57 106 L72 106" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M110 75 L126 75 L140 89 L140 113 L110 113 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M126 75 L126 89 L140 89" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M117 97 L132 97" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M117 106 L132 106" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M170 75 L186 75 L200 89 L200 113 L170 113 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M186 75 L186 89 L200 89" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M177 97 L192 97" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M177 106 L192 106" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M50 135 L66 135 L80 149 L80 173 L50 173 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M66 135 L66 149 L80 149" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M57 157 L72 157" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M57 166 L72 166" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="92" y="150" width="90" height="22" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="137" y="166" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">new item</text>
+<rect x="140" y="200" width="150" height="92" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="148" y="216" text-anchor="start" font-size="12" font-family="Times New Roman, Times, serif">Ípmùk</text>
+<text x="282" y="216" text-anchor="end" font-size="12" font-family="Times New Roman, Times, serif">›</text>
+<path d="M150 232 L280 232" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M150 248 L280 248" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M150 264 L280 264" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M150 280 L280 280" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M110 240 L110 256 L114 252 L118 260 L121 259 L117 251 L122 251 Z" fill="#000"/>
+<path d="M500 48 L506 40 L608.0 40 L616.0 48 L770 48 L770 180 L500 180 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M500 56 L770 56" fill="none" stroke="#000" stroke-width="1"/>
+<text x="635" y="76" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Temporary folder</text>
+<path d="M530 100 L542 100 L556 114 L556 134 L530 134 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M542 100 L542 114 L556 114" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M580 100 L592 100 L606 114 L606 134 L580 134 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M592 100 L592 114 L606 114" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M630 100 L642 100 L656 114 L656 134 L630 134 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M642 100 L642 114 L656 114" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="690" y="108" width="70" height="22" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="725" y="124" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif" font-style="italic">new item</text>
+<rect x="500" y="230" width="270" height="120" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="635" y="248" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Windows' New menu</text>
+<rect x="515" y="260" width="12" height="12" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M535 266 L755 266" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="515" y="276" width="12" height="12" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M535 282 L755 282" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="515" y="292" width="12" height="12" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M535 298 L755 298" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="515" y="308" width="12" height="12" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M535 314 L755 314" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="515" y="324" width="12" height="12" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M535 330 L755 330" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M370 360 L416 360 L430 374 L430 436 L370 436 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M416 360 L416 374 L430 374" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 382 L422 382" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 391 L422 391" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 400 L422 400" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 409 L422 409" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 418 L422 418" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M377 427 L422 427" fill="none" stroke="#000" stroke-width="1"/>
+<text x="400" y="454" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">journal</text>
+<path d="M310 80 L491.0 80.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 80 L491.0 84.0 L491.0 76.0 Z" fill="#000"/>
+<circle cx="405" cy="80" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="405" y="84.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">1</text>
+<path d="M600 180 L600.0 221.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M600 230 L596.0 221.0 L604.0 221.0 Z" fill="#000"/>
+<circle cx="600" cy="205" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="600" y="209.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">2</text>
+<path d="M500 300 L298.76 252.08" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M290 250 L299.68 248.19 L297.83 255.98 Z" fill="#000"/>
+<circle cx="395" cy="275" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="395" y="279.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">3</text>
+<path d="M680 230 L680.0 189.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M680 180 L684.0 189.0 L676.0 189.0 Z" fill="#000"/>
+<circle cx="680" cy="205" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="680" y="209.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">4</text>
+<path d="M500 140 L318.95 159.06" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M310 160 L318.53 155.08 L319.37 163.04 Z" fill="#000"/>
+<circle cx="405" cy="150" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="405" y="154.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">5</text>
+<path d="M250 310 L362.23 375.47" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M370 380 L360.21 378.92 L364.24 372.01 Z" fill="#000"/>
+<circle cx="310" cy="345" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="310" y="349.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">6</text>
+<text x="40" y="478" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">1. A right-click on an empty spot: the names of the folder are mirrored as empty placeholders.</text>
+<text x="40" y="496" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">2. Windows' New menu is initialised on the temporary folder.</text>
+<text x="40" y="514" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">3. It fills the submenu Ípmùk with Windows' own entries, names, icons and templates.</text>
+<text x="40" y="532" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">4. An entry is picked: Windows creates the item in the temporary folder under its default name.</text>
+<text x="40" y="550" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">5. The item is moved into the archive and the view opens its name field (SVSI_EDIT).</text>
+<text x="40" y="568" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">6. The journal receives row T for a file or row D for a folder.</text>
+</svg>

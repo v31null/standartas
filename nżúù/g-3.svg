@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="90.0" y="15.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Each part of the key, in order</text>
+<path d="M250 55 L250.0 71.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 80 L246.0 71.0 L254.0 71.0 Z" fill="#000"/>
+<rect x="60.0" y="80.0" width="380" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="101.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Name derived that the system permits</text>
+<text x="250" y="118.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">(on Windows Table Ú-2)</text>
+<path d="M250 130 L250.0 151.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 160 L246.0 151.0 L254.0 151.0 Z" fill="#000"/>
+<path d="M250 160.0 L420.0 220 L250 280.0 L80.0 220 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="199.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Name already taken in</text>
+<text x="250" y="216.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the folder or at the</text>
+<text x="250" y="233.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">destination, by the</text>
+<text x="250" y="250.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">system's comparison?</text>
+<path d="M420 220 L511.0 220.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M520 220 L511.0 224.0 L511.0 216.0 Z" fill="#000"/>
+<text x="430" y="213" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<path d="M640 180.0 L760.0 220 L640 260.0 L520.0 220 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="640" y="216.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A folder landing</text>
+<text x="640" y="233.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">on a folder?</text>
+<path d="M640 180 L640.0 129.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M640 120 L644.0 129.0 L636.0 129.0 Z" fill="#000"/>
+<text x="648" y="160" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="510.0" y="70.0" width="260" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="640" y="91.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Next letter suffix of Table G-2</text>
+<text x="640" y="107.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">before the extension</text>
+<path d="M510 95 L470 95 L470 145 L250 145" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M251 145 L250.6 151.02" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 160 L246.61 150.75 L254.59 151.29 Z" fill="#000"/>
+<path d="M640 260 L640.0 276.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M640 285 L636.0 276.0 L644.0 276.0 Z" fill="#000"/>
+<text x="648" y="277" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="510.0" y="285.0" width="260" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="640" y="306.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Merged with it; the items</text>
+<text x="640" y="322.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">inside named in turn</text>
+<path d="M250 280 L250.0 361.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 370 L246.0 361.0 L254.0 361.0 Z" fill="#000"/>
+<text x="258" y="300" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<path d="M250 370.0 L410.0 420 L250 470.0 L90.0 420 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="416.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Path longer than</text>
+<text x="250" y="433.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the system permits?</text>
+<path d="M410 420 L491.0 420.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 420 L491.0 424.0 L491.0 416.0 Z" fill="#000"/>
+<text x="420" y="413" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="500.0" y="390.0" width="280" height="60" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="640" y="416.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Shortened by the rules</text>
+<text x="640" y="432.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">of the system; extension kept</text>
+<path d="M640 450 L640 500 L250 500" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 470 L250.0 516.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 525 L246.0 516.0 L254.0 516.0 Z" fill="#000"/>
+<text x="258" y="490" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="110.0" y="525.0" width="280" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="546.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Written with the date</text>
+<text x="250" y="563.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">of extraction</text>
+</svg>

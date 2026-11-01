@@ -4,6 +4,7 @@
 #include "7zip/CPP/7zip/PropID.h"
 
 #include "../lib/order.h"
+#include "../lib/shadow.h"
 #include "../lib/tree.h"
 #include "../lib/v31np.h"
 
@@ -81,6 +82,119 @@ namespace
         return S_OK;
     }
 
+    struct Link
+    {
+        char kind = 'A';
+        UInt64 raw = 0;
+        std::wstring file;
+        bool pending = false;
+    };
+
+    using Raw = std::function<bool(UInt64 pos, void* buf, UInt32 len)>;
+
+    bool ReadFileAt(const std::wstring& file, UInt64 pos, void* buf, UInt32 len)
+    {
+        HANDLE h = CreateFileW(file.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (h == INVALID_HANDLE_VALUE) return false;
+        Byte* p = (Byte*)buf;
+        bool ok = true;
+        while (ok && len > 0)
+        {
+            OVERLAPPED o{};
+            o.Offset = (DWORD)pos;
+            o.OffsetHigh = (DWORD)(pos >> 32);
+            DWORD got = 0;
+            ok = ReadFile(h, p, len, &got, &o) && got > 0;
+            p += got;
+            pos += got;
+            len -= got;
+        }
+        CloseHandle(h);
+        return ok;
+    }
+
+    bool CurrentSize(const std::wstring& file, UInt64& size)
+    {
+        WIN32_FILE_ATTRIBUTE_DATA d;
+        if (!GetFileAttributesExW(file.c_str(), GetFileExInfoStandard, &d) || (d.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) return false;
+        size = ((UInt64)d.nFileSizeHigh << 32) | d.nFileSizeLow;
+        return true;
+    }
+
+    std::wstring TempPath()
+    {
+        wchar_t dir[MAX_PATH + 1];
+        wchar_t name[MAX_PATH + 1];
+        if (!GetTempPathW(MAX_PATH, dir) || !GetTempFileNameW(dir, L"v31", 0, name)) return {};
+        return name;
+    }
+
+    v31np::Item Pulled(const std::string& key, UInt64 size, Raw raw)
+    {
+        auto pos = std::make_shared<UInt64>(0);
+        return { key, size, [raw, pos](void* buf, uint32_t len)
+        {
+            if (!raw(*pos, buf, len)) return false;
+            *pos += len;
+            return true;
+        } };
+    }
+
+    bool Synth(const v31np::Shadow& s, const v31np::Chain& chain, const Raw& raw, const v31np::Push& push)
+    {
+        auto it = s.parts.find(chain);
+        if (it == s.parts.end()) return false;
+        std::vector<v31np::Item> items;
+        std::vector<std::wstring> temps;
+        bool ok = true;
+        for (const auto& r : it->second)
+        {
+            if (!ok) break;
+            if (!v31np::Stored(r)) continue;
+            Raw own;
+            if (r.kind == 'A')
+            {
+                const UInt64 at = r.at;
+                own = [raw, at](UInt64 pos, void* buf, UInt32 len) { return raw(at + pos, buf, len); };
+            }
+            else
+            {
+                const std::wstring f = r.file;
+                own = [f](UInt64 pos, void* buf, UInt32 len) { return ReadFileAt(f, pos, buf, len); };
+            }
+            v31np::Chain deeper = chain;
+            deeper.push_back(r.key);
+            if (s.parts.count(deeper))
+            {
+                const std::wstring t = TempPath();
+                HANDLE h = t.empty() ? INVALID_HANDLE_VALUE : CreateFileW(t.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, nullptr);
+                if (h == INVALID_HANDLE_VALUE)
+                {
+                    ok = false;
+                    break;
+                }
+                temps.push_back(t);
+                UInt64 size = 0;
+                ok = Synth(s, deeper, own, [h, &size](const void* b, uint32_t n)
+                {
+                    DWORD put = 0;
+                    size += n;
+                    return WriteFile(h, b, n, &put, nullptr) && put == n;
+                });
+                CloseHandle(h);
+                items.push_back(Pulled(r.key, size, [t](UInt64 pos, void* buf, UInt32 len) { return ReadFileAt(t, pos, buf, len); }));
+                continue;
+            }
+            UInt64 size = r.size;
+            if (r.kind != 'A' && !CurrentSize(r.file, size)) continue;
+            items.push_back(Pulled(r.key, size, own));
+        }
+        if (ok) ok = v31np::Write(items, push);
+        items.clear();
+        for (const auto& t : temps) DeleteFileW(t.c_str());
+        return ok;
+    }
+
     std::string KeyOf(const std::wstring& path)
     {
         std::wstring k = path;
@@ -93,6 +207,10 @@ namespace
         CMyComPtr<IInStream> stream;
         UInt64 total = 0;
         std::vector<v31np::Entry> entries;
+        std::vector<Link> links;
+        std::vector<std::string> extra;
+        v31np::Shadow shadow;
+        bool journal = false;
         v31np::Tree tree;
         std::vector<size_t> order;
         std::vector<UInt32> slot;
@@ -131,12 +249,93 @@ namespace
             return ReadFull(stream, buf, len) == S_OK;
         }
 
-        HRESULT DoOpen(IInStream* in);
+        bool ReadEntry(size_t i, UInt64 pos, void* buf, UInt32 len)
+        {
+            const Link& l = links[i];
+            if (pos > l.raw || len > l.raw - pos) return false;
+            if (l.kind == 'A') return ReadAt(entries[i].at + pos, buf, len);
+            return ReadFileAt(l.file, pos, buf, len);
+        }
+
+        void Journal(IArchiveOpenCallback* cb, UInt64 size)
+        {
+            journal = false;
+            shadow = v31np::Shadow{};
+            if (!cb) return;
+            CMyComPtr<IArchiveOpenVolumeCallback> vol;
+            if (cb->QueryInterface(IID_IArchiveOpenVolumeCallback, (void**)&vol) != S_OK || !vol) return;
+            PROPVARIANT name;
+            PropVariantInit(&name);
+            PROPVARIANT time;
+            PropVariantInit(&time);
+            std::wstring file;
+            UInt64 stamp = 0;
+            bool have = false;
+            if (vol->GetProperty(kpidName, &name) == S_OK && name.vt == VT_BSTR && vol->GetProperty(kpidMTime, &time) == S_OK && time.vt == VT_FILETIME)
+            {
+                file.assign(name.bstrVal, SysStringLen(name.bstrVal));
+                stamp = ((UInt64)time.filetime.dwHighDateTime << 32) | time.filetime.dwLowDateTime;
+                have = true;
+            }
+            PropVariantClear(&name);
+            PropVariantClear(&time);
+            if (!have) return;
+            const size_t cut = file.find_last_of(L"\\/");
+            if (cut != std::wstring::npos) file = file.substr(cut + 1);
+            const std::wstring jn = v31np::JournalName(file);
+            Text plain = Load(vol, jn);
+            Text dot = Load(vol, L"." + jn);
+            const Text* use = &plain;
+            if (plain.found && dot.found && !(plain.read && dot.read && plain.text == dot.text))
+            {
+                v31np::Shadow probe;
+                const bool rp = plain.read && v31np::ReadJournal(plain.text, probe);
+                const bool rd = dot.read && v31np::ReadJournal(dot.text, probe);
+                if (rp != rd) use = rd ? &dot : &plain;
+                else if (dot.time > plain.time) use = &dot;
+            }
+            else if (!plain.found) use = &dot;
+            if (!use->read) return;
+            v31np::Shadow s;
+            if (!v31np::ReadJournal(use->text, s) || s.size != size || s.stamp != stamp) return;
+            shadow = std::move(s);
+            journal = true;
+        }
+
+        struct Text
+        {
+            bool found = false;
+            bool read = false;
+            UInt64 time = 0;
+            std::string text;
+        };
+
+        static Text Load(IArchiveOpenVolumeCallback* vol, const std::wstring& name)
+        {
+            Text t;
+            CMyComPtr<IInStream> js;
+            if (vol->GetStream(name.c_str(), &js) != S_OK || !js) return t;
+            t.found = true;
+            CMyComPtr<IStreamGetProps> props;
+            if (js->QueryInterface(IID_IStreamGetProps, (void**)&props) == S_OK && props)
+            {
+                FILETIME m{};
+                if (props->GetProps(nullptr, nullptr, nullptr, &m, nullptr) == S_OK) t.time = ((UInt64)m.dwHighDateTime << 32) | m.dwLowDateTime;
+            }
+            UInt64 len = 0;
+            if (js->Seek(0, STREAM_SEEK_END, &len) != S_OK || len >= (1u << 31) || js->Seek(0, STREAM_SEEK_SET, nullptr) != S_OK) return t;
+            t.text.assign((size_t)len, '\0');
+            if (len && ReadFull(js, t.text.data(), (UInt32)len) != S_OK) return t;
+            t.read = true;
+            return t;
+        }
+
+        HRESULT DoOpen(IInStream* in, IArchiveOpenCallback* cb);
         HRESULT DoExtract(const UInt32* indices, UInt32 numItems, Int32 testMode, IArchiveExtractCallback* cb);
         HRESULT DoUpdate(ISequentialOutStream* out, UInt32 numItems, IArchiveUpdateCallback* cb);
     };
 
-    HRESULT Handler::DoOpen(IInStream* in)
+    HRESULT Handler::DoOpen(IInStream* in, IArchiveOpenCallback* cb)
     {
         UInt64 size = 0;
         RINOK(in->Seek(0, STREAM_SEEK_END, &size))
@@ -147,19 +346,44 @@ namespace
             stream.Release();
             return S_FALSE;
         }
-        entries = std::move(parsed);
         total = size;
-        tree.Build(entries);
+        Journal(cb, size);
+        links.clear();
+        extra.clear();
+        auto root = journal ? shadow.parts.find({}) : shadow.parts.end();
+        if (journal && root != shadow.parts.end())
+        {
+            entries.clear();
+            for (const auto& r : root->second)
+            {
+                if (r.kind == 'D') extra.push_back(r.key);
+                if (!v31np::Stored(r)) continue;
+                entries.push_back({ r.key, r.kind == 'A' ? r.at : 0, v31np::Logical(shadow, {}, r) });
+                links.push_back({ r.kind, r.size, r.file, shadow.parts.count({ r.key }) > 0 });
+            }
+        }
+        else
+        {
+            entries = std::move(parsed);
+            links.resize(entries.size());
+            for (size_t i = 0; i < entries.size(); i++)
+            {
+                links[i].raw = entries[i].size;
+                links[i].pending = journal && shadow.parts.count({ entries[i].key }) > 0;
+                if (links[i].pending) entries[i].size = v31np::Logical(shadow, {}, { 'A', entries[i].key, entries[i].size, entries[i].at, {} });
+            }
+        }
+        tree.Build(entries, extra);
         Arrange();
         return S_OK;
     }
 
-    Z7_COM7F_IMF(Handler::Open(IInStream* in, const UInt64*, IArchiveOpenCallback*))
+    Z7_COM7F_IMF(Handler::Open(IInStream* in, const UInt64*, IArchiveOpenCallback* cb))
     {
         Close();
         try
         {
-            return DoOpen(in);
+            return DoOpen(in, cb);
         }
         catch (...)
         {
@@ -172,6 +396,10 @@ namespace
     {
         stream.Release();
         entries.clear();
+        links.clear();
+        extra.clear();
+        shadow = v31np::Shadow{};
+        journal = false;
         tree.nodes.clear();
         order.clear();
         slot.clear();
@@ -255,22 +483,43 @@ namespace
             if (!n->dir && testMode) result = tested;
             else if (!n->dir)
             {
-                const v31np::Entry& e = entries[n->entry];
-                if (e.size > 0 && buf.empty()) buf.resize(Block);
-                UInt64 pos = e.at;
-                for (UInt64 left = e.size; left > 0;)
+                const size_t at = n->entry;
+                const Link& l = links[at];
+                if (l.pending)
                 {
-                    const UInt32 len = (UInt32)std::min<UInt64>(Block, left);
-                    if (!ReadAt(pos, buf.data(), len))
+                    HRESULT failure = S_OK;
+                    const bool ok = Synth(shadow, { entries[at].key }, [this, at](UInt64 pos, void* b, UInt32 len) { return ReadEntry(at, pos, b, len); }, [&](const void* b, uint32_t len)
                     {
-                        result = NArchive::NExtract::NOperationResult::kUnexpectedEnd;
-                        break;
+                        HRESULT r = out ? WriteFull(out, b, len) : S_OK;
+                        if (r == S_OK)
+                        {
+                            done += len;
+                            r = cb->SetCompleted(&done);
+                        }
+                        if (r != S_OK) failure = r;
+                        return r == S_OK;
+                    });
+                    RINOK(failure)
+                    if (!ok) result = NArchive::NExtract::NOperationResult::kUnexpectedEnd;
+                }
+                else
+                {
+                    if (l.raw > 0 && buf.empty()) buf.resize(Block);
+                    UInt64 pos = 0;
+                    for (UInt64 left = l.raw; left > 0;)
+                    {
+                        const UInt32 len = (UInt32)std::min<UInt64>(Block, left);
+                        if (!ReadEntry(at, pos, buf.data(), len))
+                        {
+                            result = NArchive::NExtract::NOperationResult::kUnexpectedEnd;
+                            break;
+                        }
+                        if (out) RINOK(WriteFull(out, buf.data(), len))
+                        pos += len;
+                        left -= len;
+                        done += len;
+                        RINOK(cb->SetCompleted(&done))
                     }
-                    if (out) RINOK(WriteFull(out, buf.data(), len))
-                    pos += len;
-                    left -= len;
-                    done += len;
-                    RINOK(cb->SetCompleted(&done))
                 }
             }
             out.Release();
@@ -544,6 +793,9 @@ namespace
 
     Z7_COM7F_IMF(Handler::UpdateItems(ISequentialOutStream* out, UInt32 numItems, IArchiveUpdateCallback* cb))
     {
+        // Delete not — 7-Zip knows one way to edit: rewrite the whole archive, every time, with feeling. That cannot go
+        // into the shadow, so edits are refused while a journal exists. Reading pending changes is fine.
+        if (journal) return E_NOTIMPL;
         try
         {
             return DoUpdate(out, numItems, cb);

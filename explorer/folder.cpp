@@ -271,7 +271,7 @@ namespace
         return SHStrDupW(s.c_str(), &out->pOleStr);
     }
 
-    class PackFolder final : public IShellFolder2, public IPersistFolder3, public IThumbnailHandlerFactory
+    class PackFolder final : public IShellFolder2, public IPersistFolder3, public IThumbnailHandlerFactory, public IStorage
     {
         REFS
 
@@ -286,6 +286,11 @@ namespace
 
         IFACEMETHODIMP QueryInterface(REFIID riid, void** ppv) override
         {
+            if (riid == IID_Store)
+            {
+                *ppv = nullptr;
+                return CreateStore(place, root, (IStorage**)ppv);
+            }
             static const QITAB qit[] = {
                 QITABENT(PackFolder, IShellFolder2),
                 QITABENTMULTI(PackFolder, IShellFolder, IShellFolder2),
@@ -294,9 +299,119 @@ namespace
                 QITABENTMULTI(PackFolder, IPersistFolder, IPersistFolder3),
                 QITABENTMULTI(PackFolder, IPersist, IPersistFolder3),
                 QITABENT(PackFolder, IThumbnailHandlerFactory),
+                QITABENT(PackFolder, IStorage),
                 { 0 },
             };
             return QISearch(this, qit, riid, ppv);
+        }
+
+        HRESULT Stg(ComPtr<IStorage>& s)
+        {
+            return CreateStore(place, root, s.GetAddressOf());
+        }
+
+        IFACEMETHODIMP CreateStream(LPCOLESTR name, DWORD mode, DWORD r1, DWORD r2, IStream** out) override
+        {
+            *out = nullptr;
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->CreateStream(name, mode, r1, r2, out);
+        }
+
+        IFACEMETHODIMP OpenStream(LPCOLESTR name, void* r1, DWORD mode, DWORD r2, IStream** out) override
+        {
+            *out = nullptr;
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->OpenStream(name, r1, mode, r2, out);
+        }
+
+        IFACEMETHODIMP CreateStorage(LPCOLESTR name, DWORD mode, DWORD r1, DWORD r2, IStorage** out) override
+        {
+            *out = nullptr;
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->CreateStorage(name, mode, r1, r2, out);
+        }
+
+        IFACEMETHODIMP OpenStorage(LPCOLESTR name, IStorage* prio, DWORD mode, SNB snb, DWORD r1, IStorage** out) override
+        {
+            *out = nullptr;
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->OpenStorage(name, prio, mode, snb, r1, out);
+        }
+
+        IFACEMETHODIMP CopyTo(DWORD n, const IID* ex, SNB snb, IStorage* dest) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->CopyTo(n, ex, snb, dest);
+        }
+
+        IFACEMETHODIMP MoveElementTo(LPCOLESTR name, IStorage* dest, LPCOLESTR newName, DWORD flags) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->MoveElementTo(name, dest, newName, flags);
+        }
+
+        IFACEMETHODIMP Commit(DWORD flags) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->Commit(flags);
+        }
+
+        IFACEMETHODIMP Revert() override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->Revert();
+        }
+
+        IFACEMETHODIMP EnumElements(DWORD r1, void* r2, DWORD r3, IEnumSTATSTG** out) override
+        {
+            *out = nullptr;
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->EnumElements(r1, r2, r3, out);
+        }
+
+        IFACEMETHODIMP DestroyElement(LPCOLESTR name) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->DestroyElement(name);
+        }
+
+        IFACEMETHODIMP RenameElement(LPCOLESTR from, LPCOLESTR to) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->RenameElement(from, to);
+        }
+
+        IFACEMETHODIMP SetElementTimes(LPCOLESTR, const FILETIME*, const FILETIME*, const FILETIME*) override
+        {
+            return S_OK;
+        }
+
+        IFACEMETHODIMP SetClass(REFCLSID) override
+        {
+            return S_OK;
+        }
+
+        IFACEMETHODIMP SetStateBits(DWORD, DWORD) override
+        {
+            return S_OK;
+        }
+
+        IFACEMETHODIMP Stat(STATSTG* st, DWORD flag) override
+        {
+            ComPtr<IStorage> s;
+            HRESULT r = Stg(s);
+            return FAILED(r) ? r : s->Stat(st, flag);
         }
 
         IFACEMETHODIMP GetThumbnailHandler(PCUITEMID_CHILD pidl, IBindCtx*, REFIID riid, void** ppv) override
@@ -538,7 +653,7 @@ namespace
             for (size_t k : a->index->tree.nodes[here].kids)
             {
                 const bool dir = a->index->tree.nodes[k].dir;
-                if (dir ? !(flags & SHCONTF_FOLDERS) : !(flags & SHCONTF_NONFOLDERS)) continue;
+                if (!(flags & SHCONTF_STORAGE) && (dir ? !(flags & SHCONTF_FOLDERS) : !(flags & SHCONTF_NONFOLDERS))) continue;
                 PITEMID_CHILD id = MakeId(a->index->tree.nodes[k], SizeOf(a, k));
                 if (id) e->ids.push_back(id);
             }
@@ -573,7 +688,7 @@ namespace
             return S_OK;
         }
 
-        IFACEMETHODIMP BindToObject(PCUIDLIST_RELATIVE pidl, IBindCtx*, REFIID riid, void** ppv) override
+        IFACEMETHODIMP BindToObject(PCUIDLIST_RELATIVE pidl, IBindCtx* pbc, REFIID riid, void** ppv) override
         {
             *ppv = nullptr;
             Place next;
@@ -585,6 +700,23 @@ namespace
             if (!n.dir && (riid == IID_IStream || riid == IID_ISequentialStream))
             {
                 IStream* s = nullptr;
+                BIND_OPTS bo = { sizeof(bo) };
+                if (pbc && SUCCEEDED(pbc->GetBindOptions(&bo)) && (bo.grfMode & (STGM_WRITE | STGM_READWRITE)))
+                {
+                    const std::wstring natural = n.natural;
+                    a.reset();
+                    Place up = next;
+                    up.sub.pop_back();
+                    PIDLIST_ABSOLUTE full = ILCombine(root, pidl);
+                    if (!full) return E_OUTOFMEMORY;
+                    ILRemoveLastID(full);
+                    r = CreateWriteStream(up, full, natural, (bo.grfMode & STGM_CREATE) != 0, &s);
+                    CoTaskMemFree(full);
+                    if (FAILED(r)) return r;
+                    r = s->QueryInterface(riid, ppv);
+                    s->Release();
+                    return r;
+                }
                 r = CreateEntryStream(a, node, &s);
                 if (FAILED(r)) return r;
                 r = s->QueryInterface(riid, ppv);
@@ -646,8 +778,15 @@ namespace
             {
                 SFV_CREATE c = { sizeof(c) };
                 c.pshf = this;
+                ComPtr<IShellFolderViewCB> cb;
+                if (!place.path.empty()) CreateViewCallback(place.path, &cb);
+                c.psfvcb = cb.Get();
                 return SHCreateShellFolderView(&c, (IShellView**)ppv);
             }
+            // Delete not — no ITransferDestination on purpose: it only takes content through resource IDs Microsoft keeps
+            // in a drawer nobody has found. The copy engine writes through IStorage instead. Windows' zip folder skips it too.
+            if (riid == __uuidof(ITransferSource))
+                return CreateSource(place, root, riid, ppv);
             if (riid == IID_IDropTarget)
             {
                 if (!Writable()) return E_NOINTERFACE;
@@ -661,7 +800,7 @@ namespace
         IFACEMETHODIMP GetAttributesOf(UINT cidl, PCUITEMID_CHILD_ARRAY apidl, SFGAOF* inout) override
         {
             SFGAOF all = ~(SFGAOF)0;
-            const SFGAOF edit = Writable() ? (SFGAO_CANDELETE | SFGAO_CANRENAME) : 0;
+            const SFGAOF edit = Writable() ? (SFGAO_CANDELETE | SFGAO_CANRENAME | SFGAO_CANMOVE) : 0;
             if (cidl == 0) all = SFGAO_FOLDER | SFGAO_HASSUBFOLDER | (Writable() ? SFGAO_DROPTARGET : 0);
             for (UINT i = 0; i < cidl; i++)
             {
@@ -672,7 +811,7 @@ namespace
                 else
                 {
                     f |= SFGAO_STREAM;
-                    if (IsPack(IdNatural(id))) f |= SFGAO_FOLDER;
+                    if (IsPack(IdNatural(id))) f |= SFGAO_FOLDER | (Writable() ? SFGAO_DROPTARGET : 0);
                 }
                 all &= f;
             }
@@ -700,7 +839,7 @@ namespace
                     if (k != v31np::None) nodes.push_back(k);
                 }
                 ComPtr<IDataObject> inner;
-                HRESULT r = CreateData(a, here, nodes, 0, IID_PPV_ARGS(&inner));
+                HRESULT r = CreateData(a, here, nodes, place, root, IID_PPV_ARGS(&inner));
                 if (FAILED(r)) return r;
                 return SHCreateDataObject(root, cidl, apidl, inner.Get(), riid, ppv);
             }
@@ -710,10 +849,20 @@ namespace
                 return SHCreateFileExtractIconW(IdNatural(id).c_str(), id->dir ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL, riid, ppv);
             if (riid == IID_IThumbnailProvider && !id->dir && !IsPack(IdNatural(id)))
                 return Thumb(apidl[0], riid, ppv);
-            if (riid == IID_IDropTarget && id->dir && Writable())
+            if (riid == IID_IDropTarget && (id->dir || IsPack(IdNatural(id))) && Writable())
             {
                 Place next = place;
-                next.sub.push_back(IdNatural(id));
+                if (id->dir) next.sub.push_back(IdNatural(id));
+                else
+                {
+                    size_t here;
+                    auto a = Arc(here);
+                    const size_t k = a ? Child(a, here, id) : v31np::None;
+                    if (k == v31np::None || a->index->tree.nodes[k].dir) return E_NOINTERFACE;
+                    next.chain.push_back(a->index->entries[a->index->tree.nodes[k].entry].key);
+                    next.sub.clear();
+                    if (!Load(next.path, next.chain)) return HRESULT_FROM_WIN32(ERROR_FILE_CORRUPT);
+                }
                 PIDLIST_ABSOLUTE full = ILCombine(root, apidl[0]);
                 HRESULT r = CreateDrop(next, full, riid, ppv);
                 CoTaskMemFree(full);
@@ -897,6 +1046,22 @@ namespace
         return static_cast<PackFolder*>(folder.Get())->Local(last, riid, ppv);
     }
 
+    HRESULT Top(PCIDLIST_ABSOLUTE full, ComPtr<IShellFolder2>& folder, PCUIDLIST_RELATIVE& rel)
+    {
+        rel = full;
+        while (rel->mkid.cb && !AsId(rel)) rel = ILNext(rel);
+        if (!rel->mkid.cb) return E_INVALIDARG;
+        PIDLIST_ABSOLUTE top = ILCloneFull(full);
+        if (!top) return E_OUTOFMEMORY;
+        ((PUIDLIST_RELATIVE)((BYTE*)top + ((const BYTE*)rel - (const BYTE*)full)))->mkid.cb = 0;
+        ComPtr<IPersistFolder> persist;
+        HRESULT r = CreateFolder(Place{}, nullptr, IID_PPV_ARGS(&folder));
+        if (SUCCEEDED(r)) r = folder.As(&persist);
+        if (SUCCEEDED(r)) r = persist->Initialize(top);
+        CoTaskMemFree(top);
+        return r;
+    }
+
     class Worker final : public IInitializeWithFile, public IThumbnailProvider
     {
         REFS
@@ -932,6 +1097,41 @@ namespace
             return SUCCEEDED(r) ? t->GetThumbnail(cx, bmp, alpha) : r;
         }
     };
+}
+
+HRESULT Locate(PCIDLIST_ABSOLUTE full, Place& parent, std::wstring& natural)
+{
+    if (!full) return E_INVALIDARG;
+    ComPtr<IShellFolder2> folder;
+    PCUIDLIST_RELATIVE rel = nullptr;
+    HRESULT r = Top(full, folder, rel);
+    if (FAILED(r)) return r;
+    PackFolder* f = static_cast<PackFolder*>(folder.Get());
+    PCUITEMID_CHILD last = ILFindLastID(rel);
+    const Id* id = AsId(last);
+    if (!id) return E_INVALIDARG;
+    natural = IdNatural(id);
+    if (last == rel)
+    {
+        parent = f->place;
+        return S_OK;
+    }
+    PIDLIST_RELATIVE up = ILClone(rel);
+    if (!up) return E_OUTOFMEMORY;
+    ILRemoveLastID(up);
+    std::shared_ptr<Archive> a;
+    size_t node;
+    r = f->Descend(up, parent, a, node);
+    CoTaskMemFree(up);
+    if (FAILED(r)) return r;
+    const v31np::Node& n = a->index->tree.nodes[node];
+    if (!n.dir)
+    {
+        if (!IsPack(n.natural)) return E_INVALIDARG;
+        parent.chain.push_back(a->index->entries[n.entry].key);
+        parent.sub.clear();
+    }
+    return S_OK;
 }
 
 HRESULT CreateWorker(REFIID riid, void** ppv)

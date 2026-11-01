@@ -24,7 +24,13 @@ namespace
     std::wstring Dir(const std::wstring& file)
     {
         size_t slash = file.find_last_of(L"\\/");
-        return slash == std::wstring::npos ? L"." : file.substr(0, slash);
+        if (slash == std::wstring::npos) return L".";
+        return slash == 2 && file[1] == L':' ? file.substr(0, 3) : file.substr(0, slash);
+    }
+
+    std::wstring Within(const std::wstring& dir, const std::wstring& name)
+    {
+        return !dir.empty() && (dir.back() == L'\\' || dir.back() == L'/') ? dir + name : dir + L"\\" + name;
     }
 
     std::wstring PickFolder(HWND hwnd)
@@ -180,15 +186,15 @@ namespace
                 const std::wstring at = there ? picked : Dir(files[0]);
                 const std::wstring base = L"baíbíz e alùz";
                 std::wstring folder = base;
-                for (size_t k = 1; GetFileAttributesW((at + L"\\" + folder).c_str()) != INVALID_FILE_ATTRIBUTES; k++) folder = v31np::Suffix(base, k);
-                for (const auto& f : files) jobs.emplace_back(f, at + L"\\" + folder + L"\\" + Bare(f));
+                for (size_t k = 1; GetFileAttributesW(Within(at, folder).c_str()) != INVALID_FILE_ATTRIBUTES; k++) folder = v31np::Suffix(base, k);
+                for (const auto& f : files) jobs.emplace_back(f, Within(Within(at, folder), Bare(f)));
             }
             else
             {
                 for (const auto& f : files)
                 {
                     const std::wstring at = there ? picked : Dir(f);
-                    jobs.emplace_back(f, (kind == 0 || kind == 3) ? at + L"\\" + Bare(f) : at);
+                    jobs.emplace_back(f, (kind == 0 || kind == 3) ? Within(at, Bare(f)) : at);
                 }
             }
             Run(std::move(jobs), info->hwnd);
@@ -333,7 +339,7 @@ namespace
             return QISearch(this, qit, riid, ppv);
         }
 
-        IFACEMETHODIMP CallBack(IShellFolder*, HWND, IDataObject*, UINT msg, WPARAM wParam, LPARAM) override
+        IFACEMETHODIMP CallBack(IShellFolder*, HWND hwnd, IDataObject*, UINT msg, WPARAM wParam, LPARAM) override
         {
             if (msg == DFM_MERGECONTEXTMENU) return S_OK;
             if (msg != DFM_INVOKECOMMAND) return E_NOTIMPL;
@@ -347,9 +353,7 @@ namespace
             {
                 ComPtr<IDataObject> clip;
                 if (FAILED(OleGetClipboard(&clip))) return E_FAIL;
-                HRESULT r = AddPaths(place, DropPaths(clip.Get()));
-                if (SUCCEEDED(r)) Changed(root);
-                return r;
+                return PasteItems(clip.Get(), place, root, hwnd) ? S_OK : E_FAIL;
             }
             return S_FALSE;
         }
@@ -385,8 +389,16 @@ namespace
     public:
         ComPtr<IContextMenu> inner;
         Place place;
+        PIDLIST_ABSOLUTE root = nullptr;
         std::vector<std::wstring> names;
         bool plain = true;
+        UINT used = 0;
+        bool pack = false;
+
+        ~ItemMenu()
+        {
+            CoTaskMemFree(root);
+        }
 
         IFACEMETHODIMP QueryInterface(REFIID riid, void** ppv) override
         {
@@ -402,7 +414,24 @@ namespace
 
         IFACEMETHODIMP QueryContextMenu(HMENU menu, UINT index, UINT first, UINT last, UINT flags) override
         {
-            return inner->QueryContextMenu(menu, index, first, last, flags);
+            HRESULT r = inner->QueryContextMenu(menu, index, first, last, flags);
+            pack = false;
+            if (FAILED(r)) return r;
+            used = HRESULT_CODE(r);
+            if (flags & (CMF_DEFAULTONLY | CMF_VERBSONLY)) return r;
+            for (int i = GetMenuItemCount(menu) - 1; i >= 0; i--)
+            {
+                const UINT id = GetMenuItemID(menu, i);
+                if (id == (UINT)-1 || id < first || id >= first + used) continue;
+                wchar_t verb[128] = {};
+                if (FAILED(inner->GetCommandString(id - first, GCS_VERBW, nullptr, (LPSTR)verb, ARRAYSIZE(verb)))) continue;
+                if (_wcsicmp(verb, L"Windows.ModernShare") == 0 || _wcsicmp(verb, L"Windows.Share") == 0) DeleteMenu(menu, i, MF_BYPOSITION);
+            }
+            if (first + used > last) return r;
+            const int had = GetMenuItemCount(menu);
+            InsertMenuW(menu, had > 0 ? (UINT)had - 1 : 0, MF_BYPOSITION | MF_STRING, first + used, L"Baíbíz");
+            pack = true;
+            return MAKE_HRESULT(SEVERITY_SUCCESS, 0, used + 1);
         }
 
         std::wstring VerbOf(CMINVOKECOMMANDINFO* info)
@@ -441,18 +470,28 @@ namespace
                 for (size_t k : a->index->tree.nodes[here].kids)
                     if (v31np::Fold(a->index->tree.nodes[k].natural) == f) node = k;
                 if (node == v31np::None) continue;
-                const v31np::Entry& e = a->index->entries[a->index->tree.nodes[node].entry];
+                ComPtr<IStream> src;
+                if (FAILED(CreateEntryStream(a, node, &src))) return E_FAIL;
                 const std::wstring path = dir + L"\\" + a->index->tree.nodes[node].natural;
                 HANDLE h = CreateFileW(path.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, nullptr);
                 if (h == INVALID_HANDLE_VALUE) return HRESULT_FROM_WIN32(GetLastError());
                 std::vector<BYTE> buf(1 << 20);
                 bool ok = true;
-                for (uint64_t pos = 0; ok && pos < e.size;)
+                for (;;)
                 {
-                    DWORD len = (DWORD)std::min<uint64_t>(buf.size(), e.size - pos);
+                    ULONG got = 0;
+                    if (FAILED(src->Read(buf.data(), (ULONG)buf.size(), &got)))
+                    {
+                        ok = false;
+                        break;
+                    }
+                    if (got == 0) break;
                     DWORD put = 0;
-                    ok = a->ReadAt(e.at + pos, buf.data(), len) && WriteFile(h, buf.data(), len, &put, nullptr) && put == len;
-                    pos += len;
+                    if (!WriteFile(h, buf.data(), got, &put, nullptr) || put != got)
+                    {
+                        ok = false;
+                        break;
+                    }
                 }
                 CloseHandle(h);
                 if (!ok) return E_FAIL;
@@ -468,6 +507,14 @@ namespace
 
         IFACEMETHODIMP InvokeCommand(CMINVOKECOMMANDINFO* info) override
         {
+            // Delete not — Explorer may call our entry by its verb NAME instead of its number. Miss the name and it falls
+            // through to the « open with » path: temp copies, and one « no app for this » error per file.
+            if (pack && ((IS_INTRESOURCE(info->lpVerb) && LOWORD(info->lpVerb) == used) || (!IS_INTRESOURCE(info->lpVerb) && VerbOf(info) == L"v31np.pack")))
+            {
+                HRESULT r = PackNodes(place, names);
+                if (SUCCEEDED(r)) Changed(root);
+                return r;
+            }
             const std::wstring verb = VerbOf(info);
             static const wchar_t* const Own[] = { L"copy", L"cut", L"paste", L"delete", L"rename", L"properties", L"link", L"pastelink", L"pastespecial" };
             bool own = false;
@@ -479,6 +526,12 @@ namespace
 
         IFACEMETHODIMP GetCommandString(UINT_PTR cmd, UINT type, UINT* reserved, LPSTR out, UINT cch) override
         {
+            if (pack && cmd == used)
+            {
+                if (type == GCS_VERBW) return StringCchCopyW((LPWSTR)out, cch, L"v31np.pack");
+                if (type == GCS_VERBA) return StringCchCopyA(out, cch, "v31np.pack");
+                return E_NOTIMPL;
+            }
             return inner->GetCommandString(cmd, type, reserved, out, cch);
         }
 
@@ -514,6 +567,7 @@ HRESULT CreateItemMenu(const Place& place, PCIDLIST_ABSOLUTE root, IShellFolder*
     ItemMenu* m = new (std::nothrow) ItemMenu();
     if (!m) return E_OUTOFMEMORY;
     m->place = place;
+    m->root = root ? ILCloneFull(root) : nullptr;
     for (UINT i = 0; i < cidl; i++)
         if (const Id* id = AsId(apidl[i]))
         {
@@ -532,7 +586,7 @@ HRESULT CreateBackMenu(const Place& place, PCIDLIST_ABSOLUTE root, IShellFolder*
     ComPtr<IContextMenu> menu;
     HRESULT r = MakeDefault(place, root, folder, hwnd, 0, nullptr, menu);
     if (FAILED(r)) return r;
-    return menu->QueryInterface(riid, ppv);
+    return WrapBackMenu(place, root, menu.Get(), riid, ppv);
 }
 
 HRESULT CreatePackMenu(REFIID riid, void** ppv)

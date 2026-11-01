@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="30" y="60" width="220" height="160" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M30 78 L250 78" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="234" y="65" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<rect x="220" y="65" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<rect x="206" y="65" width="9" height="8" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="38" y="73.5" text-anchor="start" font-size="11" font-family="Times New Roman, Times, serif">Copy engine</text>
+<path d="M50 105 L230 105" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M50 127 L230 127" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M50 149 L230 149" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M50 171 L230 171" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M550 68 L556 60 L638.0 60 L646.0 68 L770 68 L770 220 L550 220 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M550 76 L770 76" fill="none" stroke="#000" stroke-width="1"/>
+<text x="660" y="100" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Folder of the archive</text>
+<text x="660" y="118" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">(IStorage)</text>
+<path d="M590 135 L606 135 L620 149 L620 173 L590 173 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M606 135 L606 149 L620 149" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M630 135 L646 135 L660 149 L660 173 L630 173 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M646 135 L646 149 L660 149" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="672" y="140" width="80" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="712" y="157" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">new item</text>
+<path d="M360 250 L406 250 L420 264 L420 326 L360 326 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M406 250 L406 264 L420 264" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 272 L412 272" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 281 L412 281" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 290 L412 290" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 299 L412 299" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 308 L412 308" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M367 317 L412 317" fill="none" stroke="#000" stroke-width="1"/>
+<text x="390" y="345" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">temporary file</text>
+<path d="M560 270 L596 270 L610 284 L610 334 L560 334 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<path d="M596 270 L596 284 L610 284" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M567 292 L602 292" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M567 301 L602 301" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M567 310 L602 310" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M567 319 L602 319" fill="none" stroke="#000" stroke-width="1"/>
+<text x="585" y="352" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">journal</text>
+<path d="M250 80 L541.0 80.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M550 80 L541.0 84.0 L541.0 76.0 Z" fill="#000"/>
+<circle cx="400" cy="80" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="84.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">1</text>
+<path d="M550 115 L259.0 115.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 115 L259.0 111.0 L259.0 119.0 Z" fill="#000"/>
+<circle cx="400" cy="115" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="119.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">2</text>
+<path d="M250 150 L541.0 150.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M550 150 L541.0 154.0 L541.0 146.0 Z" fill="#000"/>
+<circle cx="400" cy="150" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="154.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">3</text>
+<path d="M550 185 L259.0 185.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 185 L259.0 181.0 L259.0 189.0 Z" fill="#000"/>
+<circle cx="400" cy="185" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="189.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">4</text>
+<path d="M250 210 L352.25 270.42" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M360 275 L350.22 273.87 L354.29 266.98 Z" fill="#000"/>
+<circle cx="305" cy="242" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="305" y="246.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">5</text>
+<path d="M620 220 L590.16 262.63" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M585 270 L586.88 260.33 L593.44 264.92 Z" fill="#000"/>
+<circle cx="615" cy="245" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="615" y="249.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">6</text>
+<text x="40" y="395" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">1. CreateStream(name): the folder lists the new item at once, on an empty temporary file,</text>
+<text x="40" y="413" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">    and the journal receives row T; Commit and Stat follow, Stat giving the element name.</text>
+<text x="40" y="431" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">2. The stream is handed back and released without a single write.</text>
+<text x="40" y="449" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">3. ParseDisplayName(name), then BindToObject(item, IStream) with the modes 0, 0x20 and 0x22.</text>
+<text x="40" y="467" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">4. The last bind hands out a writable stream on the same temporary file.</text>
+<text x="40" y="485" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">5. The content is written into the temporary file and the stream released.</text>
+<text x="40" y="503" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">6. Row T in the journal receives the final size.</text>
+</svg>
