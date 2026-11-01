@@ -12,7 +12,7 @@ Hírù gùkríbngaín uq standartas Íika , i.e./ .v31np & .v31n formatas , úí
 <tr><th colspan="2">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td>1. Report No.<br>PS-N/PF-1031 R.3</td><td>2. Report Date<br>2026/10/31</td></tr>
+<tr><td>1. Report No.<br>PS-N/PF-1031 R.3</td><td>2. Report Date<br>2026/11/01</td></tr>
 <tr><td colspan="2">3. Title<br>V31NP STANDARD</td></tr>
 <tr><td>4. Author(s)<br>P.K.</td><td>5. Performing Organization<br>v31null, in its official capacity for all v31n services where applicable</td></tr>
 <tr><td colspan="2">6. Abstract<br>This document defines the .v31np file format and the V31NP STANDARD. A .v31np file holds any number of files together with their paths, stored raw behind a header of two tables and closed by a single CRC-32 over the whole file. The document sets out the layout, fields, constraints and properties of the format, describes the programmes that support it, namely the native systems of v31n, the Windows Explorer extension and the 7-Zip plugin, rates each against the standard, sets out considerations for developers concerning storage, compression, nested archives, metadata, the marks, the checksum and networking, and sets out the behaviour required of programmes that present, extract and edit .v31np files on any system, including editing through a shadow and its journal.</td></tr>
