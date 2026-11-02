@@ -1,3 +1,6 @@
-installer/build/
-installer/nsis/
-installer/sandbox.wsb
+psnpf1031/installer/build/
+psnpf1031/installer/nsis/
+psnpf1031/installer/sandbox.wsb
+psnpf1031/linux/build/
+psnpf1031/linux/build-release/
+/tools/

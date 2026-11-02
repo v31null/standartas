@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Baíbízù format ekta kokain
+Name[en]=Kokain's Storage-format
+Exec=v31np-open %f
+Icon=application-x-v31np
+MimeType=application/x-v31np;
+NoDisplay=true
+Terminal=false

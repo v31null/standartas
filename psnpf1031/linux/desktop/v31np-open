@@ -1,0 +1,42 @@
+#!/bin/sh
+set -eu
+fail() {
+    if command -v zenity >/dev/null 2>&1; then zenity --error --no-wrap --text="$1" 2>/dev/null || true; fi
+    printf 'v31np-open: %s\n' "$1" >&2
+    exit 1
+}
+mounted() {
+    grep -qF " $1 " /proc/mounts
+}
+[ $# -eq 1 ] || fail "usage: v31np-open <archive.v31np>"
+archive=$(realpath -- "$1") || fail "cannot find $1"
+here=$(dirname -- "$(realpath -- "$0")")
+mounter="$here/v31np-mount"
+[ -x "$mounter" ] || mounter=$(command -v v31np-mount) || fail "v31np-mount is not installed"
+cli="$here/v31np"
+[ -x "$cli" ] || cli=$(command -v v31np) || fail "v31np is not installed"
+runtime=${XDG_RUNTIME_DIR:-/tmp/v31np-$(id -u)}
+records="$runtime/v31np-open"
+mkdir -p "$records"
+record="$records/$(printf '%s' "$archive" | sha256sum | cut -c1-16)"
+home=${V31NP_HOME:-$HOME/V31NP}
+if [ -f "$record" ]; then
+    point=$(cat "$record")
+    if mounted "$point"; then exec gio open "$point"; fi
+    rm -f "$record"
+fi
+mkdir -p "$home"
+for old in "$home"/* "$home"/.[!.]*; do
+    [ -d "$old" ] && ! mounted "$old" && rmdir "$old" 2>/dev/null || true
+done
+point="$home/$("$cli" name "$home" "$(basename -- "$archive")")"
+mkdir -p "$point"
+printf '%s\n' "$point" > "$record"
+"$mounter" --idle="${V31NP_IDLE:-600}" --tidy "$archive" "$point" || { rmdir "$point" 2>/dev/null || true; fail "cannot open $(basename -- "$archive")"; }
+tries=0
+until mounted "$point"; do
+    tries=$((tries + 1))
+    [ $tries -lt 50 ] || fail "cannot open $(basename -- "$archive")"
+    sleep 0.1
+done
+exec gio open "$point"

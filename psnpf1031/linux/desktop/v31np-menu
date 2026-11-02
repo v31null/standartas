@@ -1,0 +1,60 @@
+#!/bin/sh
+set -eu
+here=$(dirname -- "$(realpath -- "$0")")
+cli="$here/v31np"
+[ -x "$cli" ] || cli=$(command -v v31np) || { printf 'v31np-menu: v31np is not installed\n' >&2; exit 1; }
+say() {
+    if command -v zenity >/dev/null 2>&1; then zenity --error --no-wrap --text="$1" 2>/dev/null || true; fi
+    printf 'v31np-menu: %s\n' "$1" >&2
+}
+pick() {
+    zenity --file-selection --directory --title="$1" 2>/dev/null
+}
+bare() {
+    name=$(basename -- "$1")
+    case "$name" in
+        *.[vV]31[nN][pP]) name=${name%??????} ;;
+    esac
+    printf '%s' "$name"
+}
+extract() {
+    "$cli" extract "$1" "$2" >/dev/null || say "$(basename -- "$1") could not be extracted"
+}
+[ $# -ge 2 ] || { printf 'usage: v31np-menu <verb> <path>...\n' >&2; exit 2; }
+verb=$1
+shift
+case "$verb" in
+    name)
+        for f in "$@"; do extract "$f" "$(dirname -- "$f")/$(bare "$f")"; done ;;
+    here)
+        for f in "$@"; do extract "$f" "$(dirname -- "$f")"; done ;;
+    there|therename)
+        target=$(pick "Anfas alùz țùre") || exit 0
+        for f in "$@"; do
+            if [ "$verb" = therename ]; then extract "$f" "$target/$(bare "$f")"; else extract "$f" "$target"; fi
+        done ;;
+    allhere|allthere)
+        if [ "$verb" = allthere ]; then at=$(pick "Anfas teí̈nt țùre") || exit 0; else at=$(dirname -- "$1"); fi
+        folder="$at/$("$cli" name "$at" "baíbíz e alùz")"
+        for f in "$@"; do extract "$f" "$folder/$(bare "$f")"; done ;;
+    pack)
+        first=$1
+        while [ "${first%/}" != "$first" ]; do first=${first%/}; done
+        dir=$(dirname -- "$first")
+        name=$(basename -- "$first")
+        if [ -f "$first" ]; then
+            case "$name" in
+                ?*.*) name=${name%.*} ;;
+            esac
+        fi
+        target="$dir/$("$cli" name "$dir" "$name.v31np")"
+        if ! why=$("$cli" make "$target" "$@" 2>&1 >/dev/null); then
+            case "$why" in
+                *"nothing to pack"*) say "Nothing to pack: the selection holds no files, and the .v31np format stores no empty folders." ;;
+                *) say "$(basename -- "$target") could not be made: ${why#v31np: }" ;;
+            esac
+        fi ;;
+    *)
+        printf 'v31np-menu: unknown verb %s\n' "$verb" >&2
+        exit 2 ;;
+esac

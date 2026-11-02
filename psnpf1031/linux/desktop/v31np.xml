@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-v31np">
+    <comment>Baíbízù format ekta kokain</comment>
+    <comment xml:lang="en">Kokain's Storage-format</comment>
+    <icon name="application-x-v31np"/>
+    <glob pattern="*.v31np" weight="90"/>
+    <magic priority="80">
+      <match type="string" offset="0" value="V31NSPACKFORMAT$"/>
+    </magic>
+  </mime-type>
+</mime-info>

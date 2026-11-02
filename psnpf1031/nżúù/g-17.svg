@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<defs><pattern id="gules" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M2 0 L2 4" stroke="#000" stroke-width="0.8"/></pattern><pattern id="azure" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 2 L4 2" stroke="#000" stroke-width="0.8"/></pattern><pattern id="vert" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M-1 -1 L6 6 M-1 4 L1 6 M4 -1 L6 1" stroke="#000" stroke-width="0.8"/></pattern><pattern id="or" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="#000"/></pattern></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="20" y="30" width="140" height="180" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="34" cy="44" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="34" y="48.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">1</text>
+<text x="90" y="66" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">lane</text>
+<rect x="40" y="72" width="100" height="30" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="90" y="122" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">queue</text>
+<rect x="40" y="128" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="90" y="143" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">A, ticket 1</text>
+<rect x="40" y="152" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="90" y="167" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">B, ticket 2</text>
+<rect x="140" y="36" width="12" height="30" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="146" cy="44" r="4.5" fill="url(#gules)" stroke="#000" stroke-width="1"/>
+<circle cx="146" cy="58" r="4.5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<rect x="175" y="30" width="140" height="180" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="189" cy="44" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="189" y="48.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">2</text>
+<text x="245" y="66" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">lane</text>
+<rect x="195" y="72" width="100" height="30" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="245" y="92" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A, shift 1</text>
+<text x="245" y="122" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">queue</text>
+<rect x="195" y="128" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="245" y="143" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">B, ticket 2</text>
+<rect x="295" y="36" width="12" height="30" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="301" cy="44" r="4.5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="301" cy="58" r="4.5" fill="url(#vert)" stroke="#000" stroke-width="1"/>
+<rect x="330" y="30" width="140" height="180" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="344" cy="44" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="344" y="48.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">3</text>
+<text x="400" y="66" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">lane</text>
+<rect x="350" y="72" width="100" height="30" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="400" y="92" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A, shift 1</text>
+<text x="400" y="122" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">queue</text>
+<rect x="350" y="128" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="143" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">C, ticket 3, urgent</text>
+<rect x="350" y="152" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="400" y="167" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">B, ticket 2</text>
+<rect x="450" y="36" width="12" height="30" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="456" cy="44" r="4.5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="456" cy="58" r="4.5" fill="url(#vert)" stroke="#000" stroke-width="1"/>
+<text x="400" y="202" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif" font-style="italic">lease of A renewed</text>
+<rect x="485" y="30" width="140" height="180" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="499" cy="44" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="499" y="48.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">4</text>
+<text x="555" y="66" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">lane</text>
+<rect x="505" y="72" width="100" height="30" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="555" y="122" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">queue</text>
+<rect x="505" y="128" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="555" y="143" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">C, ticket 3, urgent</text>
+<rect x="505" y="152" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="555" y="167" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">B, ticket 2</text>
+<rect x="605" y="36" width="12" height="30" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="611" cy="44" r="4.5" fill="url(#gules)" stroke="#000" stroke-width="1"/>
+<circle cx="611" cy="58" r="4.5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="555" y="202" text-anchor="middle" font-size="11" font-family="Times New Roman, Times, serif" font-style="italic">A has left</text>
+<rect x="640" y="30" width="140" height="180" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="654" cy="44" r="10" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="654" y="48.5" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">5</text>
+<text x="710" y="66" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">lane</text>
+<rect x="660" y="72" width="100" height="30" fill="#ffffff" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="710" y="92" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">C, shift 2</text>
+<text x="710" y="122" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">queue</text>
+<rect x="660" y="128" width="100" height="20" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="710" y="143" text-anchor="middle" font-size="12" font-family="Times New Roman, Times, serif">B, ticket 2</text>
+<rect x="760" y="36" width="12" height="30" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="766" cy="44" r="4.5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<circle cx="766" cy="58" r="4.5" fill="url(#vert)" stroke="#000" stroke-width="1"/>
+<path d="M20 240 L771.0 240.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M780 240 L771.0 236.0 L771.0 244.0 Z" fill="#000"/>
+<text x="780" y="258" text-anchor="end" font-size="12" font-family="Times New Roman, Times, serif" font-style="italic">time</text>
+<path d="M90 235 L90 245" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M245 235 L245 245" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M400 235 L400 245" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M555 235 L555 245" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M710 235 L710 245" fill="none" stroke="#000" stroke-width="1"/>
+<text x="40" y="300" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">1. Cars A and B join the queue with tickets 1 and 2; the lane is free.</text>
+<text x="40" y="320" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">2. A is waved on and holds the lane; shift 1 begins.</text>
+<text x="40" y="340" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">3. A renews its lease while it drives; C joins with ticket 3, marked urgent.</text>
+<text x="40" y="360" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">4. A has landed and leaves the lane.</text>
+<text x="40" y="380" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">5. C, being urgent, is waved on before B; shift 2 begins, and B waits for its turn.</text>
+</svg>
