@@ -1,48 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="270" viewBox="0 0 800 270">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="920" viewBox="0 0 800 920">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="170.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Before</text>
-<rect x="40" y="46" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="48" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
-<rect x="40" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="54" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="68" y="80" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="76" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a/x.txt</text>
-<rect x="40" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="54" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="68" y="114" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="76" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">a/in.v31np</text>
-<rect x="40" y="148" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="48" y="167" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@ a/in.v31np</text>
-<rect x="40" y="182" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="54" y="201" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="68" y="182" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="76" y="201" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">y.txt</text>
-<rect x="40" y="216" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="54" y="235" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">T</text>
-<rect x="68" y="216" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="76" y="235" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">z.txt</text>
-<path d="M320 130 L461.0 130.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M470 130 L461.0 134.0 L461.0 126.0 Z" fill="#000"/>
-<text x="395" y="120" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Folder a renamed to b</text>
-<text x="620.0" y="30" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">After</text>
-<rect x="490" y="46" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="498" y="65" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
-<rect x="490" y="80" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="504" y="99" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="518" y="80" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="526" y="99" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b/x.txt</text>
-<rect x="490" y="114" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="504" y="133" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="518" y="114" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="526" y="133" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">b/in.v31np</text>
-<rect x="490" y="148" width="260" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="498" y="167" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@ b/in.v31np</text>
-<rect x="490" y="182" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="504" y="201" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">A</text>
-<rect x="518" y="182" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="526" y="201" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">y.txt</text>
-<rect x="490" y="216" width="28" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="504" y="235" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">T</text>
-<rect x="518" y="216" width="232" height="28" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="526" y="235" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">z.txt</text>
+<rect x="80.0" y="10.0" width="360" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="31.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Last view closed and</text>
+<text x="260" y="48.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">no view open again</text>
+<path d="M260 60 L260.0 76.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 85 L256.0 76.0 L264.0 76.0 Z" fill="#000"/>
+<rect x="110.0" y="85.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="109.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Lock of the archive taken</text>
+<path d="M260 125 L260.0 141.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 150 L256.0 141.0 L264.0 141.0 Z" fill="#000"/>
+<path d="M260 150.0 L390.0 195 L260 240.0 L130.0 195 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="191.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal</text>
+<text x="260" y="208.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">fresh?</text>
+<path d="M390 195 L491.0 195.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 195 L491.0 199.0 L491.0 191.0 Z" fill="#000"/>
+<text x="400" y="188" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="500.0" y="152.0" width="290" height="86" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="645" y="175.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Stale: discarded; own temporary</text>
+<text x="645" y="191.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">files deleted, originals of rows H</text>
+<text x="645" y="207.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">shown again, unless foreign; none</text>
+<text x="645" y="223.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">or unreadable: nothing to do</text>
+<path d="M260 240 L260.0 261.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 270 L256.0 261.0 L264.0 261.0 Z" fill="#000"/>
+<text x="268" y="258" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<path d="M260 270.0 L420.0 320 L260 370.0 L100.0 320 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="307.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal free of</text>
+<text x="260" y="324.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">foreign rows on</text>
+<text x="260" y="341.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">this machine?</text>
+<path d="M420 320 L491.0 320.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 320 L491.0 324.0 L491.0 316.0 Z" fill="#000"/>
+<text x="430" y="313" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="500.0" y="295.0" width="290" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="645" y="316.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Journal left for the machine</text>
+<text x="645" y="332.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">that wrote it; no repack</text>
+<path d="M260 370 L260.0 391.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 400 L256.0 391.0 L264.0 391.0 Z" fill="#000"/>
+<text x="268" y="388" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="50.0" y="405.0" width="420" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="426.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Nested archives with a section built</text>
+<text x="260" y="443.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">into temporary files, innermost first</text>
+<path d="M260 455 L260.0 471.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 480 L256.0 471.0 L264.0 471.0 Z" fill="#000"/>
+<rect x="50.0" y="485.0" width="420" height="70" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="507.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">New archive written beside the old one as .tmp;</text>
+<text x="260" y="524.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">linked files read as they are now, missing</text>
+<text x="260" y="541.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">ones left out; empty folders left out</text>
+<path d="M260 555 L260.0 576.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 585 L256.0 576.0 L264.0 576.0 Z" fill="#000"/>
+<path d="M260 585.0 L420.0 635 L260 685.0 L100.0 635 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="631.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Written in full and</text>
+<text x="260" y="648.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">old file replaced?</text>
+<path d="M420 635 L491.0 635.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M500 635 L491.0 639.0 L491.0 631.0 Z" fill="#000"/>
+<text x="430" y="628" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="500.0" y="602.0" width="290" height="66" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="645" y="631.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">New file removed; journal</text>
+<text x="645" y="647.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">and pending content kept</text>
+<path d="M260 685 L260.0 706.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 715 L256.0 706.0 L264.0 706.0 Z" fill="#000"/>
+<text x="268" y="703" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="50.0" y="717.0" width="420" height="122" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="748.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Originals of rows M deleted;</text>
+<text x="260" y="765.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">own temporary files of rows T deleted;</text>
+<text x="260" y="782.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">folders of rows R removed if empty;</text>
+<text x="260" y="799.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">originals of rows H that still exist</text>
+<text x="260" y="816.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">shown again; the journal used deleted</text>
+<path d="M260 839 L260.0 861.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M260 870 L256.0 861.0 L264.0 861.0 Z" fill="#000"/>
+<rect x="110.0" y="870.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="260" y="894.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Lock released</text>
 </svg>

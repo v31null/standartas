@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="230" y="24" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Step</text>
+<text x="620" y="24" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif" font-style="italic">Example</text>
+<rect x="40.0" y="40.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="68.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Name without its extension</text>
+<rect x="480.0" y="40.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="69.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">␣␣[-Äpfel №7] live</text>
+<path d="M420 64 L480 64" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<path d="M620 88 L620.0 101.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 110 L616.0 101.0 L624.0 101.0 Z" fill="#000"/>
+<rect x="40.0" y="110.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="130.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">White space at the start skipped; a part in</text>
+<text x="230" y="147.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">brackets at the start replaces the name</text>
+<rect x="480.0" y="110.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="139.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">-Äpfel №7</text>
+<path d="M420 134 L480 134" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<path d="M620 158 L620.0 171.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 180 L616.0 171.0 L624.0 171.0 Z" fill="#000"/>
+<rect x="40.0" y="180.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="200.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Punctuation and white space</text>
+<text x="230" y="217.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">at the start removed</text>
+<rect x="480.0" y="180.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="209.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">Äpfel №7</text>
+<path d="M420 204 L480 204" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<path d="M620 228 L620.0 241.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 250 L616.0 241.0 L624.0 241.0 Z" fill="#000"/>
+<rect x="40.0" y="250.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="270.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A letter with a diaeresis written</text>
+<text x="230" y="287.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">twice without the diaeresis</text>
+<rect x="480.0" y="250.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="279.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">AApfel №7</text>
+<path d="M420 274 L480 274" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<path d="M620 298 L620.0 311.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 320 L616.0 311.0 L624.0 311.0 Z" fill="#000"/>
+<rect x="40.0" y="320.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="348.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Digits after № padded to five</text>
+<rect x="480.0" y="320.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="349.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">AApfel №00007</text>
+<path d="M420 344 L480 344" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+<path d="M620 368 L620.0 381.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M620 390 L616.0 381.0 L624.0 381.0 Z" fill="#000"/>
+<rect x="40.0" y="390.0" width="380" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="230" y="418.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Lower case</text>
+<rect x="480.0" y="390.0" width="280" height="48" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="620" y="419.25" text-anchor="middle" font-size="15" font-family="Times New Roman, Times, serif">aapfel №00007</text>
+<path d="M420 414 L480 414" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5 3"/>
+</svg>

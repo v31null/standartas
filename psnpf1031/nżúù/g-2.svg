@@ -1,68 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="720" viewBox="0 0 800 720">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<rect x="70.0" y="15.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Both names folded as in Figure G-1</text>
-<path d="M230 55 L230.0 76.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 85 L226.0 76.0 L234.0 76.0 Z" fill="#000"/>
-<rect x="70.0" y="85.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="109.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Next pair of characters</text>
-<path d="M230 125 L230.0 146.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 155 L226.0 146.0 L234.0 146.0 Z" fill="#000"/>
-<path d="M230 155.0 L350.0 195 L230 235.0 L110.0 195 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="191.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">One name</text>
-<text x="230" y="208.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">at its end?</text>
-<path d="M350 195 L461.0 195.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M470 195 L461.0 199.0 L461.0 191.0 Z" fill="#000"/>
-<text x="360" y="188" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="470.0" y="167.0" width="260" height="56" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="600" y="183.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Shorter name first; equal length:</text>
-<text x="600" y="199.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">tie broken by place, case,</text>
-<text x="600" y="215.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">length and code points</text>
-<path d="M230 235 L230.0 261.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 270 L226.0 261.0 L234.0 261.0 Z" fill="#000"/>
-<text x="238" y="256" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<path d="M230 270.0 L350.0 310 L230 350.0 L110.0 310 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="306.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Characters</text>
-<text x="230" y="323.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">equal?</text>
-<path d="M110 310 L40 310 L40 105" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M40 105 L61.0 105.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M70 105 L61.0 109.0 L61.0 101.0 Z" fill="#000"/>
-<text x="80" y="302" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M230 350 L230.0 381.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 390 L226.0 381.0 L234.0 381.0 Z" fill="#000"/>
-<text x="238" y="374" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<path d="M230 390.0 L350.0 430 L230 470.0 L110.0 430 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="426.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Both in</text>
-<text x="230" y="443.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Table G-1?</text>
-<path d="M350 430 L481.0 430.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M490 430 L481.0 434.0 L481.0 426.0 Z" fill="#000"/>
-<text x="360" y="423" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M600 390.0 L710.0 430 L600 470.0 L490.0 430 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="600" y="426.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Ranks</text>
-<text x="600" y="443.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">equal?</text>
-<path d="M710 430 L770 430 L770 140 L290 140" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M290 140 L290.0 134.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M290 125 L294.0 134.0 L286.0 134.0 Z" fill="#000"/>
-<text x="716" y="423" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M600 470 L600.0 491.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M600 500 L596.0 491.0 L604.0 491.0 Z" fill="#000"/>
-<text x="608" y="490" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="490.0" y="500.0" width="220" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="600" y="524.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Lower rank first</text>
-<path d="M230 470 L230.0 501.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 510 L226.0 501.0 L234.0 501.0 Z" fill="#000"/>
-<text x="238" y="494" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<path d="M230 510.0 L350.0 550 L230 590.0 L110.0 550 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="546.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">One of them</text>
-<text x="230" y="563.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">in Table G-1?</text>
-<path d="M350 550 L420 550 L420 610 L481.0 610.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M490 610 L481.0 614.0 L481.0 606.0 Z" fill="#000"/>
-<text x="360" y="543" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="490.0" y="590.0" width="220" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="600" y="614.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">That one first</text>
-<path d="M230 590 L230.0 631.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M230 640 L226.0 631.0 L234.0 631.0 Z" fill="#000"/>
-<text x="238" y="614" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="100.0" y="643.0" width="260" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="669.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Lower code point first</text>
+<rect x="230.0" y="15.0" width="380" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="36.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Change requested: add, copy, move,</text>
+<text x="420" y="53.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">rename, delete or create</text>
+<path d="M420 65.0 L420.0 81.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 90.0 L416.0 81.0 L424.0 81.0 Z" fill="#000"/>
+<rect x="230.0" y="90.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="114.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Lock of the archive taken</text>
+<path d="M420 130.0 L420.0 146.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 155.0 L416.0 146.0 L424.0 146.0 Z" fill="#000"/>
+<rect x="230.0" y="155.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="179.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal read; a stale journal discarded</text>
+<path d="M420 195.0 L420.0 211.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 220.0 L416.0 211.0 L424.0 211.0 Z" fill="#000"/>
+<rect x="230.0" y="220.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="244.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Change applied to the sections</text>
+<path d="M420 260.0 L420.0 276.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 285.0 L416.0 276.0 L424.0 276.0 Z" fill="#000"/>
+<rect x="230.0" y="285.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="309.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal written whole; lock released</text>
+<path d="M420 325.0 L420.0 341.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 350.0 L416.0 341.0 L424.0 341.0 Z" fill="#000"/>
+<rect x="230.0" y="350.0" width="380" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="374.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Views and readers show the new state</text>
+<path d="M420 390 L420.0 406.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 415 L416.0 406.0 L424.0 406.0 Z" fill="#000"/>
+<path d="M420 415.0 L570.0 460 L420 505.0 L270.0 460 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="456.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Last view of the</text>
+<text x="420" y="473.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">archive closed?</text>
+<path d="M270 460 L150 460 L150 40" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M150 40 L221.0 40.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M230 40 L221.0 44.0 L221.0 36.0 Z" fill="#000"/>
+<text x="245" y="452" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<path d="M420 505 L420.0 526.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 535 L416.0 526.0 L424.0 526.0 Z" fill="#000"/>
+<text x="428" y="524" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="270.0" y="535.0" width="300" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="559.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Short wait</text>
+<path d="M420 575 L420.0 591.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 600 L416.0 591.0 L424.0 591.0 Z" fill="#000"/>
+<path d="M420 600.0 L570.0 640 L420 680.0 L270.0 640 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="636.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A view open</text>
+<text x="420" y="653.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">again?</text>
+<path d="M270 640 L150 640 L150 460" fill="none" stroke="#000" stroke-width="1"/>
+<text x="245" y="632" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<path d="M420 680 L420.0 696.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M420 705 L416.0 696.0 L424.0 696.0 Z" fill="#000"/>
+<text x="428" y="696" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="320.0" y="707.0" width="200" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="420" y="731.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Repack</text>
 </svg>

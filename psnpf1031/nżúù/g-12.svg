@@ -1,58 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="625" viewBox="0 0 800 625">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<rect x="90.0" y="15.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Archive opened, read or changed</text>
-<path d="M250 55 L250.0 71.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 80 L246.0 71.0 L254.0 71.0 Z" fill="#000"/>
-<path d="M250 80.0 L400.0 125 L250 170.0 L100.0 125 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="121.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal under</text>
-<text x="250" y="138.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">either name?</text>
-<path d="M400 125 L491.0 125.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M500 125 L491.0 129.0 L491.0 121.0 Z" fill="#000"/>
-<text x="410" y="118" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="505.0" y="103.0" width="280" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="645" y="129.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Archive as stored</text>
-<path d="M250 170 L250.0 191.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 200 L246.0 191.0 L254.0 191.0 Z" fill="#000"/>
-<text x="258" y="188" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M250 200.0 L400.0 245 L250 290.0 L100.0 245 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="241.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Journal</text>
-<text x="250" y="258.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">readable?</text>
-<path d="M400 245 L491.0 245.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M500 245 L491.0 249.0 L491.0 241.0 Z" fill="#000"/>
-<text x="410" y="238" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="505.0" y="215.0" width="280" height="60" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="645" y="241.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Ignored; the next change</text>
-<text x="645" y="257.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">starts a new journal</text>
-<path d="M250 290 L250.0 311.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 320 L246.0 311.0 L254.0 311.0 Z" fill="#000"/>
-<text x="258" y="308" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M250 315.0 L440.0 370 L250 425.0 L60.0 370 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="357.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Size and time of the</text>
-<text x="250" y="374.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">archive equal to the</text>
-<text x="250" y="391.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">header of the journal?</text>
-<path d="M440 370 L503.5 370.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M512.5 370 L503.5 374.0 L503.5 366.0 Z" fill="#000"/>
-<text x="448" y="363" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<path d="M637.5 325.0 L762.5 370 L637.5 415.0 L512.5 370 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="637.5" y="374.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">On a shared road?</text>
-<path d="M637.5 415 L637.5 431.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M637.5 440 L633.5 431.0 L641.5 431.0 Z" fill="#000"/>
-<text x="645.5" y="433" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="505.0" y="440.0" width="265" height="90" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="637.5" y="465.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Stale: the journal used deleted</text>
-<text x="637.5" y="481.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">under the lock, with its own</text>
-<text x="637.5" y="497.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">temporary files; rows H shown</text>
-<text x="637.5" y="513.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">again unless foreign; archive as stored</text>
-<path d="M762.5 370 L785 370 L785 580 L779.0 580" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M770 580 L779.0 576.0 L779.0 584.0 Z" fill="#000"/>
-<text x="766" y="362" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="505.0" y="558.0" width="265" height="44" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="637.5" y="584.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Sections dropped; officer kept</text>
-<path d="M250 420 L250.0 446.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 455 L246.0 446.0 L254.0 446.0 Z" fill="#000"/>
-<text x="258" y="440" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="90.0" y="460.0" width="320" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="481.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Archive presented through the</text>
-<text x="250" y="498.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">journal; read-only if foreign</text>
+<rect x="70.0" y="10.0" width="360" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="31.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Level to list: the archive</text>
+<text x="250" y="48.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">or a nested archive in it</text>
+<path d="M250 60 L250.0 76.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 85 L246.0 76.0 L254.0 76.0 Z" fill="#000"/>
+<path d="M250 85.0 L400.0 130 L250 175.0 L100.0 130 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="126.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Section for</text>
+<text x="250" y="143.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">this level?</text>
+<path d="M400 130 L471.0 130.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M480 130 L471.0 134.0 L471.0 126.0 Z" fill="#000"/>
+<text x="410" y="123" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="480.0" y="87.0" width="300" height="86" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="630" y="118.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Entries from the rows: A from the archive,</text>
+<text x="630" y="134.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">F, M and T from their files (foreign rows</text>
+<text x="630" y="150.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">listed, not opened); D as empty folders</text>
+<path d="M250 175 L250.0 196.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 205 L246.0 196.0 L254.0 196.0 Z" fill="#000"/>
+<text x="258" y="193" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="80.0" y="210.0" width="340" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="231.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Entries parsed from the</text>
+<text x="250" y="248.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">archive at this level</text>
+<path d="M250 260 L250.0 281.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 290 L246.0 281.0 L254.0 281.0 Z" fill="#000"/>
+<path d="M630 173 L630 275 L250 275" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 290.0 L420.0 340 L250 390.0 L80.0 340 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="327.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Entry a nested archive</text>
+<text x="250" y="344.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">with a section of</text>
+<text x="250" y="361.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">its own?</text>
+<path d="M420 340 L471.0 340.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M480 340 L471.0 344.0 L471.0 336.0 Z" fill="#000"/>
+<text x="430" y="333" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
+<rect x="480.0" y="307.0" width="300" height="66" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="630" y="328.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Shown with the size it will have;</text>
+<text x="630" y="344.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">built into a temporary file</text>
+<text x="630" y="360.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">when its content is read</text>
+<path d="M250 390 L250.0 411.0" fill="none" stroke="#000" stroke-width="1"/>
+<path d="M250 420 L246.0 411.0 L254.0 411.0 Z" fill="#000"/>
+<text x="258" y="408" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
+<rect x="80.0" y="425.0" width="340" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="250" y="446.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Shown and read as the</text>
+<text x="250" y="463.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">row or the archive gives it</text>
 </svg>

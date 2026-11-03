@@ -1,57 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+<defs><pattern id="gules" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M2 0 L2 4" stroke="#000" stroke-width="0.8"/></pattern><pattern id="azure" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 2 L4 2" stroke="#000" stroke-width="0.8"/></pattern><pattern id="vert" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M-1 -1 L6 6 M-1 4 L1 6 M4 -1 L6 1" stroke="#000" stroke-width="0.8"/></pattern><pattern id="or" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="#000"/></pattern></defs>
 <rect width="100%" height="100%" fill="#ffffff"/>
-<rect x="90.0" y="15.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Each part of the key, in order</text>
-<path d="M250 55 L250.0 71.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 80 L246.0 71.0 L254.0 71.0 Z" fill="#000"/>
-<rect x="60.0" y="80.0" width="380" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="101.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Name derived that the system permits</text>
-<text x="250" y="118.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">(on Windows Table Ú-2)</text>
-<path d="M250 130 L250.0 151.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 160 L246.0 151.0 L254.0 151.0 Z" fill="#000"/>
-<path d="M250 160.0 L420.0 220 L250 280.0 L80.0 220 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="199.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Name already taken in</text>
-<text x="250" y="216.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the folder or at the</text>
-<text x="250" y="233.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">destination, by the</text>
-<text x="250" y="250.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">system's comparison?</text>
-<path d="M420 220 L511.0 220.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M520 220 L511.0 224.0 L511.0 216.0 Z" fill="#000"/>
-<text x="430" y="213" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<path d="M640 180.0 L760.0 220 L640 260.0 L520.0 220 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="640" y="216.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">A folder landing</text>
-<text x="640" y="233.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">on a folder?</text>
-<path d="M640 180 L640.0 129.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M640 120 L644.0 129.0 L636.0 129.0 Z" fill="#000"/>
-<text x="648" y="160" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="510.0" y="70.0" width="260" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="640" y="91.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Next letter suffix of Table G-2</text>
-<text x="640" y="107.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">before the extension</text>
-<path d="M510 95 L470 95 L470 145 L250 145" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M251 145 L250.6 151.02" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 160 L246.61 150.75 L254.59 151.29 Z" fill="#000"/>
-<path d="M640 260 L640.0 276.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M640 285 L636.0 276.0 L644.0 276.0 Z" fill="#000"/>
-<text x="648" y="277" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="510.0" y="285.0" width="260" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="640" y="306.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Merged with it; the items</text>
-<text x="640" y="322.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">inside named in turn</text>
-<path d="M250 280 L250.0 361.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 370 L246.0 361.0 L254.0 361.0 Z" fill="#000"/>
-<text x="258" y="300" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<path d="M250 370.0 L410.0 420 L250 470.0 L90.0 420 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="416.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Path longer than</text>
-<text x="250" y="433.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">the system permits?</text>
-<path d="M410 420 L491.0 420.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M500 420 L491.0 424.0 L491.0 416.0 Z" fill="#000"/>
-<text x="420" y="413" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
-<rect x="500.0" y="390.0" width="280" height="60" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="640" y="416.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">Shortened by the rules</text>
-<text x="640" y="432.55" text-anchor="middle" font-size="13" font-family="Times New Roman, Times, serif">of the system; extension kept</text>
-<path d="M640 450 L640 500 L250 500" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 470 L250.0 516.0" fill="none" stroke="#000" stroke-width="1"/>
-<path d="M250 525 L246.0 516.0 L254.0 516.0 Z" fill="#000"/>
-<text x="258" y="490" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
-<rect x="110.0" y="525.0" width="280" height="50" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="250" y="546.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Written with the date</text>
-<text x="250" y="563.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">of extraction</text>
+<rect x="118" y="40" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="57.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">v31np shadow 2</text>
+<rect x="213" y="40" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="57.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">734</text>
+<rect x="318" y="40" width="474" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="57.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">134379990000000000</text>
+<rect x="118" y="70" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="87.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">G</text>
+<rect x="213" y="70" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="87.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">0</text>
+<rect x="118" y="100" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="117.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">N</text>
+<rect x="213" y="100" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="117.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">1</text>
+<rect x="118" y="130" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="147.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">S</text>
+<rect x="213" y="130" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="147.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">0</text>
+<rect x="118" y="160" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="177.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="118" y="190" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="207.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="213" y="190" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="207.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">docs/note.txt</text>
+<rect x="318" y="190" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="207.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">5</text>
+<rect x="374" y="190" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="207.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">301</text>
+<rect x="118" y="220" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="237.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="213" y="220" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="237.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">old.v31np</text>
+<rect x="318" y="220" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="237.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">412</text>
+<rect x="374" y="220" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="237.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">306</text>
+<rect x="118" y="250" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="267.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">F</text>
+<rect x="213" y="250" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="267.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">photos/a.jpg</text>
+<rect x="318" y="250" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="267.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">204800</text>
+<rect x="374" y="250" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="267.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\Pictures\a.jpg</text>
+<rect x="666" y="250" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="267.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<rect x="118" y="280" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="297.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">M</text>
+<rect x="213" y="280" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="297.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">photos/b.jpg</text>
+<rect x="318" y="280" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="297.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">190000</text>
+<rect x="374" y="280" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="297.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\Desktop\photos\b.jpg</text>
+<rect x="666" y="280" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="297.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<rect x="118" y="310" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="327.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">T</text>
+<rect x="213" y="310" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="327.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">notes.txt</text>
+<rect x="318" y="310" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="327.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">12</text>
+<rect x="374" y="310" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="327.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\AppData\Local\Temp\v31np\{…}.tmp</text>
+<rect x="666" y="310" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="327.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<rect x="118" y="340" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="357.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">D</text>
+<rect x="213" y="340" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="357.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">empty</text>
+<rect x="118" y="370" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="387.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">R</text>
+<rect x="213" y="370" width="453" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="387.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\Desktop\photos</text>
+<rect x="666" y="370" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="387.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<rect x="118" y="400" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="417.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">H</text>
+<rect x="213" y="400" width="453" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="417.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\Desktop\photos</text>
+<rect x="666" y="400" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="417.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<rect x="118" y="430" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="447.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">@</text>
+<rect x="213" y="430" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="447.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">old.v31np</text>
+<rect x="118" y="460" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="477.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">A</text>
+<rect x="213" y="460" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="477.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">x.txt</text>
+<rect x="318" y="460" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="477.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">3</text>
+<rect x="374" y="460" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="477.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">160</text>
+<rect x="118" y="490" width="95" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="124" y="507.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">T</text>
+<rect x="213" y="490" width="105" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="219" y="507.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">y.txt</text>
+<rect x="318" y="490" width="56" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="324" y="507.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">7</text>
+<rect x="374" y="490" width="292" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="380" y="507.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">C:\Users\P\AppData\Local\Temp\v31np\{…}.tmp</text>
+<rect x="666" y="490" width="126" height="26" fill="#ffffff" stroke="#000" stroke-width="1"/>
+<text x="672" y="507.5" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif">PC-P-482915736</text>
+<text x="118" y="26" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Field 1</text>
+<text x="213" y="26" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Field 2</text>
+<text x="318" y="26" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Field 3</text>
+<text x="374" y="26" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Field 4</text>
+<text x="666" y="26" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Field 5</text>
+<path d="M108 42 L100 42 L100 64 L108 64" fill="none" stroke="#000" stroke-width="1"/>
+<text x="94" y="57.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Header</text>
+<path d="M108 72 L100 72 L100 154 L108 154" fill="none" stroke="#000" stroke-width="1"/>
+<text x="94" y="117.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Officer</text>
+<path d="M108 162 L100 162 L100 424 L108 424" fill="none" stroke="#000" stroke-width="1"/>
+<text x="94" y="289.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Section of</text>
+<text x="94" y="305.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">the archive</text>
+<path d="M108 432 L100 432 L100 514 L108 514" fill="none" stroke="#000" stroke-width="1"/>
+<text x="94" y="469.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Section of</text>
+<text x="94" y="485.5" text-anchor="end" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">old.v31np</text>
 </svg>
