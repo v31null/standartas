@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="720" viewBox="0 0 800 720">
 <rect width="100%" height="100%" fill="#ffffff"/>
 <rect x="70.0" y="15.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
-<text x="230" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Both names folded as in Figure G-1</text>
+<text x="230" y="39.9" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Both names folded as in Figure B-1</text>
 <path d="M230 55 L230.0 76.0" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M230 85 L226.0 76.0 L234.0 76.0 Z" fill="#000"/>
 <rect x="70.0" y="85.0" width="320" height="40" fill="#ffffff" stroke="#000" stroke-width="1"/>
@@ -33,7 +33,7 @@
 <text x="238" y="374" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
 <path d="M230 390.0 L350.0 430 L230 470.0 L110.0 430 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
 <text x="230" y="426.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Both in</text>
-<text x="230" y="443.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Table G-1?</text>
+<text x="230" y="443.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">Table B-2?</text>
 <path d="M350 430 L481.0 430.0" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M490 430 L481.0 434.0 L481.0 426.0 Z" fill="#000"/>
 <text x="360" y="423" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>
@@ -54,7 +54,7 @@
 <text x="238" y="494" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">No</text>
 <path d="M230 510.0 L350.0 550 L230 590.0 L110.0 550 Z" fill="#ffffff" stroke="#000" stroke-width="1"/>
 <text x="230" y="546.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">One of them</text>
-<text x="230" y="563.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">in Table G-1?</text>
+<text x="230" y="563.4" text-anchor="middle" font-size="14" font-family="Times New Roman, Times, serif">in Table B-2?</text>
 <path d="M350 550 L420 550 L420 610 L481.0 610.0" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M490 610 L481.0 614.0 L481.0 606.0 Z" fill="#000"/>
 <text x="360" y="543" text-anchor="start" font-size="13" font-family="Times New Roman, Times, serif" font-style="italic">Yes</text>

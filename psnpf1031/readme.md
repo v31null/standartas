@@ -17,7 +17,7 @@ Hírù gùkríbngaín uq standartas Íika , i.e./ .v31np & .v31n formatas , úí
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Bureau for Onion & Over of þͤ Services <i>of</i> þe General populace Ministeria custodiae filaciorum ( Secura ) , aßervatio — fileprtejlf5mpnrgs5isoknpg6zmidwvc2jtpotepkfeocx4zltm2ad.onion , psnpf1031@v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td></tr>
 <tr><td colspan="6">6. Abstract<br>This document defines the .v31np file format and the V31NP STANDARD. A .v31np file holds any number of files together with their paths, stored raw behind a header of two tables and closed by a single CRC-32 over the whole file. The document sets out the layout, fields, constraints and properties of the format, describes the programmes that support it, namely the native systems of v31n, the Windows Explorer extension and the 7-Zip plugin, rates each against the standard, sets out considerations for developers concerning storage, compression, nested archives, metadata, the marks, the checksum and networking, and sets out the behaviour required of programmes that present, extract and edit .v31np files on any system, including editing through a shadow and its journal.</td></tr>
-<tr><td colspan="3" rowspan="2">7. Key Words<br>.v31np, V31NP STANDARD, file format, archive, header, π, φ, CRC-32, UTF-8, byte range, naturalisation, V31N order, shadow, journal, repack, Windows Explorer, 7-Zip</td><td colspan="3">8. Distribution Statement</td></tr>
+<tr><td colspan="3" rowspan="2">7. Key Words<br>.v31np, V31NP STANDARD, file format, archive, header, π, φ, CRC-32, UTF-8, byte range, naturalisation, alphabetical order, shadow, journal, repack, Windows Explorer, 7-Zip</td><td colspan="3">8. Distribution Statement</td></tr>
 <tr><td>a. Report<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>b. Abstract<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>ú. This page<br>A; Approved for public release: distribution is unlimited, no restrictions.</td></tr>
 <tr><td colspan="3">9. Security Classif. (of this document)<br><b>UNCLASSIFIED</b></td><td colspan="3">10. №ⁱ OF PP.<br>77</td></tr>
 </tbody>
@@ -127,25 +127,23 @@ Hírù gùkríbngaín uq standartas Íika , i.e./ .v31np & .v31n formatas , úí
 - [Figure Ù-3 Download and Comparison between Client and Server](#figure-ù-3)
 - [Figure Ù-4 Selective Download](#figure-ù-4)
 - [Figure Ù-5 Checking a Copy](#figure-ù-5)
-- [Figure G-1 Folding of a Name](#figure-g-1)
-- [Figure G-2 Comparison of Two Names](#figure-g-2)
-- [Figure G-3 Naming of Extracted Files](#figure-g-3)
-- [Figure G-4 Life of a Change](#figure-g-4)
-- [Figure G-5 Layout of a Journal](#figure-g-5)
-- [Figure G-6 Rows and Their Content](#figure-g-6)
-- [Figure G-7 Deletion of the Last File of a Folder](#figure-g-7)
-- [Figure G-8 Renaming of a Folder Holding a Nested Archive](#figure-g-8)
-- [Figure G-9 Views, Wait and Repack](#figure-g-9)
-- [Figure G-10 The Repack](#figure-g-10)
-- [Figure G-11 Order of Writing Nested Archives](#figure-g-11)
-- [Figure G-12 Check of a Journal](#figure-g-12)
-- [Figure G-13 Two Programmes Changing One Archive](#figure-g-13)
-- [Figure G-14 Listing a Level through the Journal](#figure-g-14)
-- [Figure G-15 A Device Carried between Machines](#figure-g-15)
-- [Figure G-16 The Post, the Signal and the Officer](#figure-g-16)
-- [Figure G-17 The Queue and the Lane over Time](#figure-g-17)
-- [Figure G-18 The Drive of a Car](#figure-g-18)
-- [Figure G-19 A Breakdown and an Override](#figure-g-19)
+- [Figure G-1 Naming of Extracted Files](#figure-g-1)
+- [Figure G-2 Life of a Change](#figure-g-2)
+- [Figure G-3 Layout of a Journal](#figure-g-3)
+- [Figure G-4 Rows and Their Content](#figure-g-4)
+- [Figure G-5 Deletion of the Last File of a Folder](#figure-g-5)
+- [Figure G-6 Renaming of a Folder Holding a Nested Archive](#figure-g-6)
+- [Figure G-7 Views, Wait and Repack](#figure-g-7)
+- [Figure G-8 The Repack](#figure-g-8)
+- [Figure G-9 Order of Writing Nested Archives](#figure-g-9)
+- [Figure G-10 Check of a Journal](#figure-g-10)
+- [Figure G-11 Two Programmes Changing One Archive](#figure-g-11)
+- [Figure G-12 Listing a Level through the Journal](#figure-g-12)
+- [Figure G-13 A Device Carried between Machines](#figure-g-13)
+- [Figure G-14 The Post, the Signal and the Officer](#figure-g-14)
+- [Figure G-15 The Queue and the Lane over Time](#figure-g-15)
+- [Figure G-16 The Drive of a Car](#figure-g-16)
+- [Figure G-17 A Breakdown and an Override](#figure-g-17)
 
 ## ( ú ) List of Tables
 
@@ -163,18 +161,17 @@ Hírù gùkríbngaín uq standartas Íika , i.e./ .v31np & .v31n formatas , úí
 - [Table Ú-5 Methods of ITransferSource](#table-ú-5)
 - [Table Ú-6 Naturalisation of Names on GNU/Linux](#table-ú-6)
 - [Table U-1 Medallions](#table-u-1)
-- [Table G-1 Ranks of V31N Order](#table-g-1)
-- [Table G-2 Letter Suffixes](#table-g-2)
-- [Table G-3 Commands](#table-g-3)
-- [Table G-4 Escapes in the Text of a Journal](#table-g-4)
-- [Table G-5 Lines of a Journal](#table-g-5)
-- [Table G-6 Kinds of Rows](#table-g-6)
-- [Table G-7 Changes and the Rows They Write](#table-g-7)
-- [Table G-8 Edge Cases](#table-g-8)
-- [Table G-9 Limitations](#table-g-9)
-- [Table G-10 Lines of the Officer](#table-g-10)
-- [Table G-11 Events of the Officer](#table-g-11)
-- [Table G-12 Lines of a Record of Custody](#table-g-12)
+- [Table G-1 Letter Suffixes](#table-g-1)
+- [Table G-2 Commands](#table-g-2)
+- [Table G-3 Escapes in the Text of a Journal](#table-g-3)
+- [Table G-4 Lines of a Journal](#table-g-4)
+- [Table G-5 Kinds of Rows](#table-g-5)
+- [Table G-6 Changes and the Rows They Write](#table-g-6)
+- [Table G-7 Edge Cases](#table-g-7)
+- [Table G-8 Limitations](#table-g-8)
+- [Table G-9 Lines of the Officer](#table-g-9)
+- [Table G-10 Events of the Officer](#table-g-10)
+- [Table G-11 Lines of a Record of Custody](#table-g-11)
 
 ## ( u ) Notice
 
@@ -424,7 +421,7 @@ The native systems are the services of v31n that read or write .v31np files as p
 
 Secura reads and writes .v31np files in the browser, in assets/js/app.js, and writes them on the server, in api/pack.php. It carries the medallion PASSING (see § ( U )).
 
-A downloaded file whose name ends in .v31np is unpacked after decryption and shown as a folder, and .v31np files nested inside it are expanded in turn. A file that does not parse as .v31np is saved unchanged. The command Down‑load all packs the current listing into a new file named after the identifier of the file, with the extension .v31np; duplicate keys receive a letter suffix. The folder view sorts folders and file names in V31N order.
+A downloaded file whose name ends in .v31np is unpacked after decryption and shown as a folder, and .v31np files nested inside it are expanded in turn. A file that does not parse as .v31np is saved unchanged. The command Down‑load all packs the current listing into a new file named after the identifier of the file, with the extension .v31np; duplicate keys receive a letter suffix. The folder view sorts folders and file names in alphabetical order.
 
 Secura also uses .v31np to transport stored chunks from server to client. The server streams the requested chunks as a .v31np file, in which each key is the SHA-256 of a chunk written as 64 hexadecimal digits, and each entry consists of an initialisation vector of 12 bytes followed by the ciphertext. The reader checks each key against its entry. An interrupted download resumes by HTTP byte range, and a checksum mismatch causes one retry and then failure. A single request holds 1 to 17000 distinct keys.
 
@@ -481,7 +478,7 @@ The extension offers the functions of § ( G/( b.iii. ) ) under the names o
 </tbody>
 </table>
 
-Where the destination of an extraction already holds a name, the item receives a suffix of Table G-2 and folders are merged, as set out in § ( Ú/( a.ii.1.u. ) ); no dialog is shown.
+Where the destination of an extraction already holds a name, the item receives a suffix of Table G-1 and folders are merged, as set out in § ( Ú/( a.ii.1.u. ) ); no dialog is shown.
 
 Inside archives, the entry Share of Windows is hidden, since it fails on items that are not files on disk.
 
@@ -522,7 +519,7 @@ Keys may hold characters and names that Windows does not permit in file names. O
 </tbody>
 </table>
 
-Windows compares file names without regard to case. Where two names in one folder are equal in that sense, the first keeps its name, and each later one receives a suffix of Table G-2 before its extension.
+Windows compares file names without regard to case. Where two names in one folder are equal in that sense, the first keeps its name, and each later one receives a suffix of Table G-1 before its extension.
 
 The commands of Table Ú-1 never replace what the destination holds. A name already taken there, by the same comparison, receives a suffix in the same manner, as E:\eayk.png becomes E:\eayka.png; a folder that exists at the destination is merged, and the clashing files inside it receive suffixes, as docs\note.txt becomes docs\notea.txt. An existing destination folder is used as it is, and no dialog is shown. The means are described in § ( Ú/( a.ii.1.ù. ) ).
 
@@ -562,7 +559,7 @@ Table Ú-4 presents the data the drop target receives and its treatment, and Fig
 </thead>
 <tbody>
 <tr><td>Disk</td><td>CF_HDROP</td><td>Rows F; on a move rows M, R for each folder, and H for each original hidden</td><td>CFSTR_PERFORMEDDROPEFFECT: DROPEFFECT_NONE</td></tr>
-<tr><td>Archives of the extension</td><td>CFSTR_SHELLIDLIST, resolved to archive, level and path</td><td>Rows moved, or copied out as in Table G-7</td><td>CFSTR_PERFORMEDDROPEFFECT: DROPEFFECT_NONE</td></tr>
+<tr><td>Archives of the extension</td><td>CFSTR_SHELLIDLIST, resolved to archive, level and path</td><td>Rows moved, or copied out as in Table G-6</td><td>CFSTR_PERFORMEDDROPEFFECT: DROPEFFECT_NONE</td></tr>
 <tr><td>Zip folders, devices and other virtual sources</td><td>CFSTR_SHELLIDLIST with CFSTR_FILEDESCRIPTORW and CFSTR_FILECONTENTS, the contents as IStream or HGLOBAL</td><td>Contents copied to rows T, folders recorded as rows D</td><td>CFSTR_PERFORMEDDROPEFFECT: DROPEFFECT_MOVE; on Paste also CFSTR_PASTESUCCEEDED: DROPEFFECT_MOVE</td></tr>
 <tr><td>Other shell items</td><td>CFSTR_SHELLIDLIST alone</td><td>Handed to IFileOperation</td><td>Left to the copy engine</td></tr>
 <tr><td>Out of an archive onto the disk, received by the drop target of Explorer</td><td>CFSTR_FILEDESCRIPTORW and CFSTR_FILECONTENTS, offered by the data object of the extension</td><td>Items read to the end removed through the shadow, as by Delete; the rest kept</td><td>Reported to the extension through SetData: CFSTR_PERFORMEDDROPEFFECT: DROPEFFECT_MOVE; on Paste also CFSTR_PASTESUCCEEDED: DROPEFFECT_MOVE</td></tr>
@@ -590,7 +587,7 @@ The copy engine finds its source through IShellFolder::CreateViewObject with ITr
 <tr><td>RecycleItem</td><td>As RemoveItem, since an archive has no Recycle Bin</td></tr>
 <tr><td>MoveItem</td><td>E_NOTIMPL; the engine then copies and calls RemoveItem</td></tr>
 <tr><td>RenameItem</td><td>Renames and returns the new IShellItem</td></tr>
-<tr><td>GetDefaultDestinationName</td><td>Returns the name naturalised for Windows; where the destination already holds it, the name with a suffix of Table G-2, except for a folder landing on a folder, which keeps its name and is merged; shortened as in § ( Ú/( a.ii.1.u. ) ) where long paths are disabled</td></tr>
+<tr><td>GetDefaultDestinationName</td><td>Returns the name naturalised for Windows; where the destination already holds it, the name with a suffix of Table G-1, except for a folder landing on a folder, which keeps its name and is merged; shortened as in § ( Ú/( a.ii.1.u. ) ) where long paths are disabled</td></tr>
 <tr><td>LinkItem, ApplyPropertiesToItem</td><td>E_NOTIMPL</td></tr>
 <tr><td>Advise, Unadvise, SetProperties, EnterFolder, LeaveFolder</td><td>S_OK</td></tr>
 </tbody>
@@ -634,7 +631,7 @@ A copy opened from inside an archive is watched with FindFirstChangeNotification
 
 The 7-Zip plugin, v31np.dll, adds .v31np as a format to 7-Zip 26.05. It is built for x86, x64 and ARM64 and is placed in the Formats folder of 7-Zip by baíbúočman.exe, a 32-bit 7-Zip on 64-bit Windows receiving the x86 build. The plugin carries the medallion PASSING (see § ( U )).
 
-The plugin registers the format name v31np and the extension v31np, and recognises a file by its magic followed by π. Folders are built from the keys, and each item reports its path, whether it is a folder, and its size. Folders are sorted before files, and names are sorted in V31N order as in § ( G/( b.i. ) ).
+The plugin registers the format name v31np and the extension v31np, and recognises a file by its magic followed by π. Folders are built from the keys, and each item reports its path, whether it is a folder, and its size. Folders are sorted before files, and names are sorted in alphabetical order as in § ( G/( b.i. ) ).
 
 7-Zip lists names as they are stored. On extraction, the plugin reports names naturalised and made unique as described in § ( Ú/( a.ii.1.u. ) ), while the length of paths is left to 7-Zip. Extraction does not verify the checksum. A test verifies the checksum over the whole archive and, on a mismatch, reports CRC Failed for every file, since the checksum does not cover single files (see § ( B/( a.v. ) )).
 
@@ -656,7 +653,7 @@ On GNU/Linux, .v31np files are supported by v31np-mount, which presents an archi
 
 ##### a. Browsing
 
-A .v31np file opens in Files on a double click. The archive is mounted at ~/V31NP/, followed by its file name, as ~/V31NP/photos.v31np, and Files shows it as it shows a USB stick: with an entry in its sidebar, a button to eject it, and a path that begins at the name of the archive. Where that name is taken by another open archive, the folder receives a suffix of Table G-2, and an archive that is already open is shown again from its mount. The mount ends when it is ejected, or by itself when no window and no programme has used it for ten minutes; its folder, and ~/V31NP where it is left empty, are then removed. Archives nested inside it are presented as folders in turn, and names are presented as they are stored, sorted by Files in its own order. Only names that the system cannot show are presented as in Table Ú-6, namely a part consisting of . or .., an empty part and a name of more than 255 bytes; where such a name then meets a stored name, the stored name keeps it.
+A .v31np file opens in Files on a double click. The archive is mounted at ~/V31NP/, followed by its file name, as ~/V31NP/photos.v31np, and Files shows it as it shows a USB stick: with an entry in its sidebar, a button to eject it, and a path that begins at the name of the archive. Where that name is taken by another open archive, the folder receives a suffix of Table G-1, and an archive that is already open is shown again from its mount. The mount ends when it is ejected, or by itself when no window and no programme has used it for ten minutes; its folder, and ~/V31NP where it is left empty, are then removed. Archives nested inside it are presented as folders in turn, and names are presented as they are stored, sorted by Files in its own order. Only names that the system cannot show are presented as in Table Ú-6, namely a part consisting of . or .., an empty part and a name of more than 255 bytes; where such a name then meets a stored name, the stored name keeps it.
 
 The file type is application/x-v31np, recognised by the extension .v31np and by the magic followed by $, and named Baíbízù format ekta kokain, or Kokain's Storage-format in English. It carries the icon nzuu.ico.
 
@@ -666,11 +663,11 @@ The context menu of Files offers the functions of § ( G/( b.iii. ) ) under
 
 ##### ú. Editing
 
-A mounted archive is edited in Files, or by any programme, as a folder. On a local disk, changes pass through the shadow of § ( G/( b.v. ) ), and the archive is repacked when it is unmounted, or once it has not been used for 1.5 seconds. On a shared road, every change is one car (see § ( G/( ú.iii.6. ) )); a file that is being written drives when it is closed, so that until then it is visible only on the machine that writes it. Where a closed file cannot land, the mount tries once more. Where its entry has meanwhile been changed on another machine, the file lands beside it under a suffix of Table G-2, and later saves follow to that key; where its folder has meanwhile been removed, the folder is recreated. On any other failure, the file is kept among the temporary files and tried again every 40 seconds, and a file that has not landed when the mount ends stays there. A change whose car was overridden is given again in the same way, as a new car. Each outcome is reported on the standard error as v31np-mount, a colon, the temporary file, could not land at close, a colon and the error, a semicolon, and one of: kept, retrying every 40 s; landed beside as, followed by the key; landed later; not landed, kept, followed by a colon and the temporary file. The journal and the post are hidden through the file .hidden of their folder, which Files reads, and carry no full stop before their names.
+A mounted archive is edited in Files, or by any programme, as a folder. On a local disk, changes pass through the shadow of § ( G/( b.v. ) ), and the archive is repacked when it is unmounted, or once it has not been used for 1.5 seconds. On a shared road, every change is one car (see § ( G/( ú.iii.6. ) )); a file that is being written drives when it is closed, so that until then it is visible only on the machine that writes it. Where a closed file cannot land, the mount tries once more. Where its entry has meanwhile been changed on another machine, the file lands beside it under a suffix of Table G-1, and later saves follow to that key; where its folder has meanwhile been removed, the folder is recreated. On any other failure, the file is kept among the temporary files and tried again every 40 seconds, and a file that has not landed when the mount ends stays there. A change whose car was overridden is given again in the same way, as a new car. Each outcome is reported on the standard error as v31np-mount, a colon, the temporary file, could not land at close, a colon and the error, a semicolon, and one of: kept, retrying every 40 s; landed beside as, followed by the key; landed later; not landed, kept, followed by a colon and the temporary file. The journal and the post are hidden through the file .hidden of their folder, which Files reads, and carry no full stop before their names.
 
 ##### u. Extraction
 
-Extraction follows § ( G/( b.ii. ) ). GNU/Linux permits every character in a name except / and the null character, and names are compared with regard to case, so that A.txt and a.txt are two names. On extraction, each part of a key is therefore changed only as presented in Table Ú-6, and names that are then equal receive a suffix of Table G-2. A name already taken at the destination is never replaced: a file receives a suffix, and a folder is merged. No dialog is shown.
+Extraction follows § ( G/( b.ii. ) ). GNU/Linux permits every character in a name except / and the null character, and names are compared with regard to case, so that A.txt and a.txt are two names. On extraction, each part of a key is therefore changed only as presented in Table Ú-6, and names that are then equal receive a suffix of Table G-1. A name already taken at the destination is never replaced: a file receives a suffix, and a folder is merged. No dialog is shown.
 
 <table id="table-ú-6">
 <caption>Table Ú-6 Naturalisation of Names on GNU/Linux</caption>
@@ -699,7 +696,7 @@ The command v31np serves scripts and the context menu. It is run as follows:
 
 1. v31np pack, the archive and a folder: packs the folder into a new archive.
 2. v31np make, a new archive and one or more paths: packs the paths, and never replaces an existing file.
-3. v31np name, a folder and a name: gives the first name not taken in the folder, with a suffix of Table G-2 where needed.
+3. v31np name, a folder and a name: gives the first name not taken in the folder, with a suffix of Table G-1 where needed.
 4. v31np list and an archive: lists its keys and sizes.
 5. v31np test and an archive: verifies it, the checksum included.
 6. v31np extract, an archive and a folder: extracts into the folder, as set out in § ( Ú/( b.i.1.u. ) ).
@@ -836,69 +833,20 @@ The requirements of this division are stated with shall, and each binds unless t
 
 A programme shall present a .v31np file as a folder, and a .v31np file stored inside another as a folder in turn. Folders exist as the prefixes of keys (see § ( B/( b.ii. ) )); in addition, empty folders recorded in a journal (see § ( G/( b.vi. ) )) shall be presented until the repack. Names shall be presented as they are stored in the key, since the rules of § ( G/( b.ii. ) ) apply only when files leave the archive. The size of each file shall be presented as stored, and the size of a nested archive with pending changes as the length it will have after the repack (see § ( G/( b.x. ) )). A file opened from inside an archive shall open in the application that the system associates with its type.
 
-Folders should be listed before files, and the names within each group should be sorted in V31N order. Two names are compared first without their extensions, the extension being the part from the last full stop of the name where that full stop is not its first character; where the names are equal in that comparison, the whole names are compared. Before the comparison, each name is folded in five steps, shown in Figure G-1, as follows:
-
-1. White space at the start is skipped, and where the name then begins with [ and a ] follows with at least one character between them, the text between the brackets replaces the name.
-2. Punctuation and white space at the start are removed.
-3. The name is decomposed to Unicode normalisation form D, each character followed by a combining diaeresis (U+0308) is written twice and the diaeresis dropped, and the result is composed again to form C, so that Ä becomes AA.
-4. The sign № followed by digits, with or without white space between them, is written as № and the digits without leading zeros, padded with zeros to five digits.
-5. The name is written in lower case.
-
-<p id="figure-g-1" align="center"><img src="nżúù/g-1.svg" alt="Figure G-1 Folding of a Name"></p>
-
-Figure G-1 Folding of a Name
-
-The folded names are compared character by character, as shown in Figure G-2. Equal characters are passed over. Where both characters are listed in Table G-1, the one of lower rank comes first, and characters of equal rank are passed over as equal; the characters of each cell of the table are listed in the order of their places, which serve only to break a tie. A character listed in Table G-1 comes before one that is not, and two characters that are not listed are ordered by their code points. Where one name ends before a difference is found, the shorter comes first.
-
-Two names that are still equal, as A.png and a.png, or ú.png and v.png, are not left to chance: the tie is broken in four steps, as follows:
-
-1. At the first position where the folded names differ, first without their extensions and then whole, the character that stands earlier in its cell of Table G-1 comes first, so that ú comes before v, and v before в.
-2. At the first position where one of the names as stored has a capital letter and the other has not, the name with the capital comes first, so that Ab comes before aB.
-3. The name of fewer code points as stored comes first.
-4. The names as stored are ordered by their code points, so that -a and _a, or №01 and № 1, keep a fixed order.
-
-The names A.png, a.png, AA.png, AAa.png, aaaa.png, ú.png, V.png and v.png are thus sorted in the order given. Punctuation, white space and capital letters are those of one table of character classes, taken from Windows and used on every system, so that programmes on different systems fold and sort alike.
-
-<table id="table-g-1">
-<caption>Table G-1 Ranks of V31N Order</caption>
-<thead>
-<tr><th>Rank</th><th>Characters</th><th>Rank</th><th>Characters</th></tr>
-</thead>
-<tbody>
-<tr><td>0 to 9</td><td>The digits 0 to 9, each of its own value</td><td>24</td><td>m м</td></tr>
-<tr><td>10</td><td>a а</td><td>25</td><td>n н</td></tr>
-<tr><td>11</td><td>b б</td><td>26</td><td>o о</td></tr>
-<tr><td>12</td><td>ú v в</td><td>27</td><td>p п</td></tr>
-<tr><td>13</td><td>u у</td><td>28</td><td>r р</td></tr>
-<tr><td>14</td><td>ù w</td><td>29</td><td>s с</td></tr>
-<tr><td>15</td><td>g г</td><td>30</td><td>t т</td></tr>
-<tr><td>16</td><td>d д þ</td><td>31</td><td>f ф</td></tr>
-<tr><td>17</td><td>e е э</td><td>32</td><td>ț ц</td></tr>
-<tr><td>18</td><td>ż j ж</td><td>33</td><td>č ч</td></tr>
-<tr><td>19</td><td>z з</td><td>34</td><td>ș ш</td></tr>
-<tr><td>20</td><td>i и</td><td>35</td><td>c</td></tr>
-<tr><td>21</td><td>í y й</td><td>36</td><td>q</td></tr>
-<tr><td>22</td><td>k к</td><td>37</td><td>x</td></tr>
-<tr><td>23</td><td>l л</td><td>38</td><td>h х ‘</td></tr>
-</tbody>
-</table>
-
-<p id="figure-g-2" align="center"><img src="nżúù/g-2.svg" alt="Figure G-2 Comparison of Two Names"></p>
-
-Figure G-2 Comparison of Two Names
+Folders should be listed before files, and the names within each group should be sorted in alphabetical order (see PS/G-1104).
 
 ### ( ii ) Extraction
 
-A programme that writes the files of an archive to its system shall derive from each part of a key a name that the system permits, by rules that suit that system; the rules applied on Windows are given in Table Ú-2. Which parts, names and characters are changed is left to the rules of each system, but where a system replaces them it shall use the stand-ins of Table Ú-2, namely AN for a part consisting of . or .., NÍ for an empty name, ! in place of a character and before a reserved name, and 0x followed by two hexadecimal digits in place of a control character. The key in the archive shall not be changed, and no extension shall ever be added. Where two names in one folder are equal by the comparison of the system, the first shall keep its name, and each later one shall receive a suffix before its extension, which begins at the last full stop of the name. A name without a full stop shall receive the suffix at its end, and a name whose only full stop is its first character shall receive it at its start, so that .gitignore becomes a.gitignore. A name that is already taken at the destination, by the comparison of the system, shall not be replaced, and the programme should not ask: a file, and a folder landing on a file, shall receive a suffix in the same manner, while a folder landing on a folder of the same name shall be merged with it, so that only the clashing files inside it receive suffixes. Where the writing of the files is handed to the copy machinery of the system, names already taken are decided as set out in § ( G/( b.iv. ) ). A path that exceeds the length the system permits shall be shortened by the rules of that system, the extension being kept. Extracted files shall carry the date of extraction, and the checksum may be left unverified on extraction. Figure G-3 shows the naming of an extracted file.
+A programme that writes the files of an archive to its system shall derive from each part of a key a name that the system permits, by rules that suit that system; the rules applied on Windows are given in Table Ú-2. Which parts, names and characters are changed is left to the rules of each system, but where a system replaces them it shall use the stand-ins of Table Ú-2, namely AN for a part consisting of . or .., NÍ for an empty name, ! in place of a character and before a reserved name, and 0x followed by two hexadecimal digits in place of a control character. The key in the archive shall not be changed, and no extension shall ever be added. Where two names in one folder are equal by the comparison of the system, the first shall keep its name, and each later one shall receive a suffix before its extension, which begins at the last full stop of the name. A name without a full stop shall receive the suffix at its end, and a name whose only full stop is its first character shall receive it at its start, so that .gitignore becomes a.gitignore. A name that is already taken at the destination, by the comparison of the system, shall not be replaced, and the programme should not ask: a file, and a folder landing on a file, shall receive a suffix in the same manner, while a folder landing on a folder of the same name shall be merged with it, so that only the clashing files inside it receive suffixes. Where the writing of the files is handed to the copy machinery of the system, names already taken are decided as set out in § ( G/( b.iv. ) ). A path that exceeds the length the system permits shall be shortened by the rules of that system, the extension being kept. Extracted files shall carry the date of extraction, and the checksum may be left unverified on extraction. Figure G-1 shows the naming of an extracted file.
 
-<p id="figure-g-3" align="center"><img src="nżúù/g-3.svg" alt="Figure G-3 Naming of Extracted Files"></p>
+<p id="figure-g-1" align="center"><img src="nżúù/g-1.svg" alt="Figure G-1 Naming of Extracted Files"></p>
 
-Figure G-3 Naming of Extracted Files
+Figure G-1 Naming of Extracted Files
 
-The suffixes shall be the same on every system and shall be taken in the order of Table G-2. They are counted in the manner of the columns of a spreadsheet, with the 29 letters of the table as digits and no zero: after h follow aa to ah, then ba to bh, and so on to hh, after which aaa follows. The same suffixes shall be given to a new archive or folder whose name is already taken (see § ( G/( b.iii. ) )), to an item added to an archive under a name already taken, and to a copy made into the folder it comes from (see § ( G/( b.iv. ) )).
+The suffixes shall be the same on every system and shall be taken in the order of Table G-1. They are counted in the manner of the columns of a spreadsheet, with the 29 letters of the table as digits and no zero: after h follow aa to ah, then ba to bh, and so on to hh, after which aaa follows. The same suffixes shall be given to a new archive or folder whose name is already taken (see § ( G/( b.iii. ) )), to an item added to an archive under a name already taken, and to a copy made into the folder it comes from (see § ( G/( b.iv. ) )).
 
-<table id="table-g-2">
-<caption>Table G-2 Letter Suffixes</caption>
+<table id="table-g-1">
+<caption>Table G-1 Letter Suffixes</caption>
 <thead>
 <tr><th>Number of the later name</th><th>Suffix</th><th>Example for photo.jpg</th></tr>
 </thead>
@@ -913,10 +861,10 @@ The suffixes shall be the same on every system and shall be taken in the order o
 
 ### ( iii ) Commands
 
-A programme that integrates .v31np files into a file manager shall offer the functions of Table G-3. Their names, and the menus that carry them, are left to the programme; the names used on Windows are given in Table Ú-1. In the table, the name of an archive means its file name without .v31np. A programme may give the folder baíbíz e alùz another name or a translation of it. Where that folder, or an archive of the name chosen when packing, already exists, the new one shall receive a suffix of Table G-2.
+A programme that integrates .v31np files into a file manager shall offer the functions of Table G-2. Their names, and the menus that carry them, are left to the programme; the names used on Windows are given in Table Ú-1. In the table, the name of an archive means its file name without .v31np. A programme may give the folder baíbíz e alùz another name or a translation of it. Where that folder, or an archive of the name chosen when packing, already exists, the new one shall receive a suffix of Table G-1.
 
-<table id="table-g-3">
-<caption>Table G-3 Commands</caption>
+<table id="table-g-2">
+<caption>Table G-2 Commands</caption>
 <thead>
 <tr><th>Function</th><th>Selection</th><th>Result</th></tr>
 </thead>
@@ -934,7 +882,7 @@ A programme that integrates .v31np files into a file manager shall offer the fun
 </tbody>
 </table>
 
-An extraction never replaces what the destination already holds; names already taken there receive a suffix of Table G-2, and folders are merged, as set out in § ( G/( b.ii. ) ).
+An extraction never replaces what the destination already holds; names already taken there receive a suffix of Table G-1, and folders are merged, as set out in § ( G/( b.ii. ) ).
 
 ### ( iv ) Editing
 
@@ -946,14 +894,14 @@ The functions that a programme that edits archives shall allow, inside an archiv
 4. Renaming.
 5. Deleting.
 6. Creating new items.
-7. Packing a selection into a new archive (see Table G-3).
+7. Packing a selection into a new archive (see Table G-2).
 8. Saving back a file opened from inside the archive.
 
 A move out of an archive onto the system shall, where applicable, remove from the archive only the items that have reached the system, and shall remove them through the shadow in the manner of a delete. Items that were skipped or not written, as where the move is cancelled, stay in the archive.
 
-Where a file opened from inside an archive opens from a copy on the system, a programme that edits archives shall watch such a copy for as long as it runs, and shall save each change of the copy back into the archive as one change, at the key from which the file was opened. Where that entry has meanwhile been renamed, moved or deleted, the file shall be saved at its original key, and so recreated there. Where the entry has meanwhile been changed by another programme or on another machine, so that it holds neither the content it held when the copy was opened nor the content of the last save, the save shall not replace it; it shall land beside it under a suffix of Table G-2, so that the work of neither is lost, and later saves of the same copy shall follow to the suffixed key. A save that cannot yet be read, as while the application still writes the copy, shall be tried again. A change saved back should be visible at once in every view of the archive.
+Where a file opened from inside an archive opens from a copy on the system, a programme that edits archives shall watch such a copy for as long as it runs, and shall save each change of the copy back into the archive as one change, at the key from which the file was opened. Where that entry has meanwhile been renamed, moved or deleted, the file shall be saved at its original key, and so recreated there. Where the entry has meanwhile been changed by another programme or on another machine, so that it holds neither the content it held when the copy was opened nor the content of the last save, the save shall not replace it; it shall land beside it under a suffix of Table G-1, so that the work of neither is lost, and later saves of the same copy shall follow to the suffixed key. A save that cannot yet be read, as while the application still writes the copy, shall be tried again. A change saved back should be visible at once in every view of the archive.
 
-An item added to an archive shall, where applicable, never replace an entry of the same name, and the programme should not ask. A clash is determined on the key, compared exactly as stored, level by level as the folder presents it, so that a leading / and empty parts of a key are disregarded. A file that lands on a file or on a folder of the same name shall receive a suffix of Table G-2, as eayk.png becomes eayka.png and then eaykb.png, and a folder that lands on a file shall receive a suffix and keep all it holds. A folder that lands on a folder of the same name shall be merged with it, and only the clashing files inside it shall receive suffixes; empty folders follow the same rules. These rules apply to every way in, namely copy and move from the system, from another archive or another level, from sources without files on the system, and to another folder of the same level. An item copied into the folder it comes from shall receive a suffix as well, and a folder so copied shall become a new folder of that name with the suffix, holding a full copy, and shall not be merged into itself; an item moved onto its own place is left as it is.
+An item added to an archive shall, where applicable, never replace an entry of the same name, and the programme should not ask. A clash is determined on the key, compared exactly as stored, level by level as the folder presents it, so that a leading / and empty parts of a key are disregarded. A file that lands on a file or on a folder of the same name shall receive a suffix of Table G-1, as eayk.png becomes eayka.png and then eaykb.png, and a folder that lands on a file shall receive a suffix and keep all it holds. A folder that lands on a folder of the same name shall be merged with it, and only the clashing files inside it shall receive suffixes; empty folders follow the same rules. These rules apply to every way in, namely copy and move from the system, from another archive or another level, from sources without files on the system, and to another folder of the same level. An item copied into the folder it comes from shall receive a suffix as well, and a folder so copied shall become a new folder of that name with the suffix, holding a full copy, and shall not be merged into itself; an item moved onto its own place is left as it is.
 
 Where the writing of files, into an archive or out of it, is handed to the copy machinery of the system, that machinery decides on names already taken, and the rules of this part and of § ( G/( b.ii. ) ) on such names do not apply to that writing. On Windows, this is the case for a drag or a paste out of an archive onto the disk, and for programmes that write into an archive through the copy engine (see § ( Ú/( a.ii.1.ù. ) )).
 
@@ -965,7 +913,7 @@ Since a .v31np file cannot be updated in place (see § ( B/( b.ii. ) )), ch
 
 The shadow is the state of an archive together with its pending changes. It consists of the archive on disk, a journal beside it (see § ( G/( b.vi. ) )), and the content to which the journal refers, namely files on the system that were added as links and temporary files holding content that has no place on the system. The archive itself shall not be touched until the repack (see § ( G/( b.viii. ) )). On a shared road, the shadow is not used, and each change is written into the archive at once (see § ( G/( ú.iii.1. ) )).
 
-Every change shall run as shown in Figure G-4, as follows:
+Every change shall run as shown in Figure G-2, as follows:
 
 1. The programme takes a lock of the archive that excludes every other programme changing the same archive (see § ( G/( b.ix. ) )).
 2. It reads the journal and discards it if it is stale.
@@ -975,20 +923,20 @@ Every change shall run as shown in Figure G-4, as follows:
 
 Views and readers then present the new state. When the last view of the archive closes and no view opens again within a short wait, the programme shall repack the archive.
 
-<p id="figure-g-4" align="center"><img src="nżúù/g-4.svg" alt="Figure G-4 Life of a Change"></p>
+<p id="figure-g-2" align="center"><img src="nżúù/g-2.svg" alt="Figure G-2 Life of a Change"></p>
 
-Figure G-4 Life of a Change
+Figure G-2 Life of a Change
 
-A file added from the system shall not be copied. The journal shall refer to it, and it shall be read at the repack. A file moved in from the system shall stay where it is until the repack, after which it shall be deleted. Meanwhile the original shall not be presented on the system, where the system provides a means of hiding files: the programme shall hide each item moved in at the top of the move, a folder as a whole without the files inside it, and shall record it in the journal as a row H in the section of the level into which it was moved (see Table G-6). An original that was hidden already shall not be recorded and shall never be touched. After every change, a row H whose path is no longer referred to by any row M or R of the journal, since the item has been deleted inside the archive or moved on, shall be removed and its original shown again. Where the item is moved on to another archive, its row H shall be carried into the journal of that archive and removed from the source journal, and the original shall remain hidden; a move within one archive leaves the row H in place. A folder created inside an archive shall live in the journal until the repack, and shall be dropped then if it is still empty, since the format stores no empty folders.
+A file added from the system shall not be copied. The journal shall refer to it, and it shall be read at the repack. A file moved in from the system shall stay where it is until the repack, after which it shall be deleted. Meanwhile the original shall not be presented on the system, where the system provides a means of hiding files: the programme shall hide each item moved in at the top of the move, a folder as a whole without the files inside it, and shall record it in the journal as a row H in the section of the level into which it was moved (see Table G-5). An original that was hidden already shall not be recorded and shall never be touched. After every change, a row H whose path is no longer referred to by any row M or R of the journal, since the item has been deleted inside the archive or moved on, shall be removed and its original shown again. Where the item is moved on to another archive, its row H shall be carried into the journal of that archive and removed from the source journal, and the original shall remain hidden; a move within one archive leaves the row H in place. A folder created inside an archive shall live in the journal until the repack, and shall be dropped then if it is still empty, since the format stores no empty folders.
 
 ### ( vi ) The Journal
 
 The journal of an archive shall be a file in the same folder whose name is FUTALUZTU UERSIIA UUTI, a space, the file name of the archive without .v31np, and .v31np.txt; for photos.v31np it is FUTALUZTU UERSIIA UUTI photos.v31np.txt. The name shall be the same on every system. The journal shall be hidden where the system provides a means of hiding files; a full stop before the name is permitted for this purpose, and every programme shall look for the journal under both names. Where a journal exists under both names, a programme shall compare the two; where they are not the same, it shall use the one written most recently among those it can read.
 
-The journal shall be UTF-8 text. Lines shall be written ending with a carriage return and a line feed, and a reader shall also accept a line feed alone; empty lines shall be ignored. The fields of a line shall be separated by a tab. Text fields shall be escaped as in Table G-4 and shall be valid UTF-8 once unescaped, and keys and paths shall not be empty. Numbers shall be written in decimal, without sign or separators, with at most 20 digits, and shall be less than 2⁶⁴. Table G-5 presents the lines of a journal, and Figure G-5 presents an example.
+The journal shall be UTF-8 text. Lines shall be written ending with a carriage return and a line feed, and a reader shall also accept a line feed alone; empty lines shall be ignored. The fields of a line shall be separated by a tab. Text fields shall be escaped as in Table G-3 and shall be valid UTF-8 once unescaped, and keys and paths shall not be empty. Numbers shall be written in decimal, without sign or separators, with at most 20 digits, and shall be less than 2⁶⁴. Table G-4 presents the lines of a journal, and Figure G-3 presents an example.
 
-<table id="table-g-4">
-<caption>Table G-4 Escapes in the Text of a Journal</caption>
+<table id="table-g-3">
+<caption>Table G-3 Escapes in the Text of a Journal</caption>
 <thead>
 <tr><th>Written</th><th>Character</th></tr>
 </thead>
@@ -1001,29 +949,29 @@ The journal shall be UTF-8 text. Lines shall be written ending with a carriage r
 </tbody>
 </table>
 
-<table id="table-g-5">
-<caption>Table G-5 Lines of a Journal</caption>
+<table id="table-g-4">
+<caption>Table G-4 Lines of a Journal</caption>
 <thead>
 <tr><th>Line</th><th>Fields</th><th>Contents</th></tr>
 </thead>
 <tbody>
 <tr><td>Header</td><td>v31np shadow 2, length, time</td><td>The first line that is not empty. The length of the archive in bytes, and the time of its last write as the number of intervals of 100 nanoseconds since 1 January 1601 UTC</td></tr>
-<tr><td>Officer</td><td>G, N, S, L, Q or W, then the fields of Table G-10</td><td>The lines of the officer, between the header and the first section (see § ( G/( ú.iii.3. ) ))</td></tr>
+<tr><td>Officer</td><td>G, N, S, L, Q or W, then the fields of Table G-9</td><td>The lines of the officer, between the header and the first section (see § ( G/( ú.iii.3. ) ))</td></tr>
 <tr><td>Section</td><td>@, then none or more keys</td><td>Opens the section of one level: no key for the archive itself, the key of a nested archive for the archive stored there, and further keys for archives nested deeper, each relative to the archive before it</td></tr>
-<tr><td>Row</td><td>Kind, then the fields of Table G-6</td><td>One entry of the level of the section above it</td></tr>
+<tr><td>Row</td><td>Kind, then the fields of Table G-5</td><td>One entry of the level of the section above it</td></tr>
 </tbody>
 </table>
 
-<p id="figure-g-5" align="center"><img src="nżúù/g-5.svg" alt="Figure G-5 Layout of a Journal"></p>
+<p id="figure-g-3" align="center"><img src="nżúù/g-3.svg" alt="Figure G-3 Layout of a Journal"></p>
 
-Figure G-5 Layout of a Journal
+Figure G-3 Layout of a Journal
 
-The time in the header shall be the file time of Windows. A programme on another system shall convert the last-write time of its system to that form, so that a journal written on one system can be checked on another. Each level shall have at most one section. A section shall hold the complete list of entries of its level after all changes, and not a record of operations; a level without a section is as stored. A row before the first section, an officer line after it, an officer line other than Q and W given twice, an unknown kind, a wrong number of fields, a row with a path but without a plate, a number that is not valid or text that is not valid makes the whole journal unreadable. Table G-6 presents the kinds of rows. Paths in rows shall be absolute paths of the system that wrote the journal, and addresses in rows A shall be offsets within the archive of their level. Every row with a path shall end with the plate of the machine that wrote it (see § ( G/( ú.i. ) )).
+The time in the header shall be the file time of Windows. A programme on another system shall convert the last-write time of its system to that form, so that a journal written on one system can be checked on another. Each level shall have at most one section. A section shall hold the complete list of entries of its level after all changes, and not a record of operations; a level without a section is as stored. A row before the first section, an officer line after it, an officer line other than Q and W given twice, an unknown kind, a wrong number of fields, a row with a path but without a plate, a number that is not valid or text that is not valid makes the whole journal unreadable. Table G-5 presents the kinds of rows. Paths in rows shall be absolute paths of the system that wrote the journal, and addresses in rows A shall be offsets within the archive of their level. Every row with a path shall end with the plate of the machine that wrote it (see § ( G/( ú.i. ) )).
 
 A programme shall write the header v31np shadow 2. A journal headed v31np shadow 1, written before this revision, shall still be read: it holds no officer lines, its rows carry no plates, and they count as rows of the machine that reads it. The next change writes the journal again under the header v31np shadow 2, every row with a path then carrying the plate of that machine. Times in officer lines and in rows D are written in the storage form of PS/Í-1103, the clock of v31n, as in 20261101PM100101 (see § ( E )), and are taken in UTC+9, never in the local zone of a machine.
 
-<table id="table-g-6">
-<caption>Table G-6 Kinds of Rows</caption>
+<table id="table-g-5">
+<caption>Table G-5 Kinds of Rows</caption>
 <thead>
 <tr><th>Kind</th><th>Fields</th><th>Meaning</th><th>At the repack</th></tr>
 </thead>
@@ -1038,18 +986,18 @@ A programme shall write the header v31np shadow 2. A journal headed v31np shadow
 </tbody>
 </table>
 
-The journal shall be written whole after every change, to a temporary file in the same folder that then replaces it, so that no programme ever reads a journal that is partly written. Temporary files of rows T are kept by the programme in a folder of its choosing. Figure G-6 shows the content to which each row of Figure G-5 refers.
+The journal shall be written whole after every change, to a temporary file in the same folder that then replaces it, so that no programme ever reads a journal that is partly written. Temporary files of rows T are kept by the programme in a folder of its choosing. Figure G-4 shows the content to which each row of Figure G-3 refers.
 
-<p id="figure-g-6" align="center"><img src="nżúù/g-6.svg" alt="Figure G-6 Rows and Their Content"></p>
+<p id="figure-g-4" align="center"><img src="nżúù/g-4.svg" alt="Figure G-4 Rows and Their Content"></p>
 
-Figure G-6 Rows and Their Content
+Figure G-4 Rows and Their Content
 
 ### ( vii ) Changes
 
-Table G-7 presents the rows that each change writes. A change shall not place an item at a key that is already taken; the item shall receive a suffix of Table G-2 or be merged, as set out in § ( G/( b.iv. ) ). Where a row is nonetheless placed at a taken key, as where the copy machinery of the system writes into an archive and so decides (see § ( G/( b.iv. ) )), it shall replace any stored row at that key, every row under it, and any stored row whose key is a folder above it, so that a file can replace a folder of the same name and a folder a file. A row D at or above the key of a new row shall be removed, since the folder is no longer empty.
+Table G-6 presents the rows that each change writes. A change shall not place an item at a key that is already taken; the item shall receive a suffix of Table G-1 or be merged, as set out in § ( G/( b.iv. ) ). Where a row is nonetheless placed at a taken key, as where the copy machinery of the system writes into an archive and so decides (see § ( G/( b.iv. ) )), it shall replace any stored row at that key, every row under it, and any stored row whose key is a folder above it, so that a file can replace a folder of the same name and a folder a file. A row D at or above the key of a new row shall be removed, since the folder is no longer empty.
 
-<table id="table-g-7">
-<caption>Table G-7 Changes and the Rows They Write</caption>
+<table id="table-g-6">
+<caption>Table G-6 Changes and the Rows They Write</caption>
 <thead>
 <tr><th>Change</th><th>Rows</th></tr>
 </thead>
@@ -1066,57 +1014,57 @@ Table G-7 presents the rows that each change writes. A change shall not place an
 </tbody>
 </table>
 
-A row M that is copied shall become F, so that the original is deleted only once, together with the row that moved it. Deleting the last entry of a folder shall leave the folder as a row D until the repack, as shown in Figure G-7. Renaming or moving a folder shall rewrite the keys of its rows and of the sections of nested archives within it, as shown in Figure G-8.
+A row M that is copied shall become F, so that the original is deleted only once, together with the row that moved it. Deleting the last entry of a folder shall leave the folder as a row D until the repack, as shown in Figure G-5. Renaming or moving a folder shall rewrite the keys of its rows and of the sections of nested archives within it, as shown in Figure G-6.
 
-<p id="figure-g-7" align="center"><img src="nżúù/g-7.svg" alt="Figure G-7 Deletion of the Last File of a Folder"></p>
+<p id="figure-g-5" align="center"><img src="nżúù/g-5.svg" alt="Figure G-5 Deletion of the Last File of a Folder"></p>
 
-Figure G-7 Deletion of the Last File of a Folder
+Figure G-5 Deletion of the Last File of a Folder
 
-<p id="figure-g-8" align="center"><img src="nżúù/g-8.svg" alt="Figure G-8 Renaming of a Folder Holding a Nested Archive"></p>
+<p id="figure-g-6" align="center"><img src="nżúù/g-6.svg" alt="Figure G-6 Renaming of a Folder Holding a Nested Archive"></p>
 
-Figure G-8 Renaming of a Folder Holding a Nested Archive
+Figure G-6 Renaming of a Folder Holding a Nested Archive
 
 ### ( viii ) The Repack
 
-The repack writes the archive with all its pending changes. A programme shall repack an archive after the last of its views of the archive has closed and no view has opened again within a short wait, so that walking between the folders of an archive, which closes one view and opens another, does not cause a repack. Figure G-9 shows views, wait and repack over time. The repack may also be carried out by another programme that leaves the archive earlier; the result is the same, only sooner.
+The repack writes the archive with all its pending changes. A programme shall repack an archive after the last of its views of the archive has closed and no view has opened again within a short wait, so that walking between the folders of an archive, which closes one view and opens another, does not cause a repack. Figure G-7 shows views, wait and repack over time. The repack may also be carried out by another programme that leaves the archive earlier; the result is the same, only sooner.
 
-<p id="figure-g-9" align="center"><img src="nżúù/g-9.svg" alt="Figure G-9 Views, Wait and Repack"></p>
+<p id="figure-g-7" align="center"><img src="nżúù/g-7.svg" alt="Figure G-7 Views, Wait and Repack"></p>
 
-Figure G-9 Views, Wait and Repack
+Figure G-7 Views, Wait and Repack
 
-The repack shall run under the lock, as shown in Figure G-10. A stale journal shall be discarded, and a missing or unreadable journal leaves nothing to do. A journal that holds a foreign row, written on another machine or holding a path that the system cannot interpret, shall neither be repacked nor discarded, and shall be left for the machine that wrote it; a stale journal shall be discarded nonetheless, in the manner of § ( G/( ú.i. ) ). Otherwise, the nested archives that have sections shall be built first into temporary files, the innermost first, as shown in Figure G-11, and the archive shall then be written in full beside itself, under its file name, a full stop, 32 hexadecimal digits in lower case, and .tmp, in the manner of § ( Ù/( b ) ), and shall replace the old file. Linked files shall be read as they are at that moment, so that a changed file is packed changed and a missing file is left out. Rows D shall be left out.
+The repack shall run under the lock, as shown in Figure G-8. A stale journal shall be discarded, and a missing or unreadable journal leaves nothing to do. A journal that holds a foreign row, written on another machine or holding a path that the system cannot interpret, shall neither be repacked nor discarded, and shall be left for the machine that wrote it; a stale journal shall be discarded nonetheless, in the manner of § ( G/( ú.i. ) ). Otherwise, the nested archives that have sections shall be built first into temporary files, the innermost first, as shown in Figure G-9, and the archive shall then be written in full beside itself, under its file name, a full stop, 32 hexadecimal digits in lower case, and .tmp, in the manner of § ( Ù/( b ) ), and shall replace the old file. Linked files shall be read as they are at that moment, so that a changed file is packed changed and a missing file is left out. Rows D shall be left out.
 
-<p id="figure-g-10" align="center"><img src="nżúù/g-10.svg" alt="Figure G-10 The Repack"></p>
+<p id="figure-g-8" align="center"><img src="nżúù/g-8.svg" alt="Figure G-8 The Repack"></p>
 
-Figure G-10 The Repack
+Figure G-8 The Repack
 
-<p id="figure-g-11" align="center"><img src="nżúù/g-11.svg" alt="Figure G-11 Order of Writing Nested Archives"></p>
+<p id="figure-g-9" align="center"><img src="nżúù/g-9.svg" alt="Figure G-9 Order of Writing Nested Archives"></p>
 
-Figure G-11 Order of Writing Nested Archives
+Figure G-9 Order of Writing Nested Archives
 
 Only after the new archive has replaced the old one shall the originals of rows M be deleted, the temporary files of rows T be deleted, the folders of rows R be removed if they are empty, the originals of rows H that still exist be shown again, and the journal that was used be deleted. A journal under the other name (see § ( G/( b.vi. ) )) shall be left; it no longer matches the archive, and is found stale and discarded when it is next read. Where writing or replacing fails, the new file shall be removed, and the journal and all pending content shall be kept. Where a programme ends before the repack, the journal shall remain, and the archive shall be repacked when it is next opened and left.
 
 ### ( ix ) Stale Journals and Concurrency
 
-A journal is valid only for the archive against which it was written. Before using a journal, a programme shall compare the length and the last-write time of the archive with the header of the journal, as shown in Figure G-12. Where they differ, the archive has been changed by another tool since, the addresses of rows A no longer hold, and the journal is stale. A stale journal shall be discarded, except on a shared road (see § ( G/( ú.iii.1. ) )), under the lock, together with those temporary files of its rows T that the programme made itself, and every original of its rows H shall be shown again, unless the journal holds a foreign row, in which case only the journal file is removed (see § ( G/( ú.i. ) )); the archive on disk shall prevail, and its pending changes are lost. Only the journal that was used shall be discarded; a journal under the other name is left, and is checked in the same manner when it is next read. An unreadable journal shall be ignored, and the next change shall start a new journal from the archive on disk; originals hidden through its rows H remain hidden (see Table G-9).
+A journal is valid only for the archive against which it was written. Before using a journal, a programme shall compare the length and the last-write time of the archive with the header of the journal, as shown in Figure G-10. Where they differ, the archive has been changed by another tool since, the addresses of rows A no longer hold, and the journal is stale. A stale journal shall be discarded, except on a shared road (see § ( G/( ú.iii.1. ) )), under the lock, together with those temporary files of its rows T that the programme made itself, and every original of its rows H shall be shown again, unless the journal holds a foreign row, in which case only the journal file is removed (see § ( G/( ú.i. ) )); the archive on disk shall prevail, and its pending changes are lost. Only the journal that was used shall be discarded; a journal under the other name is left, and is checked in the same manner when it is next read. An unreadable journal shall be ignored, and the next change shall start a new journal from the archive on disk; originals hidden through its rows H remain hidden (see Table G-8).
 
-<p id="figure-g-12" align="center"><img src="nżúù/g-12.svg" alt="Figure G-12 Check of a Journal"></p>
+<p id="figure-g-10" align="center"><img src="nżúù/g-10.svg" alt="Figure G-10 Check of a Journal"></p>
 
-Figure G-12 Check of a Journal
+Figure G-10 Check of a Journal
 
-Changes made by several programmes, or by several threads of one, shall be serialised by a lock for each archive that holds across programmes, as shown in Figure G-13. Each change shall read the journal under the lock, so that it builds on the changes made before it. A programme may keep a parsed journal in memory, provided that it detects a newer journal, for example by its length and last-write time.
+Changes made by several programmes, or by several threads of one, shall be serialised by a lock for each archive that holds across programmes, as shown in Figure G-11. Each change shall read the journal under the lock, so that it builds on the changes made before it. A programme may keep a parsed journal in memory, provided that it detects a newer journal, for example by its length and last-write time.
 
-<p id="figure-g-13" align="center"><img src="nżúù/g-13.svg" alt="Figure G-13 Two Programmes Changing One Archive"></p>
+<p id="figure-g-11" align="center"><img src="nżúù/g-11.svg" alt="Figure G-11 Two Programmes Changing One Archive"></p>
 
-Figure G-13 Two Programmes Changing One Archive
+Figure G-11 Two Programmes Changing One Archive
 
 ### ( x ) Readers
 
-A programme that reads an archive for which a journal exists shall present the archive with its pending changes. For each level, it shall take the entries from the section of that level where one exists, and from the archive otherwise, as shown in Figure G-14. A nested archive that has a section of its own shall be presented with the length it will have after the repack, computed from the journal, and its content, when it is read as a file, shall first be built into a temporary file.
+A programme that reads an archive for which a journal exists shall present the archive with its pending changes. For each level, it shall take the entries from the section of that level where one exists, and from the archive otherwise, as shown in Figure G-12. A nested archive that has a section of its own shall be presented with the length it will have after the repack, computed from the journal, and its content, when it is read as a file, shall first be built into a temporary file.
 
-<p id="figure-g-14" align="center"><img src="nżúù/g-14.svg" alt="Figure G-14 Listing a Level through the Journal"></p>
+<p id="figure-g-12" align="center"><img src="nżúù/g-12.svg" alt="Figure G-12 Listing a Level through the Journal"></p>
 
-Figure G-14 Listing a Level through the Journal
+Figure G-12 Listing a Level through the Journal
 
 A programme that can write .v31np files only by writing a whole new archive, and therefore cannot write into the shadow, shall refuse changes while a journal exists, and may read through it.
 
@@ -1136,11 +1084,11 @@ A programme shall delete only the temporary files it has made itself. It shall k
 
 ### ( ii ) Mounted Devices
 
-A mounted device, such as a USB stick, a memory card or an external disk, is a disk of the machine into which it is plugged. An archive on such a device lies off the road: it is edited as set out in part ( b ), with its journal beside it on the device. The device may, however, be pulled out while changes are pending, and plugged into another machine, as shown in Figure G-15. The journal then names files of the first machine, which the second cannot reach, and its rows carry the plate of the first.
+A mounted device, such as a USB stick, a memory card or an external disk, is a disk of the machine into which it is plugged. An archive on such a device lies off the road: it is edited as set out in part ( b ), with its journal beside it on the device. The device may, however, be pulled out while changes are pending, and plugged into another machine, as shown in Figure G-13. The journal then names files of the first machine, which the second cannot reach, and its rows carry the plate of the first.
 
-<p id="figure-g-15" align="center"><img src="nżúù/g-15.svg" alt="Figure G-15 A Device Carried between Machines"></p>
+<p id="figure-g-13" align="center"><img src="nżúù/g-13.svg" alt="Figure G-13 A Device Carried between Machines"></p>
 
-Figure G-15 A Device Carried between Machines
+Figure G-13 A Device Carried between Machines
 
 On the second machine, the journal is read-only (see § ( G/( ú.i. ) )). The archive is presented with its pending changes, but the files linked from the first machine cannot be opened there, and no change can be made. When the device returns to the first machine, the journal is its own again, and the archive is repacked when it is next opened and left. Where the archive is changed on the second machine by a programme that does not follow this division, the journal becomes stale and is discarded, and its pending changes are lost (see § ( G/( b.ix. ) )).
 
@@ -1172,7 +1120,7 @@ The signal shall be held only for a short visit to the officer, to read and writ
 
 #### 3. The Officer
 
-The officer of an archive is kept in its journal, in the lines between the header and the first section, as presented in Table G-10. The officer knows the current shift, the next ticket to be given, whether the archive lies on a shared road, the car that holds the lane, the cars waiting in the queue, and the last 16 events, which Table G-11 presents. Every visit to the officer shall be made as shown in Figure G-16, as follows:
+The officer of an archive is kept in its journal, in the lines between the header and the first section, as presented in Table G-9. The officer knows the current shift, the next ticket to be given, whether the archive lies on a shared road, the car that holds the lane, the cars waiting in the queue, and the last 16 events, which Table G-10 presents. Every visit to the officer shall be made as shown in Figure G-14, as follows:
 
 1. The car waits for a green signal and writes its papers.
 2. It takes the time of the officer from the post.
@@ -1180,12 +1128,12 @@ The officer of an archive is kept in its journal, in the lines between the heade
 4. It does its business with the officer, as set out in the rules below.
 5. It writes the journal whole, as set out in § ( G/( b.vi. ) ), and turns the signal red.
 
-<p id="figure-g-16" align="center"><img src="nżúù/g-16.svg" alt="Figure G-16 The Post, the Signal and the Officer"></p>
+<p id="figure-g-14" align="center"><img src="nżúù/g-14.svg" alt="Figure G-14 The Post, the Signal and the Officer"></p>
 
-Figure G-16 The Post, the Signal and the Officer
+Figure G-14 The Post, the Signal and the Officer
 
-<table id="table-g-10">
-<caption>Table G-10 Lines of the Officer</caption>
+<table id="table-g-9">
+<caption>Table G-9 Lines of the Officer</caption>
 <thead>
 <tr><th>Line</th><th>Fields</th><th>Contents</th></tr>
 </thead>
@@ -1201,8 +1149,8 @@ Figure G-16 The Post, the Signal and the Officer
 
 Lines G, N, S and L shall each be given at most once, and lines Q and W once for each car and each event. Times are written as set out in § ( G/( b.vi. ) ).
 
-<table id="table-g-11">
-<caption>Table G-11 Events of the Officer</caption>
+<table id="table-g-10">
+<caption>Table G-10 Events of the Officer</caption>
 <thead>
 <tr><th>Event</th><th>Meaning</th></tr>
 </thead>
@@ -1243,26 +1191,26 @@ The right of way at the post is as follows:
 4. A car that is not waved on for its clock yields to every other car.
 5. Even with the right of way, a car is waved on only at its own visit to the officer.
 
-When the lane is free, the officer waves on the car that has the right of way. It leaves the queue and holds the lane, and a new shift begins, whose number the car keeps. While it holds the lane, the car shall renew its lease at a visit to the officer at least every 40 seconds. A renewal shall be refused where the lane no longer holds the ticket of the car in its shift. A lane whose lease has run out is struck out at the next visit of any car, and a new shift begins, so that a holder that returns late finds its shift gone. A car that finds its shift gone, whether its lease ran out or it was overridden, shall abandon its change. Figure G-17 shows a queue and its lane over time.
+When the lane is free, the officer waves on the car that has the right of way. It leaves the queue and holds the lane, and a new shift begins, whose number the car keeps. While it holds the lane, the car shall renew its lease at a visit to the officer at least every 40 seconds. A renewal shall be refused where the lane no longer holds the ticket of the car in its shift. A lane whose lease has run out is struck out at the next visit of any car, and a new shift begins, so that a holder that returns late finds its shift gone. A car that finds its shift gone, whether its lease ran out or it was overridden, shall abandon its change. Figure G-15 shows a queue and its lane over time.
 
-<p id="figure-g-17" align="center"><img src="nżúù/g-17.svg" alt="Figure G-17 The Queue and the Lane over Time"></p>
+<p id="figure-g-15" align="center"><img src="nżúù/g-15.svg" alt="Figure G-15 The Queue and the Lane over Time"></p>
 
-Figure G-17 The Queue and the Lane over Time
+Figure G-15 The Queue and the Lane over Time
 
 #### 6. One Change, One Car
 
-Every change on a shared road is one car, whatever it holds: a copy of many files, a rename, a delete, an empty folder created, or a save of a file by an editor. A file that is being written into an archive drives once its writing is complete. Each car shall drive as shown in Figure G-18, as follows:
+Every change on a shared road is one car, whatever it holds: a copy of many files, a rename, a delete, an empty folder created, or a save of a file by an editor. A file that is being written into an archive drives once its writing is complete. Each car shall drive as shown in Figure G-16, as follows:
 
 1. Join. The car joins the queue and visits the officer until it is waved on.
 2. Look. Holding the lane, with the signal red, the car reads the archive and the journal as they are now. Where an entry that the change concerns has changed since the view from which the change was given, the change shall be refused and the view refreshed, so that nobody changes what they have not seen.
 3. Build. The car applies the change by name to the archive as it is now; where its target has vanished meanwhile, the change fails as not found. It writes the new archive beside the old one, together with its record of custody, under the file name of the archive, a full stop, 32 hexadecimal digits in lower case, and .tmp. It then reads the new archive back and verifies it. While it builds, it renews its lease.
 4. Land. With a green signal, the car checks that it still holds the lane in its shift, and that the archive is still the one it read, by its length and last-write time. It then replaces the archive with the new one, trying again for a while where a reader still holds the archive open. It writes the journal, with the officer after the car has left the lane and with sections of rows A and D for the levels that hold leased folders, and turns the signal red.
 
-<p id="figure-g-18" align="center"><img src="nżúù/g-18.svg" alt="Figure G-18 The Drive of a Car"></p>
+<p id="figure-g-16" align="center"><img src="nżúù/g-16.svg" alt="Figure G-16 The Drive of a Car"></p>
 
-Figure G-18 The Drive of a Car
+Figure G-16 The Drive of a Car
 
-Where any step fails, or the car finds its shift gone, it shall remove its own temporary file, and the archive and the journal remain as they were. Nothing is lost but the change itself, which may be given again. A temporary file left beside an archive by a machine that stopped while it was building shall never be removed by a programme (see Table G-9).
+Where any step fails, or the car finds its shift gone, it shall remove its own temporary file, and the archive and the journal remain as they were. Nothing is lost but the change itself, which may be given again. A temporary file left beside an archive by a machine that stopped while it was building shall never be removed by a programme (see Table G-8).
 
 #### 7. Leased Folders
 
@@ -1270,7 +1218,7 @@ Since the format stores no empty folders, an empty folder created on a shared ro
 
 #### 8. Breakdowns
 
-A holder that stops renewing its lane, as where its machine has frozen or has lost the network, keeps the lane until its lease runs out, and every other car waits. What a programme shall do while the holder appears broken down is shown in Figure G-19, and is as follows:
+A holder that stops renewing its lane, as where its machine has frozen or has lost the network, keeps the lane until its lease runs out, and every other car waits. What a programme shall do while the holder appears broken down is shown in Figure G-17, and is as follows:
 
 1. A holder that is alive and renews its lane shall be waited for without asking, however long it drives.
 2. Where only two machines are concerned, the holder and one waiting car, and the holder has missed its renewals, so that no renewal of the lane has been seen for 80 seconds and less than 40 seconds of its lease remain, the programme of the waiting car shall ask its user whether to go ahead, naming the holder by its papers.
@@ -1278,9 +1226,9 @@ A holder that stops renewing its lane, as where its machine has frozen or has lo
 4. Where the user declines, or does not answer, nothing changes, and the lease of the holder runs out by itself.
 5. Where more than two machines are concerned, no car shall override. A waiting car may instead tag the holder, which the officer logs as tag. A tag is a warning to the other cars and to the holder, and does not change the lane.
 
-<p id="figure-g-19" align="center"><img src="nżúù/g-19.svg" alt="Figure G-19 A Breakdown and an Override"></p>
+<p id="figure-g-17" align="center"><img src="nżúù/g-17.svg" alt="Figure G-17 A Breakdown and an Override"></p>
 
-Figure G-19 A Breakdown and an Override
+Figure G-17 A Breakdown and an Override
 
 #### 9. Custody
 
@@ -1289,12 +1237,12 @@ Every car that changes an archive on a shared road shall leave a record of custo
 1. ALICEV31NP/, the plate, \, a number and .txt, as in ALICEV31NP/pingu-346656037\10.txt. The number counts the records of that machine in the archive, from 1.
 2. ALICEV31NP/, the year, \, a number, a hyphen, the number of the first file and .txt, as in ALICEV31NP/2026\3-10.txt. The number counts the records of that year in the archive, from 1. This file keeps the order of events: its first line holds the key of the first file, and the record follows unchanged, so that a person or a programme can rebuild the chain of events, even where the records of two machines carry the same number.
 
-In both keys, \ is an ordinary character of the name and not a separator. The year is the year of the time of the officer. Where the records of another archive are brought into an archive, they shall be kept under ALICEV31NP/, the file name of the archive they come from without .v31np, and /, with a suffix of Table G-2 where that name is taken.
+In both keys, \ is an ordinary character of the name and not a separator. The year is the year of the time of the officer. Where the records of another archive are brought into an archive, they shall be kept under ALICEV31NP/, the file name of the archive they come from without .v31np, and /, with a suffix of Table G-1 where that name is taken.
 
-A record shall be UTF-8 text in lines that each end with a carriage return and a line feed, as presented in Table G-12. Text in a record is escaped as in Table G-4.
+A record shall be UTF-8 text in lines that each end with a carriage return and a line feed, as presented in Table G-11. Text in a record is escaped as in Table G-3.
 
-<table id="table-g-12">
-<caption>Table G-12 Lines of a Record of Custody</caption>
+<table id="table-g-11">
+<caption>Table G-11 Lines of a Record of Custody</caption>
 <thead>
 <tr><th>Line</th><th>Contents</th></tr>
 </thead>
@@ -1315,16 +1263,16 @@ A programme that reads an archive on a shared road shall not hold it open betwee
 
 ## ( u ) Edge Cases and Limitations
 
-Table G-8 presents the edge cases of editing and the behaviour required in each. Table G-9 presents the limitations that follow from the design of the shadow and of the road; they are accepted.
+Table G-7 presents the edge cases of editing and the behaviour required in each. Table G-8 presents the limitations that follow from the design of the shadow and of the road; they are accepted.
 
-<table id="table-g-8">
-<caption>Table G-8 Edge Cases</caption>
+<table id="table-g-7">
+<caption>Table G-7 Edge Cases</caption>
 <thead>
 <tr><th>Case</th><th>Behaviour</th></tr>
 </thead>
 <tbody>
 <tr><th colspan="2">Names already taken</th></tr>
-<tr><td>A file is added under a key that exists</td><td>The incoming file receives a suffix of Table G-2; nothing is replaced</td></tr>
+<tr><td>A file is added under a key that exists</td><td>The incoming file receives a suffix of Table G-1; nothing is replaced</td></tr>
 <tr><td>A file is added where a folder of the same name exists, or a folder where a file exists</td><td>The incoming item receives a suffix and keeps all it holds; the existing item is kept</td></tr>
 <tr><td>A folder is added where a folder of the same name exists</td><td>Merged; only the clashing files inside receive suffixes</td></tr>
 <tr><td>An item is copied into the folder it comes from</td><td>The copy receives a suffix; a folder becomes a new folder with the suffix, holding a full copy</td></tr>
@@ -1334,7 +1282,7 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 <tr><td>A folder is moved into itself or into a folder inside it</td><td>Refused</td></tr>
 <tr><td>A rename to an empty name, to a name containing /, or to a name used in the folder</td><td>Refused</td></tr>
 <tr><td>A rename onto a name used in the folder, given through the calls of a mounted file system</td><td>The item of that name is replaced</td></tr>
-<tr><td>The name for a packed archive or for baíbíz e alùz is taken</td><td>A suffix of Table G-2</td></tr>
+<tr><td>The name for a packed archive or for baíbíz e alùz is taken</td><td>A suffix of Table G-1</td></tr>
 <tr><th colspan="2">Folders</th></tr>
 <tr><td>The last entry of a folder is deleted or moved out</td><td>The folder remains, empty, until the repack and then vanishes</td></tr>
 <tr><td>A new folder is created and left empty</td><td>Dropped at the repack</td></tr>
@@ -1358,7 +1306,7 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 <tr><td>A nested archive with a section is read as a file</td><td>Built first into a temporary file</td></tr>
 <tr><th colspan="2">Saving back</th></tr>
 <tr><td>The entry of an opened copy is renamed, moved or deleted before the copy is saved</td><td>The save lands at the original key and recreates the entry</td></tr>
-<tr><td>The entry of an opened copy is changed elsewhere before the copy is saved</td><td>The save lands beside it with a suffix of Table G-2; later saves follow to that key</td></tr>
+<tr><td>The entry of an opened copy is changed elsewhere before the copy is saved</td><td>The save lands beside it with a suffix of Table G-1; later saves follow to that key</td></tr>
 <tr><th colspan="2">Plates and mounted devices</th></tr>
 <tr><td>A journal holds a row of another machine, or a path that the system cannot interpret</td><td>Read-only: presented, the files of foreign rows not opened, no change, repack or discard</td></tr>
 <tr><td>A journal with a foreign row is stale</td><td>Only the journal file is removed; nothing it names is touched</td></tr>
@@ -1378,8 +1326,8 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 </tbody>
 </table>
 
-<table id="table-g-9">
-<caption>Table G-9 Limitations</caption>
+<table id="table-g-8">
+<caption>Table G-8 Limitations</caption>
 <thead>
 <tr><th>Limitation</th><th>Consequence</th></tr>
 </thead>
@@ -1410,6 +1358,7 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 <tr><td>7-Zip plugin</td><td>The programme v31np.dll, which adds .v31np as a format to 7-Zip; see § ( Ú/( a.ii.2. ) ).</td></tr>
 <tr><td>a, b, c</td><td>The fields of T2 that divide a key into its folder, its name and its extension.</td></tr>
 <tr><td>Address</td><td>The absolute offset of the first data byte of a file, given in T1.</td></tr>
+<tr><td>Alphabetical order</td><td>The order in which names are sorted; see PS/G-1104.</td></tr>
 <tr><td>Archive</td><td>A .v31np file.</td></tr>
 <tr><td>ASCII</td><td>American Standard Code for Information Interchange.</td></tr>
 <tr><td>Car</td><td>One change of one machine on a shared road, from joining the queue to landing; see § ( G/( ú.iii.6. ) ).</td></tr>
@@ -1441,10 +1390,11 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 <tr><td>PASSING</td><td>The medallion of a programme of which every .v31np file it writes conforms to § ( B/( a ) ), and which reads every file that conforms.</td></tr>
 <tr><td>Plate</td><td>The name by which a machine is known: its host name, a hyphen and a number of at most nine digits; see § ( G/( ú.i. ) ).</td></tr>
 <tr><td>Post</td><td>The file NIEURFASMIT UUTI, followed by the name of an archive, beside an archive on a shared road, which carries its signal; see § ( G/( ú.iii.2. ) ).</td></tr>
+<tr><td>PS/G-1104</td><td>The standard on alphabetical ordering of v31n, by which names are sorted; see § ( E ).</td></tr>
 <tr><td>PS/Í-1103</td><td>The Time standard of v31n, in which the times of journals and records are written; see § ( E ).</td></tr>
 <tr><td>Queue</td><td>The cars waiting at the post of an archive.</td></tr>
 <tr><td>Repack</td><td>The single rewrite of an archive with all its pending changes, after the user has left it; see § ( G/( b.viii. ) ).</td></tr>
-<tr><td>Row</td><td>The description of one file in a table, beginning with 00 φ; in a journal, a line describing one entry of a level, see Table G-6.</td></tr>
+<tr><td>Row</td><td>The description of one file in a table, beginning with 00 φ; in a journal, a line describing one entry of a level, see Table G-5.</td></tr>
 <tr><td>Section</td><td>The part of a journal that lists the entries of one level, opened by a line @.</td></tr>
 <tr><td>Shadow</td><td>The state of an archive together with its pending changes, held in the journal and the content it refers to; see § ( G/( b.v. ) ).</td></tr>
 <tr><td>Shared road</td><td>An archive reached over a network, on a share or inside a folder that its machine shares; see § ( G/( ú.iii.1. ) ).</td></tr>
@@ -1457,7 +1407,6 @@ Table G-8 presents the edge cases of editing and the behaviour required in each.
 <tr><td>Tag</td><td>A warning by a waiting car that the holder seems stuck; it does not change the lane.</td></tr>
 <tr><td>Ticket</td><td>The number given to a car when it joins the queue, in the order of arrival.</td></tr>
 <tr><td>UTF-8</td><td>Unicode Transformation Format, 8-bit; the encoding of every key.</td></tr>
-<tr><td>V31N order</td><td>The order in which names are sorted, first by the name without its extension and then by the whole name, a tie being broken by place, case, length and code points; see § ( G/( b.i. ) ). Syn.: Alphabetical order.</td></tr>
 <tr><td>V31NP STANDARD</td><td>The format as defined in § ( B ).</td></tr>
 <tr><td>View</td><td>An open presentation of a folder of an archive in a file manager; the repack follows the closing of the last view.</td></tr>
 <tr><td>Zip bomb</td><td>An archive of which the extracted size greatly exceeds the stored size.</td></tr>
@@ -1480,6 +1429,6 @@ Microsoft Corporation (n.d.) "Naming Files, Paths, and Namespaces", Win32 docume
 
 Pavlov, I. (2026) "7-Zip 26.05".
 
-Unicode Consortium (n.d.) "Unicode Standard Annex #15: Unicode Normalization Forms".
-
 PS/Í-1103
+
+PS/G-1104
