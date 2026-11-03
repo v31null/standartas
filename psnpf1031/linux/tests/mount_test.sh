@@ -320,6 +320,39 @@ more' ] && [ ! -e mnt2/new.txt ]"
     wait $C1 $C2
     sleep 1.2
     check "share: two mounts writing at once both land" "[ \"\$(cat mnt/c2.txt)\" = two ] && [ \"\$(cat mnt2/c1.txt)\" = one ] && \"$CLI\" test \"$ROAD/road.v31np\" >/dev/null"
+    head -c 200000000 /dev/urandom > mnt/slow.bin & SLOW=$!
+    held=0; clean=0
+    for _ in $(seq 1 1200); do officer | grep -q $'^L\t' && break; sleep 0.05; done
+    for _ in 1 2 3 4 5 6 7 8; do
+        kill -STOP $P1
+        if officer | grep -q $'^L\t'; then
+            held=1
+            ls -l /proc/$P1/fd 2>/dev/null | grep -q 'road\.v31np$' || clean=1
+        fi
+        kill -CONT $P1
+        [ $clean = 1 ] && break
+        sleep 0.02
+    done
+    wait $SLOW
+    check "share: during its own car the mount keeps no handle open on the archive" "[ $held = 1 ] && [ $clean = 1 ]"
+    rm mnt/slow.bin
+    sleep 1.2
+    check "share: the slow file lands and leaves again" "[ ! -e mnt2/slow.bin ] && \"$CLI\" test \"$ROAD/road.v31np\" >/dev/null"
+    head -c 200000000 /dev/urandom > mnt2/x.txt & SLOW=$!
+    for _ in $(seq 1 1200); do officer | grep -q $'^L\t' && break; sleep 0.05; done
+    printf mine > mnt/x.txt
+    wait $SLOW
+    sleep 1.2
+    BESIDE=$(cd mnt2 && grep -l -x mine x*.txt 2>/dev/null | grep -v -x x.txt)
+    check "share: a clash at close lands beside under a suffix" "[ \"\$(stat -c %s mnt2/x.txt)\" = 200000000 ] && [ -n \"$BESIDE\" ] && grep -q 'landed beside as $BESIDE' \"$WORK/mount.log\""
+    rm -f mnt/x.txt "mnt/$BESIDE"
+    sleep 1.2
+    chmod 555 "$ROAD"
+    printf later > mnt/kept.txt
+    check "share: a failed landing keeps the file and says so" "[ \"\$(cat mnt/kept.txt)\" = later ] && [ ! -e mnt2/kept.txt ] && grep -q 'could not land at close: .*; kept, retrying every 40 s' \"$WORK/mount.log\""
+    chmod 755 "$ROAD"
+    for _ in $(seq 1 240); do [ -e mnt2/kept.txt ] && break; sleep 0.5; done
+    check "share: a kept file lands later by itself" "[ \"\$(cat mnt2/kept.txt)\" = later ] && grep -q 'landed later' \"$WORK/mount.log\" && \"$CLI\" test \"$ROAD/road.v31np\" >/dev/null"
     stall() {
         touch "$ROAD/clock.probe"; local now; now=$(stat -c %Y "$ROAD/clock.probe"); rm -f "$ROAD/clock.probe"
         python3 - "$RJ" "$now" "$1" <<'PY'

@@ -179,7 +179,7 @@ namespace
             row.file = tmp;
             e.Put(place.chain, std::move(row));
             return S_OK;
-        });
+        }, nullptr, true);
         if (FAILED(r)) return r;
         c.key = key;
         c.basis = written;

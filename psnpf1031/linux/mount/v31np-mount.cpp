@@ -60,10 +60,13 @@ namespace
 
     bool Probe(const std::string& path, Identity& id)
     {
+        const int fd = open(path.c_str(), O_RDONLY | O_CLOEXEC);
+        if (fd < 0) return false;
         struct stat st;
-        if (stat(path.c_str(), &st) != 0) return false;
-        id = Of(st);
-        return true;
+        const bool ok = fstat(fd, &st) == 0;
+        close(fd);
+        if (ok) id = Of(st);
+        return ok;
     }
 
     uint64_t FileTime(const struct timespec& t)
@@ -74,6 +77,8 @@ namespace
     struct Source
     {
         int fd = -1;
+        std::string path;
+        Identity id;
         ~Source()
         {
             if (fd >= 0) close(fd);
@@ -114,6 +119,8 @@ namespace
         bool dirty = false;
         bool archived = false;
         bool written = false;
+        bool kept = false;
+        int error = 0;
     };
 
     struct Handle
@@ -166,6 +173,19 @@ namespace
             len -= (uint32_t)n;
         }
         return true;
+    }
+
+    using Reader = std::function<bool(uint64_t, void*, uint32_t)>;
+
+    bool ReadSource(const Source& s, uint64_t pos, void* buf, uint32_t len)
+    {
+        if (s.fd >= 0) return ReadAll(s.fd, pos, buf, len);
+        const int fd = open(s.path.c_str(), O_RDONLY | O_CLOEXEC);
+        if (fd < 0) return false;
+        struct stat st;
+        const bool ok = fstat(fd, &st) == 0 && Of(st) == s.id && ReadAll(fd, pos, buf, len);
+        close(fd);
+        return ok;
     }
 
     bool WriteAll(int fd, const void* buf, size_t len)
@@ -427,10 +447,10 @@ namespace
         return name.size() > 6 && strcasecmp(name.c_str() + name.size() - 6, ".v31np") == 0;
     }
 
-    bool Inner(int fd, uint64_t base, uint64_t size, std::vector<v31np::Row>& rows)
+    bool Inner(const Reader& raw, uint64_t base, uint64_t size, std::vector<v31np::Row>& rows)
     {
         std::vector<v31np::Entry> entries;
-        auto read = [fd, base, size](uint64_t pos, void* buf, uint32_t len) { return pos + len <= size && ReadAll(fd, base + pos, buf, len); };
+        auto read = [&raw, base, size](uint64_t pos, void* buf, uint32_t len) { return pos + len <= size && raw(base + pos, buf, len); };
         if (!v31np::Parse(read, size, entries)) return false;
         rows.clear();
         for (const auto& e : entries) rows.push_back({ 'A', e.key, e.size, e.at, {}, {}, 0 });
@@ -480,13 +500,18 @@ namespace
                     deeper_rows = section->second;
                     open = true;
                 }
+                else if (f.file.empty())
+                {
+                    const Source& src = *s.archive;
+                    open = Inner([&src](uint64_t pos, void* buf, uint32_t len) { return ReadSource(src, pos, buf, len); }, f.at, f.size, deeper_rows);
+                }
                 else
                 {
-                    const int fd = f.file.empty() ? s.archive->fd : ::open(f.file.c_str(), O_RDONLY | O_CLOEXEC);
+                    const int fd = ::open(f.file.c_str(), O_RDONLY | O_CLOEXEC);
                     if (fd >= 0)
                     {
-                        open = Inner(fd, f.at, f.size, deeper_rows);
-                        if (!f.file.empty()) close(fd);
+                        open = Inner([fd](uint64_t pos, void* buf, uint32_t len) { return ReadAll(fd, pos, buf, len); }, f.at, f.size, deeper_rows);
+                        close(fd);
                     }
                 }
                 if (open)
@@ -531,11 +556,20 @@ namespace
             auto it = snap.levels.find(head);
             if (it == snap.levels.end()) return nullptr;
             const Node& box = snap.nodes[it->second];
-            const int fd = box.file.empty() ? snap.archive->fd : open(box.file.c_str(), O_RDONLY | O_CLOEXEC);
-            if (fd < 0) return nullptr;
             std::vector<v31np::Row> rows;
-            const bool ok = Inner(fd, box.at, box.size, rows);
-            if (!box.file.empty()) close(fd);
+            bool ok = false;
+            if (box.file.empty())
+            {
+                const Source& src = *snap.archive;
+                ok = Inner([&src](uint64_t pos, void* buf, uint32_t len) { return ReadSource(src, pos, buf, len); }, box.at, box.size, rows);
+            }
+            else
+            {
+                const int fd = open(box.file.c_str(), O_RDONLY | O_CLOEXEC);
+                if (fd < 0) return nullptr;
+                ok = Inner([fd](uint64_t pos, void* buf, uint32_t len) { return ReadAll(fd, pos, buf, len); }, box.at, box.size, rows);
+                close(fd);
+            }
             if (!ok) return nullptr;
             shadow.parts[head] = std::move(rows);
         }
@@ -554,18 +588,25 @@ namespace
         Index(snap, 0, "");
     }
 
-    std::shared_ptr<Snapshot> Load(bool keep = false, bool overlay = true)
+    std::shared_ptr<Snapshot> Load(bool overlay = true)
     {
         auto snap = std::make_shared<Snapshot>();
         snap->archive = std::make_shared<Source>();
-        snap->archive->fd = open(mount.archive.c_str(), O_RDONLY | O_CLOEXEC);
-        if (snap->archive->fd < 0) return nullptr;
+        Source& src = *snap->archive;
+        src.path = mount.archive;
+        src.fd = open(mount.archive.c_str(), O_RDONLY | O_CLOEXEC);
+        if (src.fd < 0) return nullptr;
         struct stat st;
-        if (fstat(snap->archive->fd, &st) != 0) return nullptr;
+        if (fstat(src.fd, &st) != 0) return nullptr;
         snap->id = Of(st);
-        const int fd = snap->archive->fd;
+        src.id = snap->id;
+        if (!mount.local)
+        {
+            close(src.fd);
+            src.fd = -1;
+        }
         std::vector<v31np::Entry> entries;
-        if (!v31np::Parse([fd](uint64_t pos, void* buf, uint32_t len) { return ReadAll(fd, pos, buf, len); }, (uint64_t)st.st_size, entries)) return nullptr;
+        if (!v31np::Parse([&src](uint64_t pos, void* buf, uint32_t len) { return ReadSource(src, pos, buf, len); }, (uint64_t)st.st_size, entries)) return nullptr;
 
         auto found = Scan(snap->id);
         for (const auto& f : found) snap->journals[f.path] = f.id;
@@ -599,11 +640,6 @@ namespace
                 any = true;
             }
             if (any) Assemble(*snap);
-        }
-        if (!mount.local && !keep)
-        {
-            close(snap->archive->fd);
-            snap->archive->fd = -1;
         }
         return snap;
     }
@@ -838,6 +874,7 @@ namespace
 
     struct Puller
     {
+        const Source* source = nullptr;
         int fd = -1;
         uint64_t pos = 0;
         uint64_t end = 0;
@@ -857,6 +894,7 @@ namespace
         int fd = -1;
         uint64_t base = 0;
         uint64_t size = 0;
+        const Source* source = nullptr;
     };
 
     Outcome Linked(const v31np::Row& r, int& fd, uint64_t& size)
@@ -913,7 +951,7 @@ namespace
                     closeAll();
                     return Outcome::Failed;
                 }
-                own = { from.fd, from.base + r.at, r.size };
+                own = { from.fd, from.base + r.at, r.size, from.source };
             }
             else
             {
@@ -956,6 +994,7 @@ namespace
             else
             {
                 p->fd = own.fd;
+                p->source = own.source;
                 p->own = opened >= 0;
                 p->pos = own.base;
                 p->end = own.base + own.size;
@@ -964,7 +1003,8 @@ namespace
             Puller* raw = p.get();
             items.push_back({ r.key, size, [raw](void* buf, uint32_t len)
                 {
-                    if (raw->pos + len > raw->end || !ReadAll(raw->fd, raw->pos, buf, len)) return false;
+                    if (raw->pos + len > raw->end) return false;
+                    if (!(raw->source ? ReadSource(*raw->source, raw->pos, buf, len) : ReadAll(raw->fd, raw->pos, buf, len))) return false;
                     raw->pos += len;
                     return true;
                 } });
@@ -1039,10 +1079,10 @@ namespace
         return mount.folder + "/" + v31np::Narrow(v31np::SignalName(v31np::Wide(mount.stem + ".v31np")));
     }
 
-    bool Entries(int fd, uint64_t base, uint64_t size, const v31np::Chain& chain, size_t depth, std::vector<v31np::Entry>& out)
+    bool Entries(const Reader& raw, uint64_t base, uint64_t size, const v31np::Chain& chain, size_t depth, std::vector<v31np::Entry>& out)
     {
         std::vector<v31np::Entry> entries;
-        auto read = [fd, base, size](uint64_t pos, void* buf, uint32_t len) { return pos + len <= size && ReadAll(fd, base + pos, buf, len); };
+        auto read = [&raw, base, size](uint64_t pos, void* buf, uint32_t len) { return pos + len <= size && raw(base + pos, buf, len); };
         if (!v31np::Parse(read, size, entries)) return false;
         if (depth == chain.size())
         {
@@ -1050,7 +1090,7 @@ namespace
             return true;
         }
         for (const auto& e : entries)
-            if (e.key == chain[depth]) return Entries(fd, base + e.at, e.size, chain, depth + 1, out);
+            if (e.key == chain[depth]) return Entries(raw, base + e.at, e.size, chain, depth + 1, out);
         return false;
     }
 
@@ -1153,7 +1193,7 @@ namespace
 
         bool Look(const v31np::Shadow&) override
         {
-            snap = Load(true, false);
+            snap = Load(false);
             if (!snap)
             {
                 error = -EIO;
@@ -1220,7 +1260,7 @@ namespace
                 return false;
             }
             std::vector<std::string> temps;
-            const Outcome packed = Pack(shadow.parts, {}, { snap->archive->fd, 0, (uint64_t)snap->id.size }, out, total, temps, &renew);
+            const Outcome packed = Pack(shadow.parts, {}, { -1, 0, (uint64_t)snap->id.size, snap->archive.get() }, out, total, temps, &renew);
             for (const auto& t : temps) unlink(t.c_str());
             bool ok = packed == Outcome::Done && fsync(out) == 0;
             if (ok)
@@ -1256,10 +1296,16 @@ namespace
                 for (const auto& r : part.second)
                     if (r.kind == 'D') leases[{ part.first, r.key }] = { r.plate, r.until };
             next.parts.clear();
-            const int fd = open(mount.archive.c_str(), O_RDONLY | O_CLOEXEC);
+            Source landed;
+            landed.path = mount.archive;
+            const Reader read = [&landed](uint64_t pos, void* buf, uint32_t len) { return ReadSource(landed, pos, buf, len); };
             struct stat now;
-            if (fd >= 0 && fstat(fd, &now) == 0)
+            const int probe = open(mount.archive.c_str(), O_RDONLY | O_CLOEXEC);
+            const bool known = probe >= 0 && fstat(probe, &now) == 0;
+            if (probe >= 0) close(probe);
+            if (known)
             {
+                landed.id = Of(now);
                 next.size = (uint64_t)now.st_size;
                 next.stamp = FileTime(now.st_mtim);
                 for (const auto& part : shadow.parts)
@@ -1274,7 +1320,7 @@ namespace
                     }
                     if (dirs.empty()) continue;
                     std::vector<v31np::Entry> level;
-                    if (!Entries(fd, 0, (uint64_t)now.st_size, part.first, 0, level)) continue;
+                    if (!Entries(read, 0, (uint64_t)now.st_size, part.first, 0, level)) continue;
                     auto rows = v31np::Listing(level, dirs);
                     bool any = false;
                     for (auto& r : rows)
@@ -1289,7 +1335,6 @@ namespace
                     if (any) next.parts[part.first] = std::move(rows);
                 }
             }
-            if (fd >= 0) close(fd);
             Tidy();
             return true;
         }
@@ -1358,7 +1403,7 @@ namespace
     int Car(const Plan& plan, const std::function<int(Work&)>& apply)
     {
         MountRoad road;
-        auto base = Load(false, false);
+        auto base = Load(false);
         MountTrip trip(plan, apply, base);
         v31np::Request request;
         request.me = { mount.plate, mount.system };
@@ -1382,6 +1427,8 @@ namespace
         }
         return -EIO;
     }
+
+    void Retry();
 
     bool Leased()
     {
@@ -1411,6 +1458,7 @@ namespace
                 if (mount.road && now - mount.renewed >= std::chrono::seconds(v31np::Renewal))
                 {
                     mount.renewed = now;
+                    Retry();
                     if (Leased()) v31np::Visit(*std::make_unique<MountRoad>(), { mount.plate, mount.system }, [](v31np::Shadow& s, int64_t at) { v31np::RenewFolders(s, mount.plate, at, v31np::Lease); });
                 }
                 leave = mount.leave.count() > 0 && mount.open.empty() && mount.held.empty() && !mount.pending && now - mount.seen >= mount.leave;
@@ -1526,18 +1574,17 @@ namespace
 
     int CopyInto(const Snapshot& s, const Node& n, int out)
     {
-        const bool shared = n.file.empty() && s.archive->fd >= 0;
-        int in = shared ? s.archive->fd : n.file.empty() ? Borrow(s) : open(n.file.c_str(), O_RDONLY | O_CLOEXEC);
-        if (in < 0) return -EIO;
+        const int in = n.file.empty() ? -1 : open(n.file.c_str(), O_RDONLY | O_CLOEXEC);
+        if (!n.file.empty() && in < 0) return -EIO;
         uint64_t size = n.size;
-        if (n.kind != 'A')
+        if (in >= 0 && n.kind != 'A')
         {
             struct stat st;
             if (fstat(in, &st) == 0) size = (uint64_t)st.st_size;
         }
         if (!Room(size))
         {
-            if (!shared) close(in);
+            if (in >= 0) close(in);
             return -ENOSPC;
         }
         std::vector<char> buf(1u << 20);
@@ -1546,14 +1593,15 @@ namespace
         while (done < size)
         {
             const uint32_t len = (uint32_t)std::min<uint64_t>(buf.size(), size - done);
-            if (!ReadAll(in, n.at + done, buf.data(), len) || !WriteAll(out, buf.data(), len))
+            const bool got = in >= 0 ? ReadAll(in, n.at + done, buf.data(), len) : ReadSource(*s.archive, n.at + done, buf.data(), len);
+            if (!got || !WriteAll(out, buf.data(), len))
             {
                 r = -EIO;
                 break;
             }
             done += len;
         }
-        if (!shared) close(in);
+        if (in >= 0) close(in);
         return r;
     }
 
@@ -1642,14 +1690,6 @@ namespace
             {
                 std::vector<v31np::Row>* rows = Level(w, p.chain);
                 if (!rows) return -ENOENT;
-                if (p.key.size() > 1)
-                {
-                    const change::Path parent(p.key.begin(), p.key.end() - 1);
-                    bool there = false;
-                    for (const auto& n : w.snap->nodes)
-                        if (n.dir && n.chain == p.chain && n.stored == parent) there = true;
-                    if (!there) return -ENOENT;
-                }
                 struct stat ts;
                 if (stat(temp.c_str(), &ts) != 0) return -EIO;
                 change::Put(*rows, { 'T', change::Join(p.key), (uint64_t)ts.st_size, 0, v31np::Wide(temp), mount.plate, 0 });
@@ -1761,13 +1801,99 @@ namespace
         return 0;
     }
 
-    void RoadRelease(const std::string& temp)
+    int Beside(const std::string& temp)
     {
-        if (Busy(temp)) return;
-        if (int r = Land(temp)) fprintf(stderr, "v31np-mount: %s could not land at close: %s\n", temp.c_str(), strerror(-r));
+        auto it = mount.held.find(temp);
+        if (it == mount.held.end()) return 0;
+        auto s = Current();
+        if (!s) return -EIO;
+        const v31np::Chain chain = it->second.chain;
+        const change::Path wanted = it->second.key;
+        change::Path key = wanted;
+        for (size_t k = 1; k < 100000; k++)
+        {
+            key.back() = v31np::Narrow(v31np::Suffix(v31np::Wide(wanted.back()), k));
+            bool taken = false;
+            for (const auto& n : s->nodes)
+                if (n.chain == chain && n.stored == key)
+                {
+                    taken = true;
+                    break;
+                }
+            if (taken) continue;
+            it->second.key = key;
+            return Land(temp);
+        }
+        return -EEXIST;
+    }
+
+    int Deliver(const std::string& temp, int& error, bool& beside)
+    {
+        beside = false;
+        int r = Land(temp);
+        if (r != 0 && r != -ESTALE) r = Land(temp);
+        if (r == -ESTALE)
+        {
+            if (!error) error = r;
+            r = Beside(temp);
+            beside = r == 0;
+        }
+        if (r != 0 && !error) error = r;
+        return r;
+    }
+
+    void Said(const std::string& temp, int error, const std::string& what)
+    {
+        fprintf(stderr, "v31np-mount: %s could not land at close: %s; %s\n", temp.c_str(), strerror(-error), what.c_str());
+    }
+
+    void Delivered(const std::string& temp)
+    {
         mount.held.erase(temp);
         if (Own(v31np::Wide(temp))) unlink(temp.c_str());
         mount.now = Load();
+    }
+
+    void RoadRelease(const std::string& temp)
+    {
+        if (Busy(temp)) return;
+        auto it = mount.held.find(temp);
+        int error = it != mount.held.end() ? it->second.error : 0;
+        bool beside = false;
+        if (Deliver(temp, error, beside) != 0)
+        {
+            auto again = mount.held.find(temp);
+            if (again != mount.held.end())
+            {
+                if (!again->second.kept) Said(temp, error, "kept, retrying every " + std::to_string(v31np::Renewal) + " s");
+                again->second.kept = true;
+                again->second.error = error;
+                mount.now = Load();
+                return;
+            }
+        }
+        auto landed = mount.held.find(temp);
+        if (beside && landed != mount.held.end()) Said(temp, error, "landed beside as " + change::Join(landed->second.key));
+        Delivered(temp);
+    }
+
+    void Retry()
+    {
+        std::vector<std::string> kept;
+        for (const auto& [temp, p] : mount.held)
+            if (p.kept && !Busy(temp)) kept.push_back(temp);
+        for (const auto& temp : kept)
+        {
+            auto it = mount.held.find(temp);
+            if (it == mount.held.end()) continue;
+            int error = it->second.error;
+            bool beside = false;
+            if (Deliver(temp, error, beside) != 0) continue;
+            auto landed = mount.held.find(temp);
+            if (beside && landed != mount.held.end()) Said(temp, error, "landed beside as " + change::Join(landed->second.key));
+            else Said(temp, error, "landed later");
+            Delivered(temp);
+        }
     }
 
     int GetAttr(const char* path, struct stat* st, struct fuse_file_info* fi)
@@ -2010,7 +2136,14 @@ namespace
         if (h->write && mount.road)
         {
             auto it = mount.held.find(h->temp);
-            return it != mount.held.end() && it->second.written ? Land(h->temp) : 0;
+            if (it == mount.held.end() || !it->second.written) return 0;
+            int error = it->second.error;
+            bool beside = false;
+            const int r = Deliver(h->temp, error, beside);
+            auto landed = mount.held.find(h->temp);
+            if (landed != mount.held.end()) landed->second.error = r != 0 ? error : 0;
+            if (beside && landed != mount.held.end()) Said(h->temp, error, "landed beside as " + change::Join(landed->second.key));
+            return r;
         }
         if (h->write) Settle(h->temp);
         return 0;
@@ -2240,7 +2373,7 @@ namespace
         cfg->entry_timeout = 0.0;
         cfg->negative_timeout = 0.0;
         cfg->hard_remove = 1;
-        if (mount.local || mount.leave.count() > 0) mount.idle = std::thread(Idle);
+        if (mount.local || mount.road || mount.leave.count() > 0) mount.idle = std::thread(Idle);
         return nullptr;
     }
 
@@ -2249,6 +2382,8 @@ namespace
         mount.stop = true;
         if (mount.idle.joinable()) mount.idle.join();
         std::lock_guard<std::recursive_mutex> g(mount.guard);
+        for (const auto& [temp, p] : mount.held)
+            if (p.kept) Said(temp, p.error, "not landed, kept: " + temp);
         if (mount.local && mount.open.empty()) Repack();
     }
 

@@ -770,6 +770,67 @@ namespace
         return S_OK;
     }
 
+    bool SameFile(const std::wstring& a, const std::wstring& b)
+    {
+        FILE_ID_INFO id[2]{};
+        const std::wstring* paths[2] = { &a, &b };
+        for (int i = 0; i < 2; i++)
+        {
+            HANDLE h = CreateFileW(paths[i]->c_str(), FILE_READ_ATTRIBUTES, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+            if (h == INVALID_HANDLE_VALUE) return false;
+            const bool ok = GetFileInformationByHandleEx(h, FileIdInfo, &id[i], sizeof(id[i])) != FALSE;
+            CloseHandle(h);
+            if (!ok) return false;
+        }
+        return id[0].VolumeSerialNumber == id[1].VolumeSerialNumber && memcmp(&id[0].FileId, &id[1].FileId, sizeof(FILE_ID_128)) == 0;
+    }
+
+    std::wstring Hosted(const std::wstring& path)
+    {
+        if (path.size() < 5 || path[0] != L'\\' || path[1] != L'\\' || path[2] == L'?' || path[2] == L'.') return {};
+        const size_t host = path.find(L'\\', 2);
+        if (host == std::wstring::npos || host == 2) return {};
+        const size_t share = path.find(L'\\', host + 1);
+        if (share == std::wstring::npos || share == host + 1) return {};
+        const std::wstring name = path.substr(host + 1, share - host - 1);
+        HKEY key;
+        if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Shares", 0, KEY_READ, &key) != ERROR_SUCCESS) return {};
+        DWORD type = 0;
+        DWORD bytes = 0;
+        std::wstring data;
+        if (RegQueryValueExW(key, name.c_str(), nullptr, &type, nullptr, &bytes) == ERROR_SUCCESS && type == REG_MULTI_SZ && bytes)
+        {
+            data.assign(bytes / sizeof(wchar_t) + 2, L'\0');
+            if (RegQueryValueExW(key, name.c_str(), nullptr, &type, (BYTE*)data.data(), &bytes) != ERROR_SUCCESS) data.clear();
+        }
+        RegCloseKey(key);
+        for (const wchar_t* p = data.c_str(); *p; p += wcslen(p) + 1)
+        {
+            if (wcsncmp(p, L"Path=", 5) != 0) continue;
+            std::wstring dir = p + 5;
+            while (!dir.empty() && (dir.back() == L'\\' || dir.back() == L'/')) dir.pop_back();
+            if (dir.empty()) return {};
+            const std::wstring local = dir + path.substr(share);
+            return SameFile(path, local) ? local : std::wstring();
+        }
+        return {};
+    }
+
+    bool Rebind(Beside& b, const std::wstring& path, const std::wstring& local)
+    {
+        if (b.h == INVALID_HANDLE_VALUE || b.tmp.size() <= path.size()) return false;
+        const std::wstring tmp = local + b.tmp.substr(path.size());
+        CloseHandle(b.h);
+        b.h = CreateFileW(tmp.c_str(), GENERIC_READ | DELETE, FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (b.h != INVALID_HANDLE_VALUE)
+        {
+            b.tmp = tmp;
+            return true;
+        }
+        b.h = CreateFileW(b.tmp.c_str(), GENERIC_READ | GENERIC_WRITE | DELETE, FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        return false;
+    }
+
     HRESULT Commit(const std::shared_ptr<Archive>& a, const std::vector<v31np::Item>& items, bool shared)
     {
         if (!a || a->parent) return E_ACCESSDENIED;
@@ -1615,7 +1676,8 @@ namespace
                 error = E_FAIL;
                 return false;
             }
-            const HRESULT r = Replace(beside, path, true);
+            const std::wstring local = Hosted(path);
+            const HRESULT r = !local.empty() && Rebind(beside, path, local) ? Replace(beside, local, true) : Replace(beside, path, true);
             Forget(path);
             if (FAILED(r))
             {
@@ -1688,7 +1750,15 @@ namespace
         uint64_t stamp = 0;
     };
 
-    HRESULT Car(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint)
+    void Failure(const std::wstring& path, HRESULT r)
+    {
+        wchar_t* text = nullptr;
+        if (!FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, nullptr, (DWORD)r, 0, (LPWSTR)&text, 0, nullptr) || !text) return;
+        MessageBoxW(nullptr, text, NameOf(path).c_str(), MB_OK | MB_ICONERROR | MB_SETFOREGROUND);
+        LocalFree(text);
+    }
+
+    HRESULT Car(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint, bool quiet)
     {
         Checkpoint stop(path, false);
         uint64_t size = 0;
@@ -1759,6 +1829,7 @@ namespace
         }
         clean();
         if (d == v31np::Drove::Done || d == v31np::Drove::Refused) SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATHW | SHCNF_FLUSHNOWAIT, path.c_str(), nullptr);
+        HRESULT result = S_OK;
         switch (d)
         {
         case v31np::Drove::Done:
@@ -1766,21 +1837,25 @@ namespace
         case v31np::Drove::Refused:
             return HRESULT_FROM_WIN32(ERROR_FILE_INVALID);
         case v31np::Drove::Lost:
-            return HRESULT_FROM_WIN32(ERROR_LOCK_VIOLATION);
+            result = HRESULT_FROM_WIN32(ERROR_LOCK_VIOLATION);
+            break;
         case v31np::Drove::Skewed:
             return HRESULT_FROM_WIN32(ERROR_TIME_SKEW);
         case v31np::Drove::Cancelled:
             return HRESULT_FROM_WIN32(ERROR_CANCELLED);
         default:
             if (cancelled) return HRESULT_FROM_WIN32(ERROR_CANCELLED);
-            return FAILED(error) ? error : E_FAIL;
+            result = FAILED(error) ? error : E_FAIL;
+            break;
         }
+        if (!quiet) Failure(path, result);
+        return result;
     }
 }
 
-HRESULT Mutate(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint)
+HRESULT Mutate(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint, bool quiet)
 {
-    if (v31np::SharedRoad(path)) return Car(path, change, hint);
+    if (v31np::SharedRoad(path)) return Car(path, change, hint, quiet);
     Checkpoint stop(path, false);
     uint64_t size = 0;
     uint64_t time = 0;

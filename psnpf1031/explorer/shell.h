@@ -131,7 +131,7 @@ private:
     std::map<v31np::Chain, Taken> taken;
 };
 
-HRESULT Mutate(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint = nullptr);
+HRESULT Mutate(const std::wstring& path, const std::function<HRESULT(Edit&)>& change, const char* hint = nullptr, bool quiet = false);
 HRESULT Materialise(const std::shared_ptr<Archive>& a, size_t entry, std::wstring& file, uint64_t& size);
 HRESULT CopyOut(const std::shared_ptr<Archive>& a, size_t entry, Edit& into, v31np::Row& row);
 HRESULT Finalise(const std::wstring& path);
