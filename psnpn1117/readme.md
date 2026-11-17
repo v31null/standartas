@@ -3,7 +3,7 @@
 <tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.2</td><td colspan="3">2. Report Date<br>2026/11/17</td></tr>
+<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.3</td><td colspan="3">2. Report Date<br>2026/11/18</td></tr>
 <tr><td colspan="6">3. Title<br>PRONAL NETWORK STANDARD</td></tr>
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Services for þe General populace Maß Tele‑kommunikation services namen as prono — prono.v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td></tr>
@@ -894,11 +894,11 @@ Behind a VPN, a node is excluded from the VPN by split tunnelling, or it cannot 
 
 ## ( g ) The Server Node
 
-The server node is the node of the pronal network, run by MEF beside the database of the pronal network, so that the database speaks pronal://. It keeps its device key, a P-256 key pair, in a file of MEF beside the keys of the pronal network, so that it can know itself and be restored; this is the one exception to § ( Ù/( ú ) ). It links as every node does (§ ( Ż/( ù ) )); it needs no open port. It keeps a port of its own for reach (items 3 to 5).
+The server node is the node of the pronal network, run by MEF beside the database of the pronal network, so that the database speaks pronal://. It keeps its device key, a P-256 key pair, in a file of MEF beside the keys of the pronal network, so that it can know itself and be restored; this is the one exception to § ( Ù/( ú ) ). It links as every node does (§ ( Ż/( ù ) )); it needs no open port. It opens a fresh port for reach for each tester (items 3 to 5).
 
 1. The certificate of the server node names the system pin (Table Ú-1). The pronal network issues a certificate naming the system pin to the key of the server node alone.
 2. The public half of the device key of the server node is: `BN/VuTWK/9ELVBRLsUD0OJ5SodGEveLeoo17DgKqqg+FnxGH6HD4pdErsczR6GVAFvD3XLSRbO0oV2AG/ARnpRY=`. Every node holds it. A node that meets a certificate naming the system pin for any other key refuses it.
-3. Any device, logged in or not, may test whether it reaches pronal://; it is then the tester. The server node learns the public address and port of its port for reach as in § ( Ż/( ù ) ), item 1.
+3. Any device, logged in or not, may test whether it reaches pronal://; it is then the tester. The server node learns the public address and port of that port as in § ( Ż/( ù ) ), item 1.
 4. Across the internet, the tester takes two STUN servers by GET of mesh/reach.php and asks them, from the port from which it will dial, for its public address and port. It sends these by POST to mesh/reach.php. The pronal network passes them to the server node, which sends UDP datagrams from its port for reach to them, so that its router admits the tester; the pronal network then answers with address and port, the public address and port of that port. The tester dials them by QUIC with the application protocol pronal1, the listener requiring no certificate of the dialler, and sends on the control stream reach, with fresh, the base64 of 32 random bytes. The server node answers reach with a statement signed by its device key, with kind reach; fresh, as received; seen, the address and port from which it sees the tester; and big_date. It then ends the connection. It answers no other message on that port and ends the connection at any other. The tester checks the signature against the key of item 2 and that fresh is its own; where both hold, it reaches pronal:// across the internet. Where no connection opens, it does not.
 5. By radio, the tester finds an advert of § ( Ż/( u ) ) and sends reach (Table Ż-4), with fresh. The peripheral answers reach with a statement signed by its device key, with kind reach; fresh, as received; reached, whether it holds a link to the server node; big_date; and cert, its certificate as signed, with the statement of the online key. It then ends the connection. The tester checks the statement as a peer proof is checked (§ ( Ż/( b ) )); where it holds, the tester reaches pronal:// by radio, and, where reached is true, the server node through it.
 
