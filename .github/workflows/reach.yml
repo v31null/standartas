@@ -5,6 +5,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - name: diagnose
+        shell: pwsh
+        run: |
+          curl.exe -sS -o NUL -w "reach GET: %{http_code}`n" https://pronal.v31null.de/API1/mesh/reach.php
+          curl.exe -sS https://api.ipify.org
       - name: run test.exe three times
         shell: pwsh
         working-directory: psnpn1117/psnpn1117r2_test
