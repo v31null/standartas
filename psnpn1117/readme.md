@@ -3,7 +3,7 @@
 <tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.3</td><td colspan="3">2. Report Date<br>2026/11/18</td></tr>
+<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.4</td><td colspan="3">2. Report Date<br>2026/11/18</td></tr>
 <tr><td colspan="6">3. Title<br>PRONAL NETWORK STANDARD</td></tr>
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Services for þe General populace Maß Tele‑kommunikation services namen as prono — prono.v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td></tr>
@@ -277,7 +277,7 @@ The pronal network keeps one database, and applications reach it through § ( G 
 <tr><td>direct_talk_map</td><td>The talk of type 0 of each pair of users, and their read state.</td></tr>
 <tr><td>group_talk_members</td><td>The members of each group, added_by_pin, big_date and luimme.</td></tr>
 <tr><td>messages</td><td>min, identification_numero_talkes, sends, content, system_type, big_date, modify, big_date_modifyes, poistettu, palvelimeltasaapuvanvelvoittavanviestintyyliluettelo, reply_min, liktcount, arrival.</td></tr>
-<tr><td>message_likes</td><td>The like of each user on a message, at most one.</td></tr>
+<tr><td>message_likes</td><td>The count of likes of each user on a message.</td></tr>
 <tr><td>message_mentions</td><td>The users named in a message by @ and their pin.</td></tr>
 <tr><td>message_keys</td><td>The wrapped data key of each talk and day (§ ( U/( ú ) )).</td></tr>
 <tr><td>search_keys, search_tokens</td><td>The search index (§ ( U/( u ) )).</td></tr>
@@ -473,7 +473,7 @@ Table G-2 presents the endpoints of the pronal network.
 <tr><td>messages.php?action=get_around</td><td>GET</td><td>talk_id, min</td><td>Gives the messages before and after one message</td></tr>
 <tr><td>messages.php?action=edit</td><td>POST</td><td>min, content</td><td>Edits a message of the user</td></tr>
 <tr><td>messages.php?action=delete</td><td>POST</td><td>min</td><td>Deletes a message of the user</td></tr>
-<tr><td>messages.php?action=like</td><td>POST</td><td>min, delta (1 or −1)</td><td>Likes or unlikes a message</td></tr>
+<tr><td>messages.php?action=like</td><td>POST</td><td>min, delta (1 or −1)</td><td>1 likes a message once more; −1 takes back all likes of the user on it</td></tr>
 <tr><td>messages.php?action=get_liked</td><td>GET</td><td>talk_id</td><td>Gives the liked messages of a talk</td></tr>
 <tr><td>messages.php?action=read</td><td>POST</td><td>talk_id, min</td><td>Sets luimme</td></tr>
 <tr><td>messages.php?action=search</td><td>GET</td><td>talk_id, q, from, has, mentions, before</td><td>Searches a talk (§ ( U/( u ) ))</td></tr>
@@ -547,7 +547,7 @@ Table G-3 presents the fields of a message as the pronal network gives it, in an
 </tbody>
 </table>
 
-A user is named in a message by @ and the 15 digits of the pin. A reply carries reply_min, and each application shows the quoted message in its own way. A like counts once per user and message, and the pronal network gives the count of likes alone.
+A user is named in a message by @ and the 15 digits of the pin. A reply carries reply_min, and each application shows the quoted message in its own way. A user may like a message any number of times and every like counts; an unlike takes back all likes of the user on the message. The pronal network gives the count of likes alone.
 
 ## ( ù ) System Messages
 
@@ -1030,7 +1030,7 @@ A parser refuses a move in which a member is named twice or a number has a fract
 <tr><td>kind</td><td>A kind of Table I-2</td></tr>
 <tr><td>talk</td><td>The identification_numero_talkes of the talk</td></tr>
 <tr><td>target</td><td>The min on which the move acts, or the pin on which it acts</td></tr>
-<tr><td>body</td><td>What the endpoint of Table I-2 takes: content, style, reply_min, and attachments, each with uuid, name, size, type, width, height and hash; a name; a delta; a duration</td></tr>
+<tr><td>body</td><td>What the endpoint of Table I-2 takes: content, style, reply_min, and attachments, each with uuid, name, size, type, width, height and hash; a name; a count of likes; a duration</td></tr>
 <tr><td>version</td><td>For an emend: the id of the last edit of the target that it saw, or the id of the send</td></tr>
 <tr><td>prev</td><td>The hexadecimal SHA-256 of the previous move made with the same device key, or null</td></tr>
 <tr><td>beacon</td><td>The newest beacon the node holds, as signed</td></tr>
@@ -1089,7 +1089,7 @@ Table I-2 presents the kinds of moves, the endpoint of § ( G ) that each takes 
 <tr><td>edit</td><td>messages.php?action=edit</td><td>The sender</td><td>The pin of the signer is the pin in the target</td></tr>
 <tr><td>emend</td><td>messages.php?action=edit by an editor</td><td>A named editor</td><td>The pin of the signer stands in that Emendetur block of the target; version is the current version; each body goes into its block (§ ( G/( d ) ))</td></tr>
 <tr><td>delete</td><td>messages.php?action=delete</td><td>The sender</td><td>The pin of the signer is the pin in the target</td></tr>
-<tr><td>like</td><td>messages.php?action=like</td><td>A member</td><td>Per pin and message, the move with the greatest id stands</td></tr>
+<tr><td>like</td><td>messages.php?action=like</td><td>A member</td><td>The body carries the count of likes of the pin on the message after the move. Per pin and message, the move with the greatest id stands</td></tr>
 <tr><td>add</td><td>talks/add_members.php</td><td>A member</td><td>The signer is a member; no NEGL known between the added pin and a member</td></tr>
 <tr><td>remove</td><td>talks/remove_member.php</td><td>The owner</td><td>The signer is the owner at that place in the fold</td></tr>
 <tr><td>leave</td><td>talks/leave.php</td><td>A member</td><td>The signer is a member</td></tr>
@@ -1168,7 +1168,7 @@ Table Í-1 presents the cases that every fold shall decide alike.
 <tr><td>The owner hands over, then removes the new owner</td><td>The removal is skipped: the signer is no longer owner</td></tr>
 <tr><td>The owner removes a member, then hands over to that member</td><td>The hand-over is skipped: the target is no member</td></tr>
 <tr><td>The two cases above from two nodes of the owner, apart</td><td>Ordered by effect (§ ( Í/( b ) )), then by id</td></tr>
-<tr><td>A like and an unlike from two nodes of one pin</td><td>Per pin and message, the move with the greatest id stands. The count of likes is the count of pins whose standing move is a like, never a sum.</td></tr>
+<tr><td>A like and an unlike from two nodes of one pin</td><td>Per pin and message, the move with the greatest id stands. The count of likes of the message is the sum of the counts of the standing moves.</td></tr>
 <tr><td>The add of a member; the remove of a non-member</td><td>Skipped, with no system message</td></tr>
 <tr><td>A send by a pin between its removal and its adding again</td><td>Skipped</td></tr>
 <tr><td>The pin in the id differs from the pin of the certificate</td><td>Refused</td></tr>
