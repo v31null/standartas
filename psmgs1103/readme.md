@@ -3,11 +3,11 @@
 <tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td colspan="3">1. Report No.<br>PS-MG/S-1103 R.1</td><td colspan="3">2. Report Date<br>2026/11/03</td></tr>
+<tr><td colspan="3">1. Report No.<br>PS-MG/S-1103 R.2</td><td colspan="3">2. Report Date<br>2026/11/18</td></tr>
 <tr><td colspan="6">3. Title<br>DEFAULT TRUST OF MACHINES</td></tr>
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)</td></tr>
-<tr><td colspan="6">6. Abstract<br>This document sets the DEFAULT TRUST OF MACHINES: the six certificates of the certification authorities of v31n, the root CA and the subordinate CA of the chains RSA-4096, P-384 and ML-DSA-87, with which every Prinzian machine shall come installed, the address from which they are obtained, the support of OEMs and suppliers, and their installation on Windows, on GNU/Linux and on MacOS.</td></tr>
+<tr><td colspan="6">6. Abstract<br>This document sets the DEFAULT TRUST OF MACHINES: the eight certificates of the certification authorities of v31n, the root CA and the subordinate CA of the chains RSA-4096, P-384 and ML-DSA-87 and of the PRINZIAN TOP LEVEL DOMAIN, with which every Prinzian machine shall come installed, the address from which they are obtained, the support of OEMs and suppliers, and their installation on Windows, on GNU/Linux and on MacOS.</td></tr>
 <tr><td colspan="3" rowspan="2">7. Key Words<br>DEFAULT TRUST OF MACHINES, Prinzian machine, certificate, certification authority, root CA, subordinate CA, RSA-4096, P-384, ML-DSA-87, Windows, GNU/Linux, NSS, Firefox</td><td colspan="3">8. Distribution Statement</td></tr>
 <tr><td>a. Report<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>b. Abstract<br>A; Approved for public release: distribution is unlimited, no restrictions.</td><td>ú. This page<br>A; Approved for public release: distribution is unlimited, no restrictions.</td></tr>
 <tr><td colspan="3">9. Security Classif. (of this document)<br><b>UNCLASSIFIED</b></td><td colspan="3">10. №ⁱ OF PP.<br>6</td></tr>
@@ -66,7 +66,7 @@ The requirements of this document are stated with shall, and each binds unless t
 
 ## ( a ) Certificates
 
-Every Prinzian machine shall come with the six certificates of Table B-1 installed and trusted as certification authorities. The certification authorities of v31n form three chains, RSA-4096, P-384 and ML-DSA-87, each of a root CA and a subordinate CA.
+Every Prinzian machine shall come with the eight certificates of Table B-1 installed and trusted as certification authorities. The certification authorities of v31n form four chains, RSA-4096, P-384, ML-DSA-87 and that of the PRINZIAN TOP LEVEL DOMAIN of PS-MG/S-1118, each of a root CA and a subordinate CA.
 
 <table id="table-b-1">
 <caption>Table B-1 Certificates</caption>
@@ -80,6 +80,8 @@ Every Prinzian machine shall come with the six certificates of Table B-1 install
 <tr><td>Subordinate CA</td><td>en_31941101v010501p_3.1--subordinate_CA_P-384.cer</td></tr>
 <tr><td rowspan="2">ML-DSA-87</td><td>Root CA</td><td>en_31941101v010501p_3.1--root_CA_ML-DSA-87.cer</td></tr>
 <tr><td>Subordinate CA</td><td>en_31941101v010501p_3.1--subordinate_CA_ML-DSA-87.cer</td></tr>
+<tr><td rowspan="2">PS-MG/S-1118</td><td>Root CA</td><td>psmgs1118r1_Ù.a--Root_CA.cer</td></tr>
+<tr><td>Subordinate CA</td><td>psmgs1118r1_Ù.a--Subordinate_CA.cer</td></tr>
 </tbody>
 </table>
 
@@ -113,7 +115,7 @@ On GNU/Linux, the commands of Table Ú-1 may be used on systems of the Debian fa
 <tr><td>NSS database of the system</td><td>certutil -d sql:/etc/pki/nssdb -N --empty-password, where the database does not yet exist</td></tr>
 <tr><td>Each certificate into the NSS database of the system</td><td>certutil -d sql:/etc/pki/nssdb -A -t "CT,C,C" -n &lt;name&gt; -i /usr/local/share/ca-certificates/v31null/&lt;name&gt;.crt</td></tr>
 <tr><td>Each certificate into the NSS database of each user</td><td>certutil -d sql:$HOME/.pki/nssdb -A -t "CT,C,C" -n &lt;name&gt; -i /usr/local/share/ca-certificates/v31null/&lt;name&gt;.crt, then the folder $HOME/.pki returned to its user with chown -R</td></tr>
-<tr><td>Firefox</td><td>/etc/firefox/policies/policies.json holding {"policies": {"Certificates": {"ImportEnterpriseRoots": true}}}</td></tr>
+<tr><td>Firefox</td><td>/etc/firefox/policies/policies.json holding {"policies": {"Certificates": {"ImportEnterpriseRoots": true}, "DNSOverHTTPS": {"ExcludedDomains": ["pz"]}}}</td></tr>
 <tr><td>Environment</td><td>/etc/environment holding SSL_CERT_FILE, REQUESTS_CA_BUNDLE, CURL_CA_BUNDLE and NODE_EXTRA_CA_CERTS, each set to /etc/ssl/certs/ca-certificates.crt</td></tr>
 </tbody>
 </table>
