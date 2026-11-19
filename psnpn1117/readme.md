@@ -3,7 +3,7 @@
 <tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.4</td><td colspan="3">2. Report Date<br>2026/11/18</td></tr>
+<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.5</td><td colspan="3">2. Report Date<br>2026/11/20</td></tr>
 <tr><td colspan="6">3. Title<br>PRONAL NETWORK STANDARD</td></tr>
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Services for þe General populace Maß Tele‑kommunikation services namen as prono — prono.v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td></tr>
@@ -1000,7 +1000,7 @@ A node that takes a packet of a talk it is not in may sign a receipt: a signed s
 
 A node limits each neighbour from which it takes packets, not each author: the author is hidden inside the seal, and the neighbour is known from the peer proof. A flood dies at the first honest hop.
 
-A node whose queue from a neighbour grows faster than it drains answers busy, with seed, the base64 of random bytes changed at least every 60 seconds, and bits, a number of bits from 0 to 24. The neighbour then finds value, a whole number below 2⁵³, such that the SHA-256 of the bytes of the seed, the 32 bytes of its own address, the 32 bytes of the hash of the packet and the 8 bytes of the value, most significant byte first, begins with that number of zero bits, and sends the value with the packet (Table Ż-1). The node refuses every packet from that neighbour whose value fails against its current seed or the seed before it. The number of bits rises by one while the queue grows, and falls by one as it drains; a busy with bits 0 ends the puzzle.
+A node whose queue from a neighbour grows faster than it drains answers busy, with seed, the base64 of random bytes changed at least every 60 seconds, and bits, a number of bits from 0 to 24. The neighbour then finds value, a whole number below 2⁵³, such that the SHA-256 of the bytes of the seed, the 32 bytes of its own address, the 32 bytes of the hash of the packet and the 8 bytes of the value, most significant byte first, begins with that number of zero bits, and sends the value with the packet (Table Ż-1); it may instead hold its packets for that node until a busy with bits 0. The node refuses every packet from that neighbour whose value fails against its current seed or the seed before it. The number of bits rises by one when a packet arrives and the queue is longer than at the arrival before it, and falls by one each time a packet is handled and the queue grows shorter; a busy with bits 0 ends the puzzle.
 
 ## ( ù ) Lookup and Friend Requests
 
