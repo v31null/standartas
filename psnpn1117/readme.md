@@ -3,7 +3,7 @@
 <tr><th colspan="6">Technical Report Documentation Page</th></tr>
 </thead>
 <tbody>
-<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.5</td><td colspan="3">2. Report Date<br>2026/11/20</td></tr>
+<tr><td colspan="3">1. Report No.<br>PS‑N/PN-1117 R.6</td><td colspan="3">2. Report Date<br>2026/11/21</td></tr>
 <tr><td colspan="6">3. Title<br>PRONAL NETWORK STANDARD</td></tr>
 <tr><td colspan="6">4. Author(s)<br>P.K. — 619851078911877 , kokain@v31null.de</td></tr>
 <tr><td colspan="3">a. Performing Organization Name(s) and Address(es)<br>Services for þe General populace Maß Tele‑kommunikation services namen as prono — prono.v31null.de</td><td colspan="3">b. Sponsoring/Monitoring Agency Name(s) and Address(es)<br>Mbrlí úír Entípatùíțù fùțbíz — v31null.de , mef@v31null.de</td></tr>
@@ -200,7 +200,7 @@ The devices of users talk with each other in a mesh, so that users talk while th
 6. What a node has witnessed cannot be changed by another node (§ ( Í/( b ) )). This binds the nodes, not the pronal network.
 7. The mesh carries talks of type 0 and 1 (Table Ú-2). The requests of § ( G ) and the pushes of § ( D ) stay whole, and applications that are not nodes keep working.
 
-Nothing in the mesh is mined, counted as a token, voted on or forked. Each number of the mesh is measured, taken from a limit of this document, or signed by the pronal network, except one: the window of 7 days (Table K-1), which is a choice.
+Nothing in the mesh is mined, counted as a token, voted on or forked. Each number of the mesh is measured, taken from a limit of this document, or signed by the pronal network, except two: the window of 7 days and the queue of 8 packets before busy (Table K-1), which are choices.
 
 # ( Ú ) IDENTIFIERS AND TIME
 
@@ -833,6 +833,7 @@ The pronal network speaks pronal:// through one node of its own, the server node
 <tr><td>13</td><td>call</td><td>An event of Table E-1, on a live link alone</td><td>§ ( E/( a ) )</td></tr>
 <tr><td>14</td><td>admitted</td><td>The number of the newest list of admitted applications held; the list, where the other holds an older one</td><td>§ ( B/( ú ) )</td></tr>
 <tr><td>15</td><td>reach</td><td>From the tester, fresh; from the server node, the statement of kind reach</td><td>§ ( Ż/( g ) )</td></tr>
+<tr><td>16</td><td>refused</td><td>The hash of a packet refused for its value</td><td>§ ( Z/( u ) )</td></tr>
 </tbody>
 </table>
 
@@ -1000,7 +1001,7 @@ A node that takes a packet of a talk it is not in may sign a receipt: a signed s
 
 A node limits each neighbour from which it takes packets, not each author: the author is hidden inside the seal, and the neighbour is known from the peer proof. A flood dies at the first honest hop.
 
-A node whose queue from a neighbour grows faster than it drains answers busy, with seed, the base64 of random bytes changed at least every 60 seconds, and bits, a number of bits from 0 to 24. The neighbour then finds value, a whole number below 2⁵³, such that the SHA-256 of the bytes of the seed, the 32 bytes of its own address, the 32 bytes of the hash of the packet and the 8 bytes of the value, most significant byte first, begins with that number of zero bits, and sends the value with the packet (Table Ż-1); it may instead hold its packets for that node until a busy with bits 0. The node refuses every packet from that neighbour whose value fails against its current seed or the seed before it. The number of bits rises by one when a packet arrives and the queue is longer than at the arrival before it, and falls by one each time a packet is handled and the queue grows shorter; a busy with bits 0 ends the puzzle.
+A node whose queue from a neighbour grows faster than it drains answers busy, with seed, the base64 of random bytes changed at least every 60 seconds, and bits, a number of bits from 0 to 24. The neighbour then finds value, a whole number below 2⁵³, such that the SHA-256 of the bytes of the seed, the 32 bytes of its own address, the 32 bytes of the hash of the packet and the 8 bytes of the value, most significant byte first, begins with that number of zero bits, and sends the value with the packet (Table Ż-1); it may instead hold its packets for that node until a busy with bits 0. The node refuses every packet from that neighbour whose value fails against its current seed or the seed before it, and answers refused, with hash, the hexadecimal hash of the packet (Table Ż-1). The neighbour then treats that packet as not sent: it holds it while the bits of that node lie above 0, and sends it again once they are 0. The number of bits rises by one when a packet arrives and the queue is longer than 8 packets (Table K-1) and longer than at the arrival before it, and falls by one each time a packet is handled and the queue grows shorter; a busy with bits 0 ends the puzzle.
 
 ## ( ù ) Lookup and Friend Requests
 
@@ -1201,6 +1202,7 @@ Table K-1 presents the limits of the pronal network. The pronal network accepts 
 <tr><td>The window: life of a certificate, and of the day keys given ahead</td><td></td><td>7 days</td></tr>
 <tr><td>Packet</td><td></td><td>10 485 848 bytes: the 60 bytes before the sealed bytes, and a file of 10 MiB sealed</td></tr>
 <tr><td>Body of a control message of pronal://</td><td></td><td>262 144 bytes</td></tr>
+<tr><td>Queue from a neighbour before busy</td><td></td><td>8 packets</td></tr>
 <tr><td>Messages per get</td><td>1</td><td>100; 50 by default</td></tr>
 <tr><td>Messages on each side in get_around</td><td></td><td>50</td></tr>
 <tr><td>Name of a user</td><td>2 bytes</td><td>32 bytes</td></tr>
